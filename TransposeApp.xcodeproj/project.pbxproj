@@ -26,6 +26,8 @@
 		5A56283E25F9580D00F9C283 /* Staffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56283D25F9580D00F9C283 /* Staffable.swift */; };
 		5A56284A25F965E100F9C283 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56284925F965E100F9C283 /* UIView + Extensions.swift */; };
 		5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */; };
+		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
+		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
 		7022C46F3DD66ED7E811BFDA /* Pods_TransposeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855D32EAD5C15F211D390DF8 /* Pods_TransposeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		5A56283D25F9580D00F9C283 /* Staffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staffable.swift; sourceTree = "<group>"; };
 		5A56284925F965E100F9C283 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
+		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
 		64402EFD0A2F99596064CB9C /* Pods-TransposeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.debug.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		855D32EAD5C15F211D390DF8 /* Pods_TransposeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransposeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C332FA0257AEBF0B8D73812C /* Pods-TransposeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.release.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,16 +162,17 @@
 		5A56283F25F9606C00F9C283 /* Reuseable Components */ = {
 			isa = PBXGroup;
 			children = (
-				5A56284325F960EA00F9C283 /* Cardlike Note Holder View */,
+				5AFA92F325F9E34600276F2D /* Transposed Note View */,
+				5A56284325F960EA00F9C283 /* Transposed Notes Card View */,
 			);
 			path = "Reuseable Components";
 			sourceTree = "<group>";
 		};
-		5A56284325F960EA00F9C283 /* Cardlike Note Holder View */ = {
+		5A56284325F960EA00F9C283 /* Transposed Notes Card View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "Cardlike Note Holder View";
+			path = "Transposed Notes Card View";
 			sourceTree = "<group>";
 		};
 		5A56284825F965BF00F9C283 /* UIView */ = {
@@ -176,6 +181,15 @@
 				5A56284925F965E100F9C283 /* UIView + Extensions.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		5AFA92F325F9E34600276F2D /* Transposed Note View */ = {
+			isa = PBXGroup;
+			children = (
+				5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */,
+				5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */,
+			);
+			path = "Transposed Note View";
 			sourceTree = "<group>";
 		};
 		7F30A90418B957ECE301EDD4 /* Frameworks */ = {
@@ -247,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A18FBC12212B98100E15518 /* LaunchScreen.storyboard in Resources */,
+				5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */,
 				5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */,
 				5A18FBBE2212B98100E15518 /* Assets.xcassets in Resources */,
 				5A18FBBC2212B98000E15518 /* Main.storyboard in Resources */,
@@ -309,6 +324,7 @@
 				5A18FBCF2212C1AC00E15518 /* customButton.swift in Sources */,
 				5A18FBCB2212BC6000E15518 /* UIColorExtension.swift in Sources */,
 				5A56283625F9520000F9C283 /* TransposeViewController.swift in Sources */,
+				5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */,
 				5A56284A25F965E100F9C283 /* UIView + Extensions.swift in Sources */,
 				5A220D8122133AFC00755260 /* customLabelScales.swift in Sources */,
 				5A56283A25F9538B00F9C283 /* Cache.swift in Sources */,

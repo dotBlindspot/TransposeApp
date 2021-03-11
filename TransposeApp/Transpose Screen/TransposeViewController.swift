@@ -10,9 +10,11 @@ import UIKit
 
 class TransposeViewController: UIViewController {
 
+    @IBOutlet weak var firstNoteView: TransposedNoteView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        firstNoteView.populateNoteView(noteNumber: "3rd", noteFrom: "C", noteTo: "B")
     }
 }
