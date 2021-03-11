@@ -57,7 +57,7 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         //To implement the add ==========================================
-        bannerView.adUnitID = "ca-app-pub-4040587998998922/5777511147"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         //For Implementation use: ca-app-pub-4040587998998922/5777511147
         //For Testing use: ca-app-pub-3940256099942544/2934735716
         bannerView.rootViewController = self
