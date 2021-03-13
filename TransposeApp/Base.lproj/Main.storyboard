@@ -30,16 +30,59 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
+                                <rect key="frame" x="16" y="104" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
+                                <rect key="frame" x="16" y="133" width="343" height="300"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
+                                        <rect key="frame" x="16" y="0.0" width="311" height="300"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-re-pcE">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="300"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="a8h-re-pcE" secondAttribute="bottom" constant="16" id="Lvy-Xj-5Rf"/>
+                                            <constraint firstItem="a8h-re-pcE" firstAttribute="top" secondItem="lfC-Yx-9W6" secondAttribute="top" constant="16" id="b4E-Fj-OMj"/>
+                                            <constraint firstItem="a8h-re-pcE" firstAttribute="leading" secondItem="lfC-Yx-9W6" secondAttribute="leading" id="rCw-qm-kGv"/>
+                                            <constraint firstAttribute="trailing" secondItem="a8h-re-pcE" secondAttribute="trailing" id="uyY-4R-d6T"/>
+                                            <constraint firstItem="a8h-re-pcE" firstAttribute="width" secondItem="lfC-Yx-9W6" secondAttribute="width" id="wo8-dI-yzH"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="Vl1-St-NGs"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="pcY-Ei-12h"/>
+                                    </scrollView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1BB-cF-f7l"/>
+                                    <constraint firstItem="lfC-Yx-9W6" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="top" constant="16" id="8S5-IM-dQx"/>
+                                    <constraint firstAttribute="trailing" secondItem="lfC-Yx-9W6" secondAttribute="trailing" constant="16" id="Ahg-MJ-qIm"/>
+                                    <constraint firstAttribute="bottom" secondItem="lfC-Yx-9W6" secondAttribute="bottom" constant="16" id="e3U-Bo-pAX"/>
+                                    <constraint firstItem="lfC-Yx-9W6" firstAttribute="leading" secondItem="t0M-uA-ZdZ" secondAttribute="leading" constant="16" id="paC-ry-nY9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xw-bp-9GP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="t0M-uA-ZdZ" secondAttribute="trailing" constant="16" id="IFE-GS-G6D"/>
+                            <constraint firstItem="t0M-uA-ZdZ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="K93-fd-d5b"/>
+                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Fqx-1A-MsJ" secondAttribute="trailing" constant="16" id="MXZ-WC-TAx"/>
+                            <constraint firstItem="t0M-uA-ZdZ" firstAttribute="top" secondItem="Fqx-1A-MsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVv-8G-JcG"/>
                             <constraint firstItem="xEV-kY-SvW" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="10" id="dPV-1w-fCg"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="nEr-MW-QGn"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="top" secondItem="xEV-kY-SvW" secondAttribute="bottom" constant="48" id="nQD-rU-9fh"/>
                             <constraint firstItem="xEV-kY-SvW" firstAttribute="top" secondItem="5Xw-bp-9GP" secondAttribute="top" constant="10" id="oJm-tV-jYe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="firstNoteView" destination="xEV-kY-SvW" id="oDR-nG-NMi"/>
+                        <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
+                        <outlet property="notesStackView" destination="a8h-re-pcE" id="GXI-PM-4Im"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzP-6A-Ajr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

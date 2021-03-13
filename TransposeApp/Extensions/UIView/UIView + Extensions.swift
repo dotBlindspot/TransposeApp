@@ -12,10 +12,69 @@ extension UIView {
     
     func addShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = .zero//CGSize(width: 0.5, height: 0.5)
-        self.layer.shadowRadius = 5
-        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 2
+        self.layer.masksToBounds = false
     }
+    
+    func addShadow(intensity: ShadowIntensity) {
+        var opacity: Float = 0.2
+        
+        switch intensity {
+        case .mild:
+            opacity = 0.5
+        case .high:
+            opacity = 0.9
+        default:
+            opacity = 0.2
+        }
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = 2
+        self.layer.masksToBounds = false
+    }
+    
+    func addCorners(size: CornerSize) {
+        switch size {
+        case .large:
+            self.layer.cornerRadius = 25
+        case .medium:
+            self.layer.cornerRadius = 15
+        default:
+            self.layer.cornerRadius = 8
+        }
+        self.layer.masksToBounds = true
+    }
+    
+    func addBackground(_ color: UIColor) {
+        let backgroundView = UIView(frame: bounds)
+        backgroundView.backgroundColor = color
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(backgroundView, at: 0)
+    }
+    
+    func addCardFeel(shadowIntensity: ShadowIntensity,
+                     cornerRadius: CornerSize) {
+        self.addShadow(intensity: shadowIntensity)
+        self.addBackground(.white)
+        self.subviews[0].addCorners(size: cornerRadius)
+    }
+    
+    enum CornerSize {
+        case small
+        case medium
+        case large
+    }
+    
+    enum ShadowIntensity {
+        case low
+        case mild
+        case high
+    }
+    
 }
 
 internal extension UIView {

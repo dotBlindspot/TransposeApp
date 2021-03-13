@@ -22,7 +22,7 @@ class TransposedNoteView: UIView {
     
     @IBInspectable private var cornerRadius: CGFloat = 15 {
         didSet {
-            configureView()
+            // configureView()
         }
     }
     
@@ -40,7 +40,7 @@ class TransposedNoteView: UIView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        configureView()
+        //configureView()
     }
     
     // MARK: - Methods
