@@ -8,14 +8,35 @@
 
 import UIKit
 
+@IBDesignable
 class TransposerCardView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    @IBOutlet weak var contentView: UIView!
+    
+    @IBInspectable private var contentViewBackgroundColor: UIColor = .taWhite {
+        didSet {
+            configureUI()
+        }
     }
-    */
-
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupNib()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.setupNib()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureUI()
+    }
+    
+    private func configureUI() {
+        contentView.addCardFeel(backgroundColor: contentViewBackgroundColor,
+                                shadowIntensity: .low,
+                                cornerRadius: .medium)
+    }
 }

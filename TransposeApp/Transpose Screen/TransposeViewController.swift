@@ -17,7 +17,7 @@ class TransposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        firstNoteView.populateNoteView(noteNumber: "3rd", noteFrom: "C", noteTo: "B")
+//        firstNoteView.populateNoteView(noteNumber: "3rd", noteFrom: "C", noteTo: "B")
         stackNotes()
     }
     
@@ -42,8 +42,9 @@ class TransposeViewController: UIViewController {
     }
     
     private func configureUI() {
-        notesCardContainerView.addCardFeel(shadowIntensity: .mild,
-                                           cornerRadius: .large)
+        notesCardContainerView.addCardFeel(backgroundColor: .white,
+                                           shadowIntensity: .mild,
+                                           cornerRadius: .medium)
         addShadowAndCornersToStackView()
     }
     

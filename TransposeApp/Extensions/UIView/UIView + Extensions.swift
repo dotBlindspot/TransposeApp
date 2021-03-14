@@ -8,6 +8,18 @@
 
 import UIKit
 
+enum CornerSize {
+    case small
+    case medium
+    case large
+}
+
+enum ShadowIntensity {
+    case low
+    case mild
+    case high
+}
+
 extension UIView {
     
     func addShadow() {
@@ -56,25 +68,13 @@ extension UIView {
         insertSubview(backgroundView, at: 0)
     }
     
-    func addCardFeel(shadowIntensity: ShadowIntensity,
+    func addCardFeel(backgroundColor: UIColor,
+                     shadowIntensity: ShadowIntensity,
                      cornerRadius: CornerSize) {
         self.addShadow(intensity: shadowIntensity)
-        self.addBackground(.white)
+        self.addBackground(backgroundColor)
         self.subviews[0].addCorners(size: cornerRadius)
     }
-    
-    enum CornerSize {
-        case small
-        case medium
-        case large
-    }
-    
-    enum ShadowIntensity {
-        case low
-        case mild
-        case high
-    }
-    
 }
 
 internal extension UIView {

@@ -17,27 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEV-kY-SvW" customClass="TransposedNoteView" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="10" y="10" width="142" height="46"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="6yV-cY-x8e"/>
-                                    <constraint firstAttribute="height" constant="46" id="p0R-XO-feq"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
-                                <rect key="frame" x="16" y="104" width="343" height="21"/>
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
-                                <rect key="frame" x="16" y="133" width="343" height="300"/>
+                                <rect key="frame" x="16" y="352" width="343" height="300"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
                                         <rect key="frame" x="16" y="0.0" width="311" height="300"/>
@@ -65,6 +52,11 @@
                                     <constraint firstItem="lfC-Yx-9W6" firstAttribute="leading" secondItem="t0M-uA-ZdZ" secondAttribute="leading" constant="16" id="paC-ry-nY9"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKZ-LI-a60">
+                                <rect key="frame" x="34" y="33" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xw-bp-9GP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,15 +64,12 @@
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="t0M-uA-ZdZ" secondAttribute="trailing" constant="16" id="IFE-GS-G6D"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="K93-fd-d5b"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Fqx-1A-MsJ" secondAttribute="trailing" constant="16" id="MXZ-WC-TAx"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="centerY" secondItem="inl-yo-dnE" secondAttribute="centerY" id="PSy-2a-XX8"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="top" secondItem="Fqx-1A-MsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVv-8G-JcG"/>
-                            <constraint firstItem="xEV-kY-SvW" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="10" id="dPV-1w-fCg"/>
                             <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="nEr-MW-QGn"/>
-                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="top" secondItem="xEV-kY-SvW" secondAttribute="bottom" constant="48" id="nQD-rU-9fh"/>
-                            <constraint firstItem="xEV-kY-SvW" firstAttribute="top" secondItem="5Xw-bp-9GP" secondAttribute="top" constant="10" id="oJm-tV-jYe"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstNoteView" destination="xEV-kY-SvW" id="oDR-nG-NMi"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
                         <outlet property="notesStackView" destination="a8h-re-pcE" id="GXI-PM-4Im"/>
                     </connections>
