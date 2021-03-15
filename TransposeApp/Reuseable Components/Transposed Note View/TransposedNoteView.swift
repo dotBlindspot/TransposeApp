@@ -22,7 +22,7 @@ class TransposedNoteView: UIView {
     
     @IBInspectable private var cornerRadius: CGFloat = 15 {
         didSet {
-            configureView()
+             configureView()
         }
     }
     
