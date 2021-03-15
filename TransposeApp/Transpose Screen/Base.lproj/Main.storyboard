@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ddn-nw-DM8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kss-5U-vdV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transpose View Controller-->
+        <!--Transpose-->
         <scene sceneID="8Xy-4o-VmO">
             <objects>
-                <viewController id="ddn-nw-DM8" customClass="TransposeViewController" customModule="TransposeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Transpose" id="ddn-nw-DM8" customClass="TransposeViewController" customModule="TransposeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inl-yo-dnE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0x-Ky-Lxs">
-                                <rect key="frame" x="16" y="60" width="382" height="230"/>
+                                <rect key="frame" x="16" y="104" width="382" height="230"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-Zx-Nba">
                                         <rect key="frame" x="64" y="16" width="254" height="31"/>
@@ -73,13 +73,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
-                                <rect key="frame" x="16" y="330" width="382" height="26.5"/>
+                                <rect key="frame" x="16" y="374" width="382" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" name="TADarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
-                                <rect key="frame" x="16" y="364.5" width="382" height="371.5"/>
+                                <rect key="frame" x="16" y="408.5" width="382" height="327.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
                                         <rect key="frame" x="16" y="0.0" width="350" height="300"/>
@@ -143,6 +143,7 @@
                             <constraint firstAttribute="bottom" secondItem="Q5P-nP-DPS" secondAttribute="bottom" constant="12" id="pUE-fV-urb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Transpose" id="Ihg-4F-pOv"/>
                     <connections>
                         <outlet property="fromTransposerCardView" destination="g7d-Xm-xOY" id="FLx-t7-hgF"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
@@ -154,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzP-6A-Ajr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755.07246376811599" y="-1049.3303571428571"/>
+            <point key="canvasLocation" x="1659" y="-1252"/>
         </scene>
         <!--Transpose-->
         <scene sceneID="hNz-n2-bh7">
@@ -877,6 +878,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P4F-Ia-Pgk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kss-5U-vdV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4ZO-6f-qoz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ddn-nw-DM8" kind="relationship" relationship="rootViewController" id="fjQ-yb-ufm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkH-GV-gTu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755.07246376811599" y="-1049.3303571428571"/>
         </scene>
     </scenes>
     <resources>
