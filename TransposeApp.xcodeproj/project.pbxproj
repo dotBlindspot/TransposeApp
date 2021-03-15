@@ -19,6 +19,8 @@
 		5A1C1B7A25FD597F00C7A71B /* TransposerCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1B7925FD597F00C7A71B /* TransposerCardView.swift */; };
 		5A1C1B7D25FD598C00C7A71B /* TransposerCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A1C1B7C25FD598C00C7A71B /* TransposerCardView.xib */; };
 		5A1C1B8125FD5AD500C7A71B /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1B8025FD5AD500C7A71B /* UIColor + Extensions.swift */; };
+		5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1BAE25FF3D2000C7A71B /* TABaseView.swift */; };
+		5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21062925FF6BC5006D4B7A /* UIButton + Extensions.swift */; };
 		5A220D8122133AFC00755260 /* customLabelScales.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A220D8022133AFC00755260 /* customLabelScales.swift */; };
 		5A220D85221345DA00755260 /* noteDisplayCustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A220D84221345DA00755260 /* noteDisplayCustomUIView.swift */; };
 		5A220D87221358E100755260 /* customLabelToScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A220D86221358E100755260 /* customLabelToScale.swift */; };
@@ -30,6 +32,7 @@
 		5A56283E25F9580D00F9C283 /* Staffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56283D25F9580D00F9C283 /* Staffable.swift */; };
 		5A56284A25F965E100F9C283 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56284925F965E100F9C283 /* UIView + Extensions.swift */; };
 		5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */; };
+		5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB49BC25FF475100DC026D /* NoteBankable.swift */; };
 		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
 		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
 		5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */; };
@@ -51,6 +54,8 @@
 		5A1C1B7925FD597F00C7A71B /* TransposerCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposerCardView.swift; sourceTree = "<group>"; };
 		5A1C1B7C25FD598C00C7A71B /* TransposerCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposerCardView.xib; sourceTree = "<group>"; };
 		5A1C1B8025FD5AD500C7A71B /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		5A1C1BAE25FF3D2000C7A71B /* TABaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TABaseView.swift; sourceTree = "<group>"; };
+		5A21062925FF6BC5006D4B7A /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		5A220D8022133AFC00755260 /* customLabelScales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customLabelScales.swift; sourceTree = "<group>"; };
 		5A220D84221345DA00755260 /* noteDisplayCustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteDisplayCustomUIView.swift; sourceTree = "<group>"; };
 		5A220D86221358E100755260 /* customLabelToScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customLabelToScale.swift; sourceTree = "<group>"; };
@@ -62,6 +67,7 @@
 		5A56283D25F9580D00F9C283 /* Staffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staffable.swift; sourceTree = "<group>"; };
 		5A56284925F965E100F9C283 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AAB49BC25FF475100DC026D /* NoteBankable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBankable.swift; sourceTree = "<group>"; };
 		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
 		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
 		5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNotesCard.swift; sourceTree = "<group>"; };
@@ -143,12 +149,20 @@
 			path = TransposerCardView;
 			sourceTree = "<group>";
 		};
-		5A1C1B7F25FD5AB900C7A71B /* UIColor + Extensions */ = {
+		5A1C1B7F25FD5AB900C7A71B /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
 				5A1C1B8025FD5AD500C7A71B /* UIColor + Extensions.swift */,
 			);
-			path = "UIColor + Extensions";
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		5A21062825FF6BA3006D4B7A /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				5A21062925FF6BC5006D4B7A /* UIButton + Extensions.swift */,
+			);
+			path = UIButton;
 			sourceTree = "<group>";
 		};
 		5A56283225F9518500F9C283 /* Transpose Screen */ = {
@@ -165,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5A56283925F9538B00F9C283 /* Cache.swift */,
+				5AAB49BC25FF475100DC026D /* NoteBankable.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -172,7 +187,8 @@
 		5A56283B25F957EA00F9C283 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5A1C1B7F25FD5AB900C7A71B /* UIColor + Extensions */,
+				5A21062825FF6BA3006D4B7A /* UIButton */,
+				5A1C1B7F25FD5AB900C7A71B /* UIColor */,
 				5A56284825F965BF00F9C283 /* UIView */,
 				5A56283C25F957F400F9C283 /* Reusable Protocols */,
 			);
@@ -193,6 +209,7 @@
 				5A1C1B7825FD595300C7A71B /* TransposerCardView */,
 				5AFA92F325F9E34600276F2D /* Transposed Note View */,
 				5A56284325F960EA00F9C283 /* Transposed Notes Card View */,
+				5A1C1BAE25FF3D2000C7A71B /* TABaseView.swift */,
 			);
 			path = "Reuseable Components";
 			sourceTree = "<group>";
@@ -350,15 +367,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
 				5A220D87221358E100755260 /* customLabelToScale.swift in Sources */,
 				5A220D85221345DA00755260 /* noteDisplayCustomUIView.swift in Sources */,
 				5A18FBCD2212BD3600E15518 /* UIViewExtension.swift in Sources */,
 				5A18FBB92212B98000E15518 /* SecondViewController.swift in Sources */,
 				5A18FBCF2212C1AC00E15518 /* customButton.swift in Sources */,
 				5A18FBCB2212BC6000E15518 /* UIColorExtension.swift in Sources */,
+				5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */,
 				5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */,
 				5A56283625F9520000F9C283 /* TransposeViewController.swift in Sources */,
 				5A1C1B8125FD5AD500C7A71B /* UIColor + Extensions.swift in Sources */,
+				5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */,
 				5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */,
 				5A56284A25F965E100F9C283 /* UIView + Extensions.swift in Sources */,
 				5A220D8122133AFC00755260 /* customLabelScales.swift in Sources */,

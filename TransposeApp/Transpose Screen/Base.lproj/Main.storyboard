@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ddn-nw-DM8">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,23 +15,77 @@
             <objects>
                 <viewController id="ddn-nw-DM8" customClass="TransposeViewController" customModule="TransposeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="inl-yo-dnE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
-                                <rect key="frame" x="16" y="323" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0x-Ky-Lxs">
+                                <rect key="frame" x="16" y="60" width="382" height="230"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-Zx-Nba">
+                                        <rect key="frame" x="64" y="16" width="254" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="NGo-rQ-F3Y"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Keys"/>
+                                            <segment title="Capo on"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-2H-xMt">
+                                        <rect key="frame" x="8" y="58" width="366" height="160"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7d-Xm-xOY" customClass="TransposerCardView" customModule="TransposeApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="160"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="contentViewBackgroundColor">
+                                                        <color key="value" name="TAPurpleGray"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="subContentViewBackgroundColor">
+                                                        <color key="value" name="TAWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vG-BO-Zaq" customClass="TransposerCardView" customModule="TransposeApp" customModuleProvider="target">
+                                                <rect key="frame" x="191" y="0.0" width="175" height="160"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="contentViewBackgroundColor">
+                                                        <color key="value" name="TAOlive"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="subContentViewBackgroundColor">
+                                                        <color key="value" name="TAWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Cg6-lf-S4H"/>
+                                    <constraint firstItem="Apv-2H-xMt" firstAttribute="top" secondItem="jh3-Zx-Nba" secondAttribute="bottom" constant="12" id="S7k-PM-ewe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Apv-2H-xMt" secondAttribute="bottom" constant="12" id="VCM-xR-ZEY"/>
+                                    <constraint firstItem="Apv-2H-xMt" firstAttribute="leading" secondItem="n0x-Ky-Lxs" secondAttribute="leading" constant="8" id="hNr-hv-fra"/>
+                                    <constraint firstItem="jh3-Zx-Nba" firstAttribute="top" secondItem="n0x-Ky-Lxs" secondAttribute="top" constant="16" id="pWr-Ue-D0c"/>
+                                    <constraint firstAttribute="trailing" secondItem="jh3-Zx-Nba" secondAttribute="trailing" constant="64" id="sk1-lf-QFd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Apv-2H-xMt" secondAttribute="trailing" constant="8" id="tdT-rj-GZV"/>
+                                    <constraint firstItem="jh3-Zx-Nba" firstAttribute="leading" secondItem="n0x-Ky-Lxs" secondAttribute="leading" constant="64" id="vJe-ol-ySh"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
+                                <rect key="frame" x="16" y="330" width="382" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" name="TADarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
-                                <rect key="frame" x="16" y="352" width="343" height="300"/>
+                                <rect key="frame" x="16" y="364.5" width="382" height="371.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
-                                        <rect key="frame" x="16" y="0.0" width="311" height="300"/>
+                                        <rect key="frame" x="16" y="0.0" width="350" height="300"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-re-pcE">
-                                                <rect key="frame" x="0.0" y="0.0" width="311" height="300"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-re-pcE">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -45,49 +100,72 @@
                                     </scrollView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="1BB-cF-f7l"/>
                                     <constraint firstItem="lfC-Yx-9W6" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="top" constant="16" id="8S5-IM-dQx"/>
                                     <constraint firstAttribute="trailing" secondItem="lfC-Yx-9W6" secondAttribute="trailing" constant="16" id="Ahg-MJ-qIm"/>
                                     <constraint firstAttribute="bottom" secondItem="lfC-Yx-9W6" secondAttribute="bottom" constant="16" id="e3U-Bo-pAX"/>
                                     <constraint firstItem="lfC-Yx-9W6" firstAttribute="leading" secondItem="t0M-uA-ZdZ" secondAttribute="leading" constant="16" id="paC-ry-nY9"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKZ-LI-a60">
-                                <rect key="frame" x="34" y="33" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYC-hi-9s0">
+                                <rect key="frame" x="48" y="776" width="318" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hfp-Mj-TnD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <state key="normal" title="Transpose"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5P-nP-DPS" customClass="GADBannerView">
+                                <rect key="frame" x="16" y="834" width="382" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Igz-B9-NC7"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xw-bp-9GP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Q5P-nP-DPS" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="0O7-5R-eg6"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="top" secondItem="n0x-Ky-Lxs" secondAttribute="bottom" constant="40" id="4if-X5-5SD"/>
+                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="n0x-Ky-Lxs" secondAttribute="trailing" constant="16" id="6C6-Rt-sNn"/>
+                            <constraint firstItem="n0x-Ky-Lxs" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="9i9-CT-1xv"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="t0M-uA-ZdZ" secondAttribute="trailing" constant="16" id="IFE-GS-G6D"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="K93-fd-d5b"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Fqx-1A-MsJ" secondAttribute="trailing" constant="16" id="MXZ-WC-TAx"/>
-                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="centerY" secondItem="inl-yo-dnE" secondAttribute="centerY" id="PSy-2a-XX8"/>
+                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="EYC-hi-9s0" secondAttribute="trailing" constant="48" id="Pg8-A3-QVu"/>
+                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Q5P-nP-DPS" secondAttribute="trailing" constant="16" id="Qo8-54-oAT"/>
+                            <constraint firstItem="n0x-Ky-Lxs" firstAttribute="top" secondItem="5Xw-bp-9GP" secondAttribute="top" constant="16" id="T5l-fh-SmK"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="top" secondItem="Fqx-1A-MsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVv-8G-JcG"/>
+                            <constraint firstItem="EYC-hi-9s0" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="bottom" constant="40" id="aYl-LE-XJd"/>
+                            <constraint firstItem="EYC-hi-9s0" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="48" id="cED-1s-lVF"/>
                             <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="nEr-MW-QGn"/>
+                            <constraint firstItem="Q5P-nP-DPS" firstAttribute="top" secondItem="EYC-hi-9s0" secondAttribute="bottom" constant="8" id="orw-Gp-PJ6"/>
+                            <constraint firstAttribute="bottom" secondItem="Q5P-nP-DPS" secondAttribute="bottom" constant="12" id="pUE-fV-urb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fromTransposerCardView" destination="g7d-Xm-xOY" id="FLx-t7-hgF"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
                         <outlet property="notesStackView" destination="a8h-re-pcE" id="GXI-PM-4Im"/>
+                        <outlet property="toTransposerCardView" destination="0vG-BO-Zaq" id="8Xp-qA-uK0"/>
+                        <outlet property="transposeButton" destination="EYC-hi-9s0" id="Bll-yL-kDw"/>
+                        <outlet property="transposerCardContainerView" destination="n0x-Ky-Lxs" id="VhI-ka-3bS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzP-6A-Ajr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="-1049.3253373313344"/>
+            <point key="canvasLocation" x="755.07246376811599" y="-1049.3303571428571"/>
         </scene>
         <!--Transpose-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="TransposeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Vdy-rl-C2s">
-                                <rect key="frame" x="14" y="15" width="347" height="32"/>
+                                <rect key="frame" x="14" y="59" width="386" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="No Capo"/>
@@ -196,7 +274,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cB-ZT-Pee" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="15" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="34.5" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="NPg-k1-IZK"/>
@@ -207,7 +285,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sOa-b5-LBV" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="65.5" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="85" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="MhN-se-YPO"/>
@@ -218,7 +296,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Sx-Nh-sS4" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="116" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="135.5" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="aag-zr-phr"/>
@@ -229,7 +307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Gbm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzt-5T-HGl" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="166.5" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="186" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="XdV-ya-pwd"/>
@@ -240,7 +318,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K7j-AD-v7B" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="217" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="236.5" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="NOH-Zw-1dU"/>
@@ -251,7 +329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-Ns-4WG" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="267.5" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="287" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="3SG-Qm-R6P"/>
@@ -262,7 +340,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-vq-RY6" customClass="customLabelScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="318" y="376.5" width="42" height="42"/>
+                                <rect key="frame" x="337.5" y="376.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.95193213224411011" green="0.45350438356399536" blue="0.38275432586669922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="UUL-uS-D3U"/>
@@ -273,7 +351,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Scale of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZE-SX-iS2">
-                                <rect key="frame" x="16" y="347.5" width="343" height="21"/>
+                                <rect key="frame" x="35.5" y="347.5" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ZrF-Ip-gDg"/>
                                     <constraint firstAttribute="width" constant="343" id="z54-GZ-9Af"/>
@@ -283,7 +361,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2j-ym-Nck" customClass="customButton" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="25" y="267.5" width="325" height="50"/>
+                                <rect key="frame" x="44.5" y="267.5" width="325" height="50"/>
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.13725490196078433" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GvI-fc-yG6"/>
@@ -298,7 +376,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Scale of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NU-Xg-dOD">
-                                <rect key="frame" x="14" y="437.5" width="343" height="22"/>
+                                <rect key="frame" x="33.5" y="437.5" width="343" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Hwr-Zg-Ihz"/>
                                     <constraint firstAttribute="height" constant="22" id="hk6-B0-UIO"/>
@@ -308,7 +386,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xrm-RF-lBe" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="13.5" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="33" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="D2O-6m-PE4"/>
@@ -319,7 +397,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQg-B9-unM" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="83.5" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="CYt-eN-NW5"/>
@@ -330,7 +408,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-pl-Zzw" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="114.5" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="134" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="AcO-l5-imq"/>
@@ -341,7 +419,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-4L-3o8" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="165" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="184.5" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="AN0-Fm-9Ar"/>
@@ -352,7 +430,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6VQ-vX-ZRm" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="215.5" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="235" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="8Dt-Uy-1XM"/>
@@ -363,7 +441,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tq9-Lf-2j5" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="266" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="285.5" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="5iR-ib-Owb"/>
@@ -374,7 +452,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDM-wp-8qx" customClass="customLabelToScales" customModule="TransposeApp" customModuleProvider="target">
-                                <rect key="frame" x="316.5" y="467.5" width="42" height="42"/>
+                                <rect key="frame" x="336" y="467.5" width="42" height="42"/>
                                 <color key="backgroundColor" red="0.46046799421310425" green="0.69478023052215576" blue="0.87310045957565308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="j2R-Iv-shu"/>
@@ -385,7 +463,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGg-zP-kqv" customClass="GADBannerView">
-                                <rect key="frame" x="27.5" y="615" width="320" height="50"/>
+                                <rect key="frame" x="47" y="810" width="320" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ll2-Ow-Ey3"/>
@@ -393,7 +471,7 @@
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgt-sI-gtC">
-                                <rect key="frame" x="186" y="83" width="3" height="100"/>
+                                <rect key="frame" x="205.5" y="83" width="3" height="100"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="3" id="0hF-RE-mrV"/>
@@ -496,11 +574,11 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="TransposeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaG-HS-Z9B">
-                                <rect key="frame" x="14.5" y="88.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="203" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Tz7-Rk-55V"/>
                                     <constraint firstAttribute="width" constant="256" id="a9t-CT-GBf"/>
@@ -508,7 +586,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCA-2N-o0Z">
-                                <rect key="frame" x="14.5" y="138.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="253" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UiQ-t5-3a1"/>
                                     <constraint firstAttribute="width" constant="256" id="sql-ay-fMu"/>
@@ -516,7 +594,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-Px-dS4">
-                                <rect key="frame" x="14.5" y="188.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="303" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="JMn-0r-yZK"/>
                                     <constraint firstAttribute="height" constant="50" id="xiZ-C8-bbx"/>
@@ -524,7 +602,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6t-aT-mfu">
-                                <rect key="frame" x="14.5" y="238.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="353" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9x0-fn-bFb"/>
                                     <constraint firstAttribute="width" constant="256" id="jXo-fS-iJL"/>
@@ -532,7 +610,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AG2-jA-HFx">
-                                <rect key="frame" x="14.5" y="288.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="403" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="2a1-ao-FsE"/>
                                     <constraint firstAttribute="height" constant="50" id="UuX-9p-IYi"/>
@@ -540,7 +618,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2e-yB-PFc">
-                                <rect key="frame" x="14.5" y="338.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="453" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GF1-o7-ZFy"/>
                                     <constraint firstAttribute="width" constant="256" id="gaf-MO-ZuB"/>
@@ -548,7 +626,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt3-SB-eeG">
-                                <rect key="frame" x="14.5" y="388.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="503" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LGq-LG-P6M"/>
                                     <constraint firstAttribute="width" constant="256" id="qwW-JH-qU6"/>
@@ -556,7 +634,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzV-iD-BfS">
-                                <rect key="frame" x="14.5" y="438.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="553" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3hA-Gq-c9A"/>
                                     <constraint firstAttribute="width" constant="256" id="mpN-Ri-Yl4"/>
@@ -564,7 +642,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvV-O8-MYB">
-                                <rect key="frame" x="14.5" y="488.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="603" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KjJ-uK-9v1"/>
                                     <constraint firstAttribute="width" constant="256" id="a4G-wt-3Gk"/>
@@ -572,7 +650,7 @@
                                 <state key="normal" image="WhiteNoteLandscape"/>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKx-uF-qqj">
-                                <rect key="frame" x="14.5" y="538.5" width="256" height="50"/>
+                                <rect key="frame" x="34" y="653" width="256" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DAK-Gm-FVw"/>
                                     <constraint firstAttribute="width" constant="256" id="bUd-g5-he9"/>
@@ -806,6 +884,18 @@
         <image name="WhiteNoteLandscape" width="535" height="106"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <namedColor name="TADarkGray">
+            <color red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TAOlive">
+            <color red="0.67450980392156867" green="0.74901960784313726" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TAPurpleGray">
+            <color red="0.72156862745098038" green="0.72156862745098038" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TAWhite">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

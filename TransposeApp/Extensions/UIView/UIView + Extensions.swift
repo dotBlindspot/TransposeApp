@@ -9,9 +9,11 @@
 import UIKit
 
 enum CornerSize {
+    case none
     case small
     case medium
     case large
+    case pill
 }
 
 enum ShadowIntensity {
@@ -51,10 +53,14 @@ extension UIView {
     
     func addCorners(size: CornerSize) {
         switch size {
+        case .none:
+            self.layer.cornerRadius = 0
         case .large:
             self.layer.cornerRadius = 25
         case .medium:
             self.layer.cornerRadius = 15
+        case .pill:
+            self.layer.cornerRadius = self.layer.frame.height/2
         default:
             self.layer.cornerRadius = 8
         }

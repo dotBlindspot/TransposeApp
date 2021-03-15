@@ -9,11 +9,21 @@
 import UIKit
 
 @IBDesignable
-class TransposerCardView: UIView {
+class TransposerCardView: UIView, NoteBankable {
     
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var subContentView: UIView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
     
-    @IBInspectable private var contentViewBackgroundColor: UIColor = .taWhite {
+    @IBInspectable public var contentViewBackgroundColor: UIColor = .taBlack {
+        didSet {
+            configureUI()
+        }
+    }
+    
+    @IBInspectable public var subContentViewBackgroundColor: UIColor = .taWhite {
         didSet {
             configureUI()
         }
@@ -34,9 +44,34 @@ class TransposerCardView: UIView {
         configureUI()
     }
     
+    @IBAction func stepperViewTapped(_ sender: Any) {
+        noteLabel.text = noteSelected
+    }
+    
     private func configureUI() {
         contentView.addCardFeel(backgroundColor: contentViewBackgroundColor,
                                 shadowIntensity: .low,
                                 cornerRadius: .medium)
+        subContentView.addCardFeel(backgroundColor: subContentViewBackgroundColor,
+                                   shadowIntensity: .low,
+                                   cornerRadius: .medium)
+        noteLabel.text = noteBank[0]
+    }
+    
+    // MARK: - Getters
+    
+    var noteSelected: String {
+        return noteBank[Int(stepper.value)]
+    }
+    
+    // MARK: - Setters
+    
+    var titleLabelText: String {
+        get {
+            return titleLabel.text!
+        }
+        set {
+            titleLabel.text = newValue
+        }
     }
 }

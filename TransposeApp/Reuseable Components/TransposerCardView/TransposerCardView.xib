@@ -4,14 +4,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransposerCardView" customModule="TransposeApp" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="6nd-zw-H9Q" id="hto-w0-3Ka"/>
+                <outlet property="contentView" destination="6nd-zw-H9Q" id="pA6-LV-fF2"/>
+                <outlet property="noteLabel" destination="a5J-uv-cJ1" id="pkl-Xa-dTf"/>
+                <outlet property="stepper" destination="Qmu-Mb-XgB" id="duU-2D-3vf"/>
+                <outlet property="subContentView" destination="ZpA-WP-Vlj" id="maA-FE-7bV"/>
+                <outlet property="titleLabel" destination="YNs-jg-H97" id="JUx-cZ-6KN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,10 +25,62 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-zw-H9Q">
                     <rect key="frame" x="5" y="0.0" width="240" height="258"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-WP-Vlj">
+                            <rect key="frame" x="16" y="45" width="208" height="197"/>
+                            <subviews>
+                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="11" translatesAutoresizingMaskIntoConstraints="NO" id="Qmu-Mb-XgB">
+                                    <rect key="frame" x="57" y="149" width="94" height="32"/>
+                                    <color key="tintColor" name="TABlack"/>
+                                    <connections>
+                                        <action selector="stepperViewTapped:" destination="-1" eventType="valueChanged" id="vWh-TG-gG6"/>
+                                    </connections>
+                                </stepper>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAV-Ys-oog">
+                                    <rect key="frame" x="0.0" y="0.0" width="208" height="149"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CT#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-uv-cJ1">
+                                            <rect key="frame" x="73.5" y="55.5" width="61.5" height="38.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                                            <color key="textColor" name="TABlack"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerY" secondItem="LAV-Ys-oog" secondAttribute="centerY" id="FSn-Sf-tc6"/>
+                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerX" secondItem="LAV-Ys-oog" secondAttribute="centerX" id="GOB-LS-1Pl"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Qmu-Mb-XgB" firstAttribute="centerX" secondItem="ZpA-WP-Vlj" secondAttribute="centerX" id="8bL-tK-bJN"/>
+                                <constraint firstItem="Qmu-Mb-XgB" firstAttribute="top" secondItem="LAV-Ys-oog" secondAttribute="bottom" id="956-3X-TnH"/>
+                                <constraint firstAttribute="bottom" secondItem="Qmu-Mb-XgB" secondAttribute="bottom" constant="16" id="CjA-Gu-LL7"/>
+                                <constraint firstItem="LAV-Ys-oog" firstAttribute="leading" secondItem="ZpA-WP-Vlj" secondAttribute="leading" id="ea1-Sa-neZ"/>
+                                <constraint firstItem="LAV-Ys-oog" firstAttribute="top" secondItem="ZpA-WP-Vlj" secondAttribute="top" id="wrg-0C-QQm"/>
+                                <constraint firstAttribute="trailing" secondItem="LAV-Ys-oog" secondAttribute="trailing" id="wyR-P4-UjZ"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
+                            <rect key="frame" x="16" y="8" width="208" height="29"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                            <color key="textColor" name="TAWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ZpA-WP-Vlj" secondAttribute="bottom" constant="16" id="FdS-jw-3a7"/>
+                        <constraint firstItem="YNs-jg-H97" firstAttribute="leading" secondItem="6nd-zw-H9Q" secondAttribute="leading" constant="16" id="G8N-NE-3C7"/>
+                        <constraint firstItem="ZpA-WP-Vlj" firstAttribute="top" secondItem="YNs-jg-H97" secondAttribute="bottom" constant="8" id="Oyx-I3-4f5"/>
+                        <constraint firstItem="ZpA-WP-Vlj" firstAttribute="leading" secondItem="6nd-zw-H9Q" secondAttribute="leading" constant="16" id="TOD-kW-TGh"/>
+                        <constraint firstItem="YNs-jg-H97" firstAttribute="top" secondItem="6nd-zw-H9Q" secondAttribute="top" constant="8" id="pkE-wD-LVM"/>
+                        <constraint firstAttribute="trailing" secondItem="ZpA-WP-Vlj" secondAttribute="trailing" constant="16" id="qIF-mq-pnd"/>
+                        <constraint firstAttribute="trailing" secondItem="YNs-jg-H97" secondAttribute="trailing" constant="16" id="zmQ-HC-MYq"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="6nd-zw-H9Q" secondAttribute="trailing" constant="5" id="JMz-fO-jBs"/>
                 <constraint firstItem="6nd-zw-H9Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="TOD-gC-cJI"/>
@@ -36,8 +92,11 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="TABlack">
+            <color red="0.24313725490196078" green="0.23921568627450981" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TAWhite">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

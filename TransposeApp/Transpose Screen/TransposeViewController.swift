@@ -10,14 +10,16 @@ import UIKit
 
 class TransposeViewController: UIViewController {
 
-    @IBOutlet weak var firstNoteView: TransposedNoteView!
+    @IBOutlet weak var transposerCardContainerView: UIView!
+    @IBOutlet weak var fromTransposerCardView: TransposerCardView!
+    @IBOutlet weak var toTransposerCardView: TransposerCardView!
     @IBOutlet weak var notesCardContainerView: UIView!
     @IBOutlet weak var notesStackView: UIStackView!
     
+    @IBOutlet weak var transposeButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-//        firstNoteView.populateNoteView(noteNumber: "3rd", noteFrom: "C", noteTo: "B")
         stackNotes()
     }
     
@@ -44,7 +46,13 @@ class TransposeViewController: UIViewController {
     private func configureUI() {
         notesCardContainerView.addCardFeel(backgroundColor: .white,
                                            shadowIntensity: .mild,
-                                           cornerRadius: .medium)
+                                           cornerRadius: .small)
+        transposerCardContainerView.addCardFeel(backgroundColor: .white,
+                                                shadowIntensity: .mild,
+                                                cornerRadius: .small)
+        fromTransposerCardView.titleLabelText = "Key from"
+        toTransposerCardView.titleLabelText = "Key to"
+        transposeButton.makePrimaryButton()
         addShadowAndCornersToStackView()
     }
     
