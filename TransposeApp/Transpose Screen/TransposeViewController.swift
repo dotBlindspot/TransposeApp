@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 enum TransposeRequestType {
     case keys
@@ -22,14 +23,19 @@ class TransposeViewController: UIViewController {
     @IBOutlet weak var notesCardContainerViewHeading: UILabel!
     @IBOutlet weak var notesCardContainerView: UIView!
     @IBOutlet weak var notesStackView: UIStackView!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     private var scalePackForStackView = [TransposedNoteView]()
-    lazy var viewModel = TransposeViewModel()
+    private var interstitialAd: GADInterstitialAdBeta?
+    lazy var viewModel = TransposeViewModel(delegate: self,
+                                            interactor: AdManagerInteractor())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         stackNotes()
+        viewModel.requestAd()
+        initBannerAdView()
     }
             
     private func configureUI() {
@@ -79,6 +85,7 @@ class TransposeViewController: UIViewController {
         
         populateScalePack(fromScale: fromNoteScale, toScale: toNoteScale)
         updateUIValuesForRequestType()
+        viewModel.requestAd()
     }
     
     private func createNoteViews() {
@@ -104,10 +111,25 @@ class TransposeViewController: UIViewController {
             notesStackView.addArrangedSubview(noteView)
         }
     }
+    
+    private func initBannerAdView() {
+        let adUnitID = Cache().bannerAdUnitID
+        bannerView.adUnitID = adUnitID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
 }
 
 extension TransposeViewController: TransposerCardViewDelegate {
     func didChangeNoteValue() {
         self.transpose()
+    }
+}
+
+extension TransposeViewController: TransposeViewModelDelegate {
+    
+    func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?) {
+        guard let interstitialAd = interstitialAd else { return }
+        interstitialAd.present(fromRootViewController: self)
     }
 }

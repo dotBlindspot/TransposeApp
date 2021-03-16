@@ -7,12 +7,27 @@
 //
 
 import Foundation
+import GoogleMobileAds
+
+protocol TransposeViewModelDelegate: NSObject {
+    func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?)
+}
 
 class TransposeViewModel: Staffable {
     
+    weak var delegate: TransposeViewModelDelegate?
+    private var interactor: AdManagerInteractor!
     private var _requestType: TransposeRequestType = Cache().requestType
     private var fromNumber: Int = 0
     private var toNumber: Int = 0
+    private var addCounter = 0
+    
+    init(delegate: TransposeViewModelDelegate,
+         interactor: AdManagerInteractor) {
+        self.delegate = delegate
+        self.interactor = interactor
+        self.addCounter += 1
+    }
     
     var requestType: TransposeRequestType {
         get {
@@ -27,6 +42,11 @@ class TransposeViewModel: Staffable {
         return requestType == .keys
     }
     
+    var shouldRequestAd: Bool {
+        guard addCounter % 2 == 0 || addCounter % 5 == 0 else { return false }
+        return true
+    }
+    
     var fretNumber: Int {
         guard toNumber > 0 && fromNumber != toNumber else { return 0 }
         let numericDifference = fromNumber - toNumber
@@ -34,8 +54,19 @@ class TransposeViewModel: Staffable {
     }
     
     func requestScale(fromNote: Int, toNote: Int) -> [String] {
+        addCounter += 1
         setNoteNumberValues(fromNote: fromNote, toNote: toNote)
         return isRequestTypeKeys ? requestTransposedScale(fromNote: fromNote, toNote: toNote) : scaleOf(toNote)
+    }
+    
+    func requestAd() {
+        if shouldRequestAd {
+            interactor.loadInterstitialAd { (interstitialAd) in
+                self.delegate?.finishedAdRequest(interstitialAd)
+            } failure: { (_) in
+                self.delegate?.finishedAdRequest(nil)
+            }
+        }
     }
     
     private func requestTransposedScale(fromNote: Int, toNote: Int) -> [String] {

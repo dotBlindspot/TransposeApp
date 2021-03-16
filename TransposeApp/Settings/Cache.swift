@@ -11,6 +11,22 @@ import Foundation
 #warning("make cache a shared instance")
 struct Cache {
     
+    // MARK: - AdMob Data
+    
+    private var isStubbed = true
+    private let stubbedBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
+    private let stubbedInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
+    private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
+    private let productionInterstitialAdUnitID = "ca-app-pub-4040587998998922/1560718513"
+    
+    var bannerAdUnitID: String {
+        return isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
+    }
+    
+    var interstitialAdUnitID: String {
+        return isStubbed ? stubbedInterstitialAdUnitID : productionInterstitialAdUnitID
+    }
+    
     // UserDefaults
     var useSharpNotes = true // to be stored in a user cache OR userDefaults
     var requestType: TransposeRequestType = .keys
