@@ -73,6 +73,7 @@ class TransposeViewController: UIViewController {
             viewModel.requestType = .capo
         }
         updateUIValuesForRequestType()
+        viewModel.requestAd()
     }
     
     private func transpose() {
