@@ -11,7 +11,13 @@ import Foundation
 #warning("make cache a shared instance")
 struct Cache {
     
+    // UserDefaults
     var useSharpNotes = true // to be stored in a user cache OR userDefaults
+    var requestType: TransposeRequestType = .keys
+    
+    var isKeysRequestType: Bool {
+        return requestType == .keys
+    }
     
     var sharpNotes = ["A","A#","B","C","C#","D","D#","E","F","F#","G","G#",
                       "A","A#","B","C","C#","D","D#","E","F","F#","G","G#",

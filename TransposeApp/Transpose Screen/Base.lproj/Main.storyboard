@@ -30,6 +30,9 @@
                                             <segment title="Keys"/>
                                             <segment title="Capo on"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segementedKeysCapoControlTapped:" destination="ddn-nw-DM8" eventType="valueChanged" id="eHS-nT-uMf"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-2H-xMt">
                                         <rect key="frame" x="8" y="58" width="366" height="160"/>
@@ -72,14 +75,14 @@
                                     <constraint firstItem="jh3-Zx-Nba" firstAttribute="leading" secondItem="n0x-Ky-Lxs" secondAttribute="leading" constant="64" id="vJe-ol-ySh"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
-                                <rect key="frame" x="16" y="374" width="382" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
+                                <rect key="frame" x="16" y="374" width="382" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" name="TADarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
-                                <rect key="frame" x="16" y="408.5" width="382" height="327.5"/>
+                                <rect key="frame" x="16" y="415.5" width="382" height="402.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
                                         <rect key="frame" x="16" y="0.0" width="350" height="300"/>
@@ -106,17 +109,9 @@
                                     <constraint firstItem="lfC-Yx-9W6" firstAttribute="leading" secondItem="t0M-uA-ZdZ" secondAttribute="leading" constant="16" id="paC-ry-nY9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYC-hi-9s0">
-                                <rect key="frame" x="48" y="776" width="318" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Hfp-Mj-TnD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                <state key="normal" title="Transpose"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5P-nP-DPS" customClass="GADBannerView">
                                 <rect key="frame" x="16" y="834" width="382" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Igz-B9-NC7"/>
                                 </constraints>
@@ -132,24 +127,22 @@
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="t0M-uA-ZdZ" secondAttribute="trailing" constant="16" id="IFE-GS-G6D"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="K93-fd-d5b"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Fqx-1A-MsJ" secondAttribute="trailing" constant="16" id="MXZ-WC-TAx"/>
-                            <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="EYC-hi-9s0" secondAttribute="trailing" constant="48" id="Pg8-A3-QVu"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Q5P-nP-DPS" secondAttribute="trailing" constant="16" id="Qo8-54-oAT"/>
                             <constraint firstItem="n0x-Ky-Lxs" firstAttribute="top" secondItem="5Xw-bp-9GP" secondAttribute="top" constant="16" id="T5l-fh-SmK"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="top" secondItem="Fqx-1A-MsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVv-8G-JcG"/>
-                            <constraint firstItem="EYC-hi-9s0" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="bottom" constant="40" id="aYl-LE-XJd"/>
-                            <constraint firstItem="EYC-hi-9s0" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="48" id="cED-1s-lVF"/>
                             <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="nEr-MW-QGn"/>
-                            <constraint firstItem="Q5P-nP-DPS" firstAttribute="top" secondItem="EYC-hi-9s0" secondAttribute="bottom" constant="8" id="orw-Gp-PJ6"/>
                             <constraint firstAttribute="bottom" secondItem="Q5P-nP-DPS" secondAttribute="bottom" constant="12" id="pUE-fV-urb"/>
+                            <constraint firstItem="Q5P-nP-DPS" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="bottom" constant="16" id="vMn-Yq-EKD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Transpose" id="Ihg-4F-pOv"/>
+                    <navigationItem key="navigationItem" title="Transpose" largeTitleDisplayMode="always" id="Ihg-4F-pOv"/>
                     <connections>
                         <outlet property="fromTransposerCardView" destination="g7d-Xm-xOY" id="FLx-t7-hgF"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
+                        <outlet property="notesCardContainerViewHeading" destination="Fqx-1A-MsJ" id="iFQ-rJ-rjj"/>
                         <outlet property="notesStackView" destination="a8h-re-pcE" id="GXI-PM-4Im"/>
+                        <outlet property="segementedKeysCapoControl" destination="jh3-Zx-Nba" id="HT8-qe-ROM"/>
                         <outlet property="toTransposerCardView" destination="0vG-BO-Zaq" id="8Xp-qA-uK0"/>
-                        <outlet property="transposeButton" destination="EYC-hi-9s0" id="Bll-yL-kDw"/>
                         <outlet property="transposerCardContainerView" destination="n0x-Ky-Lxs" id="VhI-ka-3bS"/>
                     </connections>
                 </viewController>

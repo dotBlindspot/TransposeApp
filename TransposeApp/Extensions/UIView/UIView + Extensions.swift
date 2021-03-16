@@ -104,3 +104,17 @@ public extension NSObjectProtocol {
         return String(describing: type(of: self))
     }
 }
+
+extension UIStackView {
+
+    func removeFully(view: UIView) {
+        removeArrangedSubview(view)
+        view.removeFromSuperview()
+    }
+
+    func removeFullyAllArrangedSubviews() {
+        arrangedSubviews.forEach { (view) in
+            removeFully(view: view)
+        }
+    }
+}
