@@ -137,6 +137,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Transpose" largeTitleDisplayMode="always" id="Ihg-4F-pOv"/>
                     <connections>
+                        <outlet property="bannerView" destination="Q5P-nP-DPS" id="PE5-Qs-KEZ"/>
                         <outlet property="fromTransposerCardView" destination="g7d-Xm-xOY" id="FLx-t7-hgF"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>
                         <outlet property="notesCardContainerViewHeading" destination="Fqx-1A-MsJ" id="iFQ-rJ-rjj"/>
