@@ -43,12 +43,15 @@ class TransposeViewModel: Staffable {
     }
     
     var shouldRequestAd: Bool {
-        guard addCounter % 2 == 0 || addCounter % 5 == 0 else { return false }
-        return true
+        if Cache().isAdsTurnedOn {
+            guard addCounter % 2 == 0 || addCounter % 5 == 0 else { return false }
+            return true
+        }
+        return false
     }
     
     var fretNumber: Int {
-        guard toNumber > 0 && fromNumber != toNumber else { return 0 }
+        guard fromNumber != toNumber else { return 0 }
         let numericDifference = fromNumber - toNumber
         return numericDifference > 0 ? numericDifference : numericDifference + 12
     }
