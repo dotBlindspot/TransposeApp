@@ -75,14 +75,14 @@
                                     <constraint firstItem="jh3-Zx-Nba" firstAttribute="leading" secondItem="n0x-Ky-Lxs" secondAttribute="leading" constant="64" id="vJe-ol-ySh"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
-                                <rect key="frame" x="16" y="374" width="382" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transposed Scales" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-1A-MsJ">
+                                <rect key="frame" x="16" y="374" width="382" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" name="TADarkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-uA-ZdZ">
-                                <rect key="frame" x="16" y="408.5" width="382" height="409.5"/>
+                                <rect key="frame" x="16" y="415.5" width="382" height="402.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfC-Yx-9W6">
                                         <rect key="frame" x="16" y="0.0" width="350" height="300"/>
@@ -135,7 +135,7 @@
                             <constraint firstItem="Q5P-nP-DPS" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="bottom" constant="16" id="vMn-Yq-EKD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Transpose" id="Ihg-4F-pOv"/>
+                    <navigationItem key="navigationItem" title="Transpose" largeTitleDisplayMode="always" id="Ihg-4F-pOv"/>
                     <connections>
                         <outlet property="fromTransposerCardView" destination="g7d-Xm-xOY" id="FLx-t7-hgF"/>
                         <outlet property="notesCardContainerView" destination="t0M-uA-ZdZ" id="e7w-9b-UKb"/>

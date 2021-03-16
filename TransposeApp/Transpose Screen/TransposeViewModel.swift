@@ -38,10 +38,11 @@ class TransposeViewModel: Staffable {
         return isRequestTypeKeys ? requestTransposedScale(fromNote: fromNote, toNote: toNote) : scaleOf(toNote)
     }
     
-    func requestTransposedScale(fromNote: Int, toNote: Int) -> [String] {
+    private func requestTransposedScale(fromNote: Int, toNote: Int) -> [String] {
         let transposedNote = toNote - fromNote
         return scaleOf(transposedNote + fromNote)
     }
+    
     
     private func setNoteNumberValues(fromNote: Int, toNote: Int) {
         self.fromNumber = fromNote
