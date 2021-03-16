@@ -15,6 +15,8 @@ protocol NoteBankable {
 extension NoteBankable {
     
     var noteBank: [String] {
-        return Cache().useSharpNotes ? Cache().sharpNotes : Cache().flatNotes
+        let defaults = UserDefaults.standard
+        let useFlatNotes = defaults.bool(forKey: "useFlatNotes")
+        return useFlatNotes ? Cache().flatNotes : Cache().sharpNotes
     }
 }

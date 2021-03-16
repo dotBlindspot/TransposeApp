@@ -26,6 +26,10 @@
 		5A81F190260003C900C21EF7 /* TransposerCardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F18F260003C900C21EF7 /* TransposerCardViewDelegate.swift */; };
 		5A81F1942600838D00C21EF7 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1932600838D00C21EF7 /* UILabel + Extensions.swift */; };
 		5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F19A2600A21200C21EF7 /* AdManagerInteractor.swift */; };
+		5A81F1AC26014E2C00C21EF7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1AB26014E2C00C21EF7 /* SettingsViewModel.swift */; };
+		5A81F1B026014E9300C21EF7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */; };
+		5A81F1B42601500900C21EF7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1B32601500900C21EF7 /* SettingsViewController.swift */; };
+		5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */; };
 		5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB49BC25FF475100DC026D /* NoteBankable.swift */; };
 		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
 		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
@@ -55,6 +59,10 @@
 		5A81F18F260003C900C21EF7 /* TransposerCardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposerCardViewDelegate.swift; sourceTree = "<group>"; };
 		5A81F1932600838D00C21EF7 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		5A81F19A2600A21200C21EF7 /* AdManagerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManagerInteractor.swift; sourceTree = "<group>"; };
+		5A81F1AB26014E2C00C21EF7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		5A81F1B32601500900C21EF7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		5AAB49BC25FF475100DC026D /* NoteBankable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBankable.swift; sourceTree = "<group>"; };
 		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
 		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 		5A18FBB32212B98000E15518 /* TransposeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A81F1A726014DE900C21EF7 /* Cache */,
 				5A56283F25F9606C00F9C283 /* Reuseable Components */,
 				5A56283B25F957EA00F9C283 /* Extensions */,
 				5A56283825F9537B00F9C283 /* Settings */,
@@ -159,7 +168,10 @@
 		5A56283825F9537B00F9C283 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				5A56283925F9538B00F9C283 /* Cache.swift */,
+				5A81F1B32601500900C21EF7 /* SettingsViewController.swift */,
+				5A81F1AB26014E2C00C21EF7 /* SettingsViewModel.swift */,
+				5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */,
+				5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -227,6 +239,14 @@
 				5A81F19A2600A21200C21EF7 /* AdManagerInteractor.swift */,
 			);
 			path = AdManagerInteractor;
+			sourceTree = "<group>";
+		};
+		5A81F1A726014DE900C21EF7 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				5A56283925F9538B00F9C283 /* Cache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		5AFA92F325F9E34600276F2D /* Transposed Note View */ = {
@@ -366,10 +386,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
+				5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */,
 				5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */,
 				5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */,
 				5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */,
 				5A56283625F9520000F9C283 /* TransposeViewController.swift in Sources */,
+				5A81F1B42601500900C21EF7 /* SettingsViewController.swift in Sources */,
+				5A81F1B026014E9300C21EF7 /* SettingsTableViewCell.swift in Sources */,
 				5A1C1B8125FD5AD500C7A71B /* UIColor + Extensions.swift in Sources */,
 				5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */,
 				5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */,
@@ -381,6 +404,7 @@
 				5A56283E25F9580D00F9C283 /* Staffable.swift in Sources */,
 				5A56283425F951C400F9C283 /* TransposeViewModel.swift in Sources */,
 				5A18FBB52212B98000E15518 /* AppDelegate.swift in Sources */,
+				5A81F1AC26014E2C00C21EF7 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
