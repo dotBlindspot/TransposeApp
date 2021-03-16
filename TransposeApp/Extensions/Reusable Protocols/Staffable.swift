@@ -15,7 +15,9 @@ protocol Staffable {
 extension Staffable {
     
     var notes: [String] {
-        return Cache().useSharpNotes ? Cache().sharpNotes : Cache().flatNotes
+        let defaults = UserDefaults.standard
+        let useFlatNotes = defaults.bool(forKey: "useFlatNotes")
+        return useFlatNotes ? Cache().flatNotes : Cache().sharpNotes
     }
     
     func scaleOf(_ note: Int) -> [String] {
