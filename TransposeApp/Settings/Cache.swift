@@ -13,7 +13,7 @@ struct Cache {
     
     // MARK: - AdMob Data
     
-    private var isStubbed = true
+    private var isStubbed = false
     private let stubbedBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     private let stubbedInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
     private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
