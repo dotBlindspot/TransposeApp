@@ -114,10 +114,12 @@ class TransposeViewController: UIViewController {
     }
     
     private func initBannerAdView() {
-        let adUnitID = Cache().bannerAdUnitID
-        bannerView.adUnitID = adUnitID
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        if Cache().isAdsTurnedOn {
+            let adUnitID = Cache().bannerAdUnitID
+            bannerView.adUnitID = adUnitID
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
     }
 }
 
