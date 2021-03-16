@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="7cK-1e-UXK">
-                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="LTq-jo-lG5">
+                                <rect key="frame" x="123.5" y="269.5" width="128" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="PFe-aI-HcN"/>
-                                    <constraint firstAttribute="height" constant="150" id="Yn4-x3-cfc"/>
+                                    <constraint firstAttribute="width" constant="128" id="NgW-ni-9Hn"/>
+                                    <constraint firstAttribute="height" constant="128" id="Z7g-C5-L09"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7cK-1e-UXK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AwN-NM-mOk"/>
-                            <constraint firstItem="7cK-1e-UXK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jHh-xR-4Rx"/>
+                            <constraint firstItem="LTq-jo-lG5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ULJ-tP-ciO"/>
+                            <constraint firstItem="LTq-jo-lG5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wtJ-t2-hTc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iTunesArtwork" width="512" height="512"/>
+        <image name="LaunchLogo" width="512" height="512"/>
     </resources>
 </document>
