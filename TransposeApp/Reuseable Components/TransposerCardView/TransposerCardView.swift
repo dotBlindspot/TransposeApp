@@ -17,6 +17,8 @@ class TransposerCardView: UIView, NoteBankable {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
+    var delegate: TransposerCardViewDelegate?
+    
     @IBInspectable public var contentViewBackgroundColor: UIColor = .taBlack {
         didSet {
             configureUI()
@@ -45,7 +47,8 @@ class TransposerCardView: UIView, NoteBankable {
     }
     
     @IBAction func stepperViewTapped(_ sender: Any) {
-        noteLabel.text = noteSelected
+        noteLabel.text = selectedNoteString
+        delegate?.didChangeNoteValue()
     }
     
     private func configureUI() {
@@ -60,8 +63,12 @@ class TransposerCardView: UIView, NoteBankable {
     
     // MARK: - Getters
     
-    var noteSelected: String {
+    var selectedNoteString: String {
         return noteBank[Int(stepper.value)]
+    }
+    
+    var selectedNoteIndex: Int {
+        return Int(stepper.value)
     }
     
     // MARK: - Setters

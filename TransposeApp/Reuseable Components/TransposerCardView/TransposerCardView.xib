@@ -39,7 +39,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAV-Ys-oog">
                                     <rect key="frame" x="0.0" y="0.0" width="208" height="149"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CT#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-uv-cJ1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CT#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-uv-cJ1">
                                             <rect key="frame" x="73.5" y="55.5" width="61.5" height="38.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                             <color key="textColor" name="TABlack"/>
@@ -48,8 +48,8 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerY" secondItem="LAV-Ys-oog" secondAttribute="centerY" id="FSn-Sf-tc6"/>
-                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerX" secondItem="LAV-Ys-oog" secondAttribute="centerX" id="GOB-LS-1Pl"/>
+                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerX" secondItem="LAV-Ys-oog" secondAttribute="centerX" id="8Ba-PG-IDd"/>
+                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerY" secondItem="LAV-Ys-oog" secondAttribute="centerY" priority="750" id="SN1-SR-Avk"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -62,10 +62,10 @@
                                 <constraint firstAttribute="trailing" secondItem="LAV-Ys-oog" secondAttribute="trailing" id="wyR-P4-UjZ"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
                             <rect key="frame" x="16" y="8" width="208" height="29"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                            <color key="textColor" name="TAWhite"/>
+                            <color key="textColor" name="TABlack"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -94,9 +94,6 @@
     <resources>
         <namedColor name="TABlack">
             <color red="0.24313725490196078" green="0.23921568627450981" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TAWhite">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
