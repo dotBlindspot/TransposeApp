@@ -10,11 +10,14 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var imageViewContainerView: UIView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var switchView: UISwitch!
     @IBOutlet weak var settingNameLabel: UILabel!
     
     var indexPath: IndexPath!
     var delegate: SettingsTableViewCellDelegate?
+    @available(iOS 13.0, *)
     lazy var viewModel = SettingsViewModel()
     
     override func awakeFromNib() {
@@ -38,7 +41,11 @@ class SettingsTableViewCell: UITableViewCell {
     }
     
     private func populateTableViewCell(with model: SettingsModel) {
-        switchView.setOn(model.isOn, animated: true)
+        imageViewContainerView.addCardFeel(backgroundColor: .taGrey,
+                                           shadowIntensity: .ultraThin,
+                                           cornerRadius: .small)
+        iconImageView.image = model.imageIcon
         settingNameLabel.text = model.name
+        switchView.setOn(model.isOn, animated: true)
     }
 }

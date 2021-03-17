@@ -131,7 +131,7 @@
 				5A81F1A726014DE900C21EF7 /* Cache */,
 				5A56283F25F9606C00F9C283 /* Reuseable Components */,
 				5A56283B25F957EA00F9C283 /* Extensions */,
-				5A56283825F9537B00F9C283 /* Settings */,
+				5A56283825F9537B00F9C283 /* Settings Screen */,
 				5A56283225F9518500F9C283 /* Transpose Screen */,
 				5A18FBB42212B98000E15518 /* AppDelegate.swift */,
 				5A18FBBD2212B98100E15518 /* Assets.xcassets */,
@@ -177,7 +177,7 @@
 			path = "Transpose Screen";
 			sourceTree = "<group>";
 		};
-		5A56283825F9537B00F9C283 /* Settings */ = {
+		5A56283825F9537B00F9C283 /* Settings Screen */ = {
 			isa = PBXGroup;
 			children = (
 				5A81F1B32601500900C21EF7 /* SettingsViewController.swift */,
@@ -185,7 +185,7 @@
 				5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */,
 				5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */,
 			);
-			path = Settings;
+			path = "Settings Screen";
 			sourceTree = "<group>";
 		};
 		5A56283B25F957EA00F9C283 /* Extensions */ = {
@@ -599,6 +599,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,6 +621,7 @@
 				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

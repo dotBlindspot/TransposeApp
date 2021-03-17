@@ -17,6 +17,7 @@ enum CornerSize {
 }
 
 enum ShadowIntensity {
+    case ultraThin
     case low
     case mild
     case high
@@ -35,7 +36,14 @@ extension UIView {
     func addShadow(intensity: ShadowIntensity) {
         var opacity: Float = 0.2
         
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 2
+        self.layer.masksToBounds = false
+        
         switch intensity {
+        case .ultraThin:
+            self.layer.shadowRadius = 1
         case .mild:
             opacity = 0.5
         case .high:
@@ -44,11 +52,7 @@ extension UIView {
             opacity = 0.2
         }
         
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = .zero
         self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = 2
-        self.layer.masksToBounds = false
     }
     
     func addCorners(size: CornerSize) {

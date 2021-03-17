@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var removeAdsButton: UIButton!
     
     lazy var viewModel = SettingsViewModel()
     
@@ -22,6 +23,10 @@ class SettingsViewController: UIViewController {
     func setupView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    @IBAction func removeAdsButtonTapped(_ sender: Any) {
+        #warning("In app Purchase - How to: https://www.raywenderlich.com/5456-in-app-purchase-tutorial-getting-started")
     }
 }
 
