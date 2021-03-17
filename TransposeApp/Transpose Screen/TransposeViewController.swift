@@ -16,6 +16,7 @@ enum TransposeRequestType {
 
 class TransposeViewController: UIViewController {
 
+    @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var segementedKeysCapoControl: UISegmentedControl!
     @IBOutlet weak var transposerCardContainerView: UIView!
     @IBOutlet weak var fromTransposerCardView: TransposerCardView!
@@ -39,6 +40,7 @@ class TransposeViewController: UIViewController {
     }
             
     private func configureUI() {
+        settingsBarButtonItem.isEnabled = Cache.sharedInstance.isSettingsTurnedOn
         notesCardContainerView.addCardFeel(backgroundColor: .white,
                                            shadowIntensity: .mild,
                                            cornerRadius: .small)
@@ -114,7 +116,7 @@ class TransposeViewController: UIViewController {
     }
     
     private func initBannerAdView() {
-        if Cache().isAdsTurnedOn {
+        if Cache.sharedInstance.isAdsTurnedOn {
             let adUnitID = Cache().bannerAdUnitID
             bannerView.adUnitID = adUnitID
             bannerView.rootViewController = self

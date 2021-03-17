@@ -11,9 +11,15 @@ import Foundation
 #warning("make cache a shared instance")
 struct Cache {
     
+    static var sharedInstance = Cache()
+    
+    // MARK: - Settings Availability
+    
+    var isSettingsTurnedOn = true
+    
     // MARK: - AdMob Data
     
-    var isAdsTurnedOn = false
+    var isAdsTurnedOn = true
     private var isStubbed = false
     private let stubbedBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     private let stubbedInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
