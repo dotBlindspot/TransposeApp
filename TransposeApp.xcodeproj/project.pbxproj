@@ -30,6 +30,11 @@
 		5A81F1B026014E9300C21EF7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */; };
 		5A81F1B42601500900C21EF7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1B32601500900C21EF7 /* SettingsViewController.swift */; };
 		5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */; };
+		5A81F1CE2601CD5E00C21EF7 /* FirebaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1CD2601CD5E00C21EF7 /* FirebaseInteractor.swift */; };
+		5A81F1D12601DBFD00C21EF7 /* FirebaseBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1D02601DBFD00C21EF7 /* FirebaseBoundary.swift */; };
+		5A81F1D42601E4BD00C21EF7 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1D32601E4BD00C21EF7 /* LaunchViewController.swift */; };
+		5A81F1D72601E53300C21EF7 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1D62601E53300C21EF7 /* LaunchViewModel.swift */; };
+		5A81F1DA2601E54300C21EF7 /* LaunchViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1D92601E54300C21EF7 /* LaunchViewModelDelegate.swift */; };
 		5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB49BC25FF475100DC026D /* NoteBankable.swift */; };
 		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
 		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
@@ -63,6 +68,11 @@
 		5A81F1AF26014E9300C21EF7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		5A81F1B32601500900C21EF7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5A81F1B72601543900C21EF7 /* SettingsTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		5A81F1CD2601CD5E00C21EF7 /* FirebaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInteractor.swift; sourceTree = "<group>"; };
+		5A81F1D02601DBFD00C21EF7 /* FirebaseBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBoundary.swift; sourceTree = "<group>"; };
+		5A81F1D32601E4BD00C21EF7 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		5A81F1D62601E53300C21EF7 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		5A81F1D92601E54300C21EF7 /* LaunchViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModelDelegate.swift; sourceTree = "<group>"; };
 		5AAB49BC25FF475100DC026D /* NoteBankable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBankable.swift; sourceTree = "<group>"; };
 		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
 		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
@@ -114,6 +124,10 @@
 		5A18FBB32212B98000E15518 /* TransposeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5AB745372601ED450033B4E9 /* Feature Launch Screen */,
+				5A81F1992600A1C800C21EF7 /* AdManagerInteractor */,
+				5AB745342601ED0D0033B4E9 /* Main Screen */,
+				5A81F1CC2601CBAB00C21EF7 /* Firebase */,
 				5A81F1A726014DE900C21EF7 /* Cache */,
 				5A56283F25F9606C00F9C283 /* Reuseable Components */,
 				5A56283B25F957EA00F9C283 /* Extensions */,
@@ -157,8 +171,6 @@
 		5A56283225F9518500F9C283 /* Transpose Screen */ = {
 			isa = PBXGroup;
 			children = (
-				5A81F1992600A1C800C21EF7 /* AdManagerInteractor */,
-				5A18FBBA2212B98000E15518 /* Main.storyboard */,
 				5A56283525F9520000F9C283 /* TransposeViewController.swift */,
 				5A56283325F951C400F9C283 /* TransposeViewModel.swift */,
 			);
@@ -247,6 +259,33 @@
 				5A56283925F9538B00F9C283 /* Cache.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		5A81F1CC2601CBAB00C21EF7 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5A81F1CD2601CD5E00C21EF7 /* FirebaseInteractor.swift */,
+				5A81F1D02601DBFD00C21EF7 /* FirebaseBoundary.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		5AB745342601ED0D0033B4E9 /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5A18FBBA2212B98000E15518 /* Main.storyboard */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		5AB745372601ED450033B4E9 /* Feature Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
+				5A81F1D32601E4BD00C21EF7 /* LaunchViewController.swift */,
+				5A81F1D62601E53300C21EF7 /* LaunchViewModel.swift */,
+				5A81F1D92601E54300C21EF7 /* LaunchViewModelDelegate.swift */,
+			);
+			path = "Feature Launch Screen";
 			sourceTree = "<group>";
 		};
 		5AFA92F325F9E34600276F2D /* Transposed Note View */ = {
@@ -385,14 +424,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A81F1D12601DBFD00C21EF7 /* FirebaseBoundary.swift in Sources */,
 				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
+				5A81F1DA2601E54300C21EF7 /* LaunchViewModelDelegate.swift in Sources */,
 				5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */,
 				5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */,
+				5A81F1D42601E4BD00C21EF7 /* LaunchViewController.swift in Sources */,
 				5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */,
 				5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */,
 				5A56283625F9520000F9C283 /* TransposeViewController.swift in Sources */,
 				5A81F1B42601500900C21EF7 /* SettingsViewController.swift in Sources */,
 				5A81F1B026014E9300C21EF7 /* SettingsTableViewCell.swift in Sources */,
+				5A81F1CE2601CD5E00C21EF7 /* FirebaseInteractor.swift in Sources */,
 				5A1C1B8125FD5AD500C7A71B /* UIColor + Extensions.swift in Sources */,
 				5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */,
 				5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */,
@@ -405,6 +448,7 @@
 				5A56283425F951C400F9C283 /* TransposeViewModel.swift in Sources */,
 				5A18FBB52212B98000E15518 /* AppDelegate.swift in Sources */,
 				5A81F1AC26014E2C00C21EF7 /* SettingsViewModel.swift in Sources */,
+				5A81F1D72601E53300C21EF7 /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,14 +596,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jancoerasmus.TransposeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -573,14 +617,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jancoerasmus.TransposeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
