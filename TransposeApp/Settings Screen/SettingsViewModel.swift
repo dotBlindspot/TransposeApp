@@ -7,6 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+struct SettingsModel {
+    var imageIcon: UIImage?
+    var name: String
+    var isOn: Bool
+}
 
 class SettingsViewModel {
     
@@ -30,12 +37,8 @@ class SettingsViewModel {
     }
     
     private var useFlatNotesSetting: SettingsModel {
-        return SettingsModel(name: "Use flat notes", isOn: defaults.bool(forKey: "useFlatNotes"))
+        return SettingsModel(imageIcon: UIImage(systemName: "music.note"),
+                             name: "Use flat notes",
+                             isOn: defaults.bool(forKey: "useFlatNotes"))
     }
-    
-}
-
-struct SettingsModel {
-    var name: String
-    var isOn: Bool
 }

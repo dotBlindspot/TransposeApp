@@ -13,7 +13,7 @@ extension UIColor {
     static let taBlack = UIColor(named: "TABlack")!
     static let taWhite = UIColor(named: "TAWhite")!
     static let taDarkGrey = UIColor(named: "TADarkGray")!
-    static let taGrey = UIColor(named: "TAGrey")!
+    static let taGrey = UIColor(named: "TAGray")!
     static let taPurpleGray = UIColor(named: "TAPurpleGray")!
     static let taOlive = UIColor(named: "TAOlive")!
 }
