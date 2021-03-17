@@ -6,6 +6,7 @@ target 'TransposeApp' do
   use_frameworks!
 
   # Pods for TransposeApp
+	pod 'Firebase/Database'
 	pod 'Firebase/Core'
  	pod 'Firebase/AdMob'
 	pod'Google-Mobile-Ads-SDK'

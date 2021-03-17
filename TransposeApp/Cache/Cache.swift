@@ -27,9 +27,7 @@ struct Cache {
     var interstitialAdUnitID: String {
         return isStubbed ? stubbedInterstitialAdUnitID : productionInterstitialAdUnitID
     }
-    
-    // UserDefaults
-    var useSharpNotes = true // to be stored in a user cache OR userDefaults
+
     var requestType: TransposeRequestType = .keys
     
     var isKeysRequestType: Bool {
