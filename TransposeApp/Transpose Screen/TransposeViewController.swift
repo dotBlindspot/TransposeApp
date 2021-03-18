@@ -94,6 +94,7 @@ class TransposeViewController: UIViewController {
     private func createNoteViews() {
         for _ in 1..<8 {
             let transposedNoteView = TransposedNoteView()
+            transposedNoteView.clearLabels()
             transposedNoteView.addCorners(size: .medium)
             scalePackForStackView.append(transposedNoteView)
         }

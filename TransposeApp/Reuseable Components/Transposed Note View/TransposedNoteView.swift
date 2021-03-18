@@ -46,9 +46,17 @@ class TransposedNoteView: UIView {
     // MARK: - Methods
     
     func populateNoteView(noteNumber: String, noteFrom: String, noteTo: String) {
+        self.isHidden = false
         noteNumberLabel.text = noteNumber
         noteFromLabel.text = noteFrom
         noteToLabel.text = noteTo
+    }
+    
+    func clearLabels() {
+        self.isHidden = true
+        noteNumberLabel.text = ""
+        noteFromLabel.text = ""
+        noteToLabel.text = ""
     }
     
     // MARK: - Private
