@@ -8,10 +8,16 @@
 
 import Foundation
 
-#warning("make cache a shared instance")
+enum SystemServiceState {
+    case online
+    case offline
+}
+
 struct Cache {
     
     static var sharedInstance = Cache()
+    
+    var systemServiceState: SystemServiceState?
     
     // MARK: - Settings Availability
     
