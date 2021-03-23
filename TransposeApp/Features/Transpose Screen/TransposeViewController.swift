@@ -29,12 +29,14 @@ class TransposeViewController: UIViewController {
     private var scalePackForStackView = [TransposedNoteView]()
     private var interstitialAd: GADInterstitialAdBeta?
     lazy var viewModel = TransposeViewModel(delegate: self,
-                                            interactor: AdManagerInteractor())
+                                            interactor: AdManagerInteractor(),
+                                            firebaseInteractor: FirebaseInteractor())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         stackNotes()
+        viewModel.observeNetwork()
         viewModel.requestAd()
         initBannerAdView()
     }
@@ -133,7 +135,11 @@ extension TransposeViewController: TransposerCardViewDelegate {
 }
 
 extension TransposeViewController: TransposeViewModelDelegate {
-    
+    func systemNowOnline() {
+        viewModel.requestAd()
+        initBannerAdView()
+    }
+
     func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?) {
         guard let interstitialAd = interstitialAd else { return }
         interstitialAd.present(fromRootViewController: self)
