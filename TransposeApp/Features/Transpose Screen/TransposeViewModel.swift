@@ -8,25 +8,32 @@
 
 import Foundation
 import GoogleMobileAds
+import Network
 
 protocol TransposeViewModelDelegate: NSObject {
     func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?)
+    func systemNowOnline()
 }
 
 class TransposeViewModel: Staffable {
     
     weak var delegate: TransposeViewModelDelegate?
     private var interactor: AdManagerInteractor!
+    private var firebaseInteractor: FirebaseBoundary!
+    private var networkManager: CellularNetworkManager?
     private var _requestType: TransposeRequestType = Cache().requestType
     private var fromNumber: Int = 0
     private var toNumber: Int = 0
     private var addCounter = 0
+    private let monitor: NWPathMonitor
     
     init(delegate: TransposeViewModelDelegate,
-         interactor: AdManagerInteractor) {
+         interactor: AdManagerInteractor,
+         firebaseInteractor: FirebaseBoundary) {
         self.delegate = delegate
         self.interactor = interactor
         self.addCounter += 1
+        self.monitor = NWPathMonitor()
     }
     
     var requestType: TransposeRequestType {
@@ -81,5 +88,17 @@ class TransposeViewModel: Staffable {
     private func setNoteNumberValues(fromNote: Int, toNote: Int) {
         self.fromNumber = fromNote
         self.toNumber = toNote
+    }
+    
+    func observeNetwork() {
+        networkManager = CellularNetworkManager(delegate: self)
+        networkManager!.observeNetwork()
+    }
+}
+
+extension TransposeViewModel: CellularNetworkObservable {
+    
+    func didUpdateNetworkStatus() {
+        delegate?.systemNowOnline()
     }
 }

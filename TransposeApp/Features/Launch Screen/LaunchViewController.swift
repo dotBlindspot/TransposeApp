@@ -26,13 +26,7 @@ class LaunchViewController: UIViewController {
 extension LaunchViewController: LaunchViewModelDelegate {
     func didFail(with error: String?) {
         activityIndicator.stopAnimating()
-        let alert = UIAlertController(title: "Something went wrong!",
-                                      message: error ?? "",
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-            self.performSegue(withIdentifier: "MoveToTransposeScreen", sender: self)
-        }))
-        present(alert, animated: true, completion: nil)
+        self.displayDefaultAlert(with: error, segueIdentifier: "MoveToTransposeScreen")
     }
 
     func didFinishLoading() {
