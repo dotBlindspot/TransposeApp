@@ -15,12 +15,18 @@ enum FeatureToggleNames: String {
     case stubbed = "isStubbed"
 }
 
+enum Environment: String {
+    case prod = "PROD"
+    case uat = "UAT"
+}
+
 class FirebaseInteractor: FirebaseBoundary {
     var reference: DatabaseReference = Database.database().reference()
     
     func fetchFeatureToggle(success: @escaping EmptySuccessResponse, failure: @escaping FirebaseFailedRequest) {
+        let environment = UIApplication.appEnvironment
         let operation = "featureToggle"
-        reference.child("\(operation)").observeSingleEvent(of: .value, with: { (snapshot) in
+        reference.child("environments").child(environment!).child(operation).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let isAdsTurnedOn = value?[FeatureToggleNames.ads.rawValue] as? Bool ?? true
             let isSettingsTurnedOn = value?[FeatureToggleNames.settings.rawValue] as? Bool ?? true
