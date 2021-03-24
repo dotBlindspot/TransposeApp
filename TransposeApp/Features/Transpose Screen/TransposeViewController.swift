@@ -43,6 +43,9 @@ class TransposeViewController: UIViewController {
             
     private func configureUI() {
         settingsBarButtonItem.isEnabled = Cache.sharedInstance.isSettingsTurnedOn
+        if #available(iOS 13.0, *) {} else {
+            settingsBarButtonItem.title = "Settings"
+        }
         notesCardContainerView.addCardFeel(backgroundColor: .white,
                                            shadowIntensity: .mild,
                                            cornerRadius: .small)
@@ -86,7 +89,7 @@ class TransposeViewController: UIViewController {
         
         let fromNoteScale = viewModel.scaleOf(noteFromIndex)
         let toNoteScale = viewModel.requestScale(fromNote: noteFromIndex,
-                                                           toNote: noteToIndex)
+                                                 toNote: noteToIndex)
         
         populateScalePack(fromScale: fromNoteScale, toScale: toNoteScale)
         updateUIValuesForRequestType()

@@ -26,6 +26,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-zw-H9Q">
                     <rect key="frame" x="5" y="0.0" width="240" height="258"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
+                            <rect key="frame" x="16" y="8" width="208" height="29"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                            <color key="textColor" name="TABlack"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-WP-Vlj">
                             <rect key="frame" x="16" y="45" width="208" height="197"/>
                             <subviews>
@@ -62,12 +68,6 @@
                                 <constraint firstAttribute="trailing" secondItem="LAV-Ys-oog" secondAttribute="trailing" id="wyR-P4-UjZ"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
-                            <rect key="frame" x="16" y="8" width="208" height="29"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                            <color key="textColor" name="TABlack"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="ZpA-WP-Vlj" secondAttribute="bottom" constant="16" id="FdS-jw-3a7"/>

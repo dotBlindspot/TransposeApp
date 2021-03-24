@@ -38,7 +38,7 @@ class LaunchViewModel {
     }
     
     func requestFeatureToggles() {
-        counter = 5
+        counter = 4
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,
                              selector: #selector(countDownServiceCallTime),
                              userInfo: nil, repeats: true)
@@ -81,6 +81,7 @@ class LaunchViewModel {
     
     private func fallBackToDefaultSettings() {
         Cache.sharedInstance.isAdsTurnedOn = false
-        Cache.sharedInstance.isSettingsTurnedOn = false
+        Cache.sharedInstance.isSettingsTurnedOn = true
+        Cache.sharedInstance.isStubbed = false
     }
 }

@@ -12,6 +12,7 @@ import Firebase
 enum FeatureToggleNames: String {
     case ads = "isAdsTurnedOn"
     case settings = "isSettingsTurnedOn"
+    case stubbed = "isStubbed"
 }
 
 class FirebaseInteractor: FirebaseBoundary {
@@ -23,8 +24,10 @@ class FirebaseInteractor: FirebaseBoundary {
             let value = snapshot.value as? NSDictionary
             let isAdsTurnedOn = value?[FeatureToggleNames.ads.rawValue] as? Bool ?? true
             let isSettingsTurnedOn = value?[FeatureToggleNames.settings.rawValue] as? Bool ?? true
+            let isStubbed = value?[FeatureToggleNames.stubbed.rawValue] as? Bool ?? false
             Cache.sharedInstance.isAdsTurnedOn = isAdsTurnedOn
             Cache.sharedInstance.isSettingsTurnedOn = isSettingsTurnedOn
+            Cache.sharedInstance.isStubbed = isStubbed
             success()
         }) { (error) in
             print(error.localizedDescription)

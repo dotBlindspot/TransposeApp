@@ -17,7 +17,6 @@ class SettingsTableViewCell: UITableViewCell {
     
     var indexPath: IndexPath!
     var delegate: SettingsTableViewCellDelegate?
-    @available(iOS 13.0, *)
     lazy var viewModel = SettingsViewModel()
     
     override func awakeFromNib() {
