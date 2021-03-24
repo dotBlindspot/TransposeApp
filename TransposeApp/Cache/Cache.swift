@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Network
 
-enum SystemServiceState {
+enum NetworkState {
     case online
     case offline
 }
@@ -17,7 +18,7 @@ struct Cache {
     
     static var sharedInstance = Cache()
     
-    var systemServiceState: SystemServiceState?
+    var networkState: NetworkState?
     
     // MARK: - Settings Availability
     
@@ -26,18 +27,18 @@ struct Cache {
     // MARK: - AdMob Data
     
     var isAdsTurnedOn = true
-    private var isStubbed = false
+    var isStubbed = false
     private let stubbedBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     private let stubbedInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
     private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
     private let productionInterstitialAdUnitID = "ca-app-pub-4040587998998922/1560718513"
     
     var bannerAdUnitID: String {
-        return isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
+        return Cache.sharedInstance.isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
     }
     
     var interstitialAdUnitID: String {
-        return isStubbed ? stubbedInterstitialAdUnitID : productionInterstitialAdUnitID
+        return Cache.sharedInstance.isStubbed ? stubbedInterstitialAdUnitID : productionInterstitialAdUnitID
     }
 
     var requestType: TransposeRequestType = .keys

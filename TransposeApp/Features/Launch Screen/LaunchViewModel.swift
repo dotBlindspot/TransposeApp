@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Network
 
 protocol LaunchViewModelDelegate: NSObject {
     func didFinishLoading()
@@ -37,6 +38,7 @@ class LaunchViewModel {
     }
     
     func requestFeatureToggles() {
+        counter = 4
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,
                              selector: #selector(countDownServiceCallTime),
                              userInfo: nil, repeats: true)
@@ -44,27 +46,31 @@ class LaunchViewModel {
     
     @objc func countDownServiceCallTime() {
         if counter > 0 {
-            interactor.fetchFeatureToggle {
-                self.serviceSucceeded()
-            } failure: { (_) in
-                self.serviceFailed(with: "Service unavailable")
-            }
+            makeServiceCall()
         } else {
-            self.serviceFailed(with: "Transpose will continue offline")
+            self.serviceCallFailed(with: "Transpose will continue offline")
         }
         counter -= 1
     }
     
+    private func makeServiceCall() {
+        interactor.fetchFeatureToggle {
+            self.serviceSucceeded()
+        } failure: { (_) in
+            self.serviceCallFailed(with: "Service unavailable")
+        }
+    }
+    
     private func serviceSucceeded() {
         self.stopTimer()
-        Cache.sharedInstance.systemServiceState = .online
+        Cache.sharedInstance.networkState = .online
         self.delegate?.didFinishLoading()
     }
     
-    private func serviceFailed(with message: String?) {
+    private func serviceCallFailed(with message: String?) {
         stopTimer()
         self.fallBackToDefaultSettings()
-        Cache.sharedInstance.systemServiceState = .offline
+        Cache.sharedInstance.networkState = .offline
         self.delegate?.didFail(with: message ?? "")
     }
     
@@ -75,6 +81,7 @@ class LaunchViewModel {
     
     private func fallBackToDefaultSettings() {
         Cache.sharedInstance.isAdsTurnedOn = false
-        Cache.sharedInstance.isSettingsTurnedOn = false
+        Cache.sharedInstance.isSettingsTurnedOn = true
+        Cache.sharedInstance.isStubbed = false
     }
 }

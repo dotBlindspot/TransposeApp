@@ -29,18 +29,23 @@ class TransposeViewController: UIViewController {
     private var scalePackForStackView = [TransposedNoteView]()
     private var interstitialAd: GADInterstitialAdBeta?
     lazy var viewModel = TransposeViewModel(delegate: self,
-                                            interactor: AdManagerInteractor())
+                                            interactor: AdManagerInteractor(),
+                                            firebaseInteractor: FirebaseInteractor())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         stackNotes()
+        viewModel.observeNetwork()
         viewModel.requestAd()
         initBannerAdView()
     }
             
     private func configureUI() {
         settingsBarButtonItem.isEnabled = Cache.sharedInstance.isSettingsTurnedOn
+        if #available(iOS 13.0, *) {} else {
+            settingsBarButtonItem.title = "Settings"
+        }
         notesCardContainerView.addCardFeel(backgroundColor: .white,
                                            shadowIntensity: .mild,
                                            cornerRadius: .small)
@@ -84,7 +89,7 @@ class TransposeViewController: UIViewController {
         
         let fromNoteScale = viewModel.scaleOf(noteFromIndex)
         let toNoteScale = viewModel.requestScale(fromNote: noteFromIndex,
-                                                           toNote: noteToIndex)
+                                                 toNote: noteToIndex)
         
         populateScalePack(fromScale: fromNoteScale, toScale: toNoteScale)
         updateUIValuesForRequestType()
@@ -133,7 +138,11 @@ extension TransposeViewController: TransposerCardViewDelegate {
 }
 
 extension TransposeViewController: TransposeViewModelDelegate {
-    
+    func systemNowOnline() {
+        viewModel.requestAd()
+        initBannerAdView()
+    }
+
     func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?) {
         guard let interstitialAd = interstitialAd else { return }
         interstitialAd.present(fromRootViewController: self)

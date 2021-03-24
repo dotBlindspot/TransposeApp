@@ -81,7 +81,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
                                 <rect key="frame" x="16" y="742" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gYC-ca-4Y9"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="bYL-fM-i1Q" firstAttribute="trailing" secondItem="DI7-3D-USU" secondAttribute="trailing" constant="16" id="smu-tO-z00"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="IEX-3N-zAK"/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="IEX-3N-zAK"/>
                     <connections>
                         <outlet property="removeAdsButton" destination="DI7-3D-USU" id="bYG-X3-7YO"/>
                         <outlet property="tableView" destination="Nu1-WS-hka" id="5LF-d2-Hmc"/>
