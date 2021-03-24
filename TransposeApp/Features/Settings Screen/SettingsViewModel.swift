@@ -37,8 +37,14 @@ class SettingsViewModel {
     }
     
     private var useFlatNotesSetting: SettingsModel {
-        return SettingsModel(imageIcon: UIImage(systemName: "music.note"),
-                             name: "Use flat notes",
-                             isOn: defaults.bool(forKey: "useFlatNotes"))
+        if #available(iOS 13.0, *) {
+            return SettingsModel(imageIcon: UIImage(systemName: "music.note"),
+                                 name: "Use flat notes",
+                                 isOn: defaults.bool(forKey: "useFlatNotes"))
+        } else {
+            return SettingsModel(imageIcon: UIImage(named: "musical-note"),
+                                 name: "Use flat notes",
+                                 isOn: defaults.bool(forKey: "useFlatNotes"))
+        }
     }
 }
