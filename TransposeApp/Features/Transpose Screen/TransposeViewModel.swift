@@ -57,6 +57,10 @@ class TransposeViewModel: Staffable {
         return false
     }
     
+    var attemptBuildingChord: Bool {
+        return Cache.sharedInstance.isChordBuilderActive
+    }
+    
     var fretNumber: Int {
         guard fromNumber != toNumber else { return 0 }
         let numericDifference = fromNumber - toNumber

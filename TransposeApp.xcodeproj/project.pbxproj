@@ -41,6 +41,11 @@
 		5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB49BC25FF475100DC026D /* NoteBankable.swift */; };
 		5AAD725126032BAC000C3675 /* CellularNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAD725026032BAC000C3675 /* CellularNetworkManager.swift */; };
 		5AD40FC6260B33E200E6FDB8 /* UIApplication + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FC5260B33E200E6FDB8 /* UIApplication + Extensions.swift */; };
+		5AD40FCD260B3E1A00E6FDB8 /* GuitarChordCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FCC260B3E1A00E6FDB8 /* GuitarChordCardView.swift */; };
+		5AD40FD0260B3E3900E6FDB8 /* GuitarChordCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD40FCF260B3E3900E6FDB8 /* GuitarChordCardView.xib */; };
+		5AD40FDC260B575800E6FDB8 /* PintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD40FDB260B575800E6FDB8 /* PintView.xib */; };
+		5AD40FDF260B576500E6FDB8 /* PintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FDE260B576500E6FDB8 /* PintView.swift */; };
+		5AD40FE4260B6C2E00E6FDB8 /* ChordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */; };
 		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
 		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
 		5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */; };
@@ -84,6 +89,11 @@
 		5AAB49BC25FF475100DC026D /* NoteBankable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBankable.swift; sourceTree = "<group>"; };
 		5AAD725026032BAC000C3675 /* CellularNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularNetworkManager.swift; sourceTree = "<group>"; };
 		5AD40FC5260B33E200E6FDB8 /* UIApplication + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extensions.swift"; sourceTree = "<group>"; };
+		5AD40FCC260B3E1A00E6FDB8 /* GuitarChordCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarChordCardView.swift; sourceTree = "<group>"; };
+		5AD40FCF260B3E3900E6FDB8 /* GuitarChordCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuitarChordCardView.xib; sourceTree = "<group>"; };
+		5AD40FDB260B575800E6FDB8 /* PintView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PintView.xib; sourceTree = "<group>"; };
+		5AD40FDE260B576500E6FDB8 /* PintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintView.swift; sourceTree = "<group>"; };
+		5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordBuilder.swift; sourceTree = "<group>"; };
 		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
 		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
 		5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNotesCard.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 		5A18FBB32212B98000E15518 /* TransposeApp */ = {
 			isa = PBXGroup;
 			children = (
+				5AD40FE2260B6C1A00E6FDB8 /* Chord Builder */,
 				5AAD724F26032B74000C3675 /* NetworkMonitor */,
 				5A1DAD6E260329C10036B4F9 /* Features */,
 				5A1DAD60260221110036B4F9 /* In-App Purchase */,
@@ -229,6 +240,7 @@
 		5A56283B25F957EA00F9C283 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5AD40FE8260C6A3A00E6FDB8 /* Int */,
 				5AD40FC4260B33CB00E6FDB8 /* UIApplication */,
 				5A1DAD6A2603280A0036B4F9 /* UIViewController */,
 				5A81F1922600837800C21EF7 /* UILabel */,
@@ -252,6 +264,7 @@
 		5A56283F25F9606C00F9C283 /* Reuseable Components */ = {
 			isa = PBXGroup;
 			children = (
+				5AD40FCB260B3A2300E6FDB8 /* Chord Card View */,
 				5A1C1B7825FD595300C7A71B /* TransposerCardView */,
 				5AFA92F325F9E34600276F2D /* Transposed Note View */,
 				5A56284325F960EA00F9C283 /* Transposed Notes Card View */,
@@ -343,6 +356,40 @@
 			path = UIApplication;
 			sourceTree = "<group>";
 		};
+		5AD40FCB260B3A2300E6FDB8 /* Chord Card View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD40FDA260B574800E6FDB8 /* Pint View */,
+				5AD40FCC260B3E1A00E6FDB8 /* GuitarChordCardView.swift */,
+				5AD40FCF260B3E3900E6FDB8 /* GuitarChordCardView.xib */,
+			);
+			path = "Chord Card View";
+			sourceTree = "<group>";
+		};
+		5AD40FDA260B574800E6FDB8 /* Pint View */ = {
+			isa = PBXGroup;
+			children = (
+				5AD40FDB260B575800E6FDB8 /* PintView.xib */,
+				5AD40FDE260B576500E6FDB8 /* PintView.swift */,
+			);
+			path = "Pint View";
+			sourceTree = "<group>";
+		};
+		5AD40FE2260B6C1A00E6FDB8 /* Chord Builder */ = {
+			isa = PBXGroup;
+			children = (
+				5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */,
+			);
+			path = "Chord Builder";
+			sourceTree = "<group>";
+		};
+		5AD40FE8260C6A3A00E6FDB8 /* Int */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Int;
+			sourceTree = "<group>";
+		};
 		5AFA92F325F9E34600276F2D /* Transposed Note View */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,11 +469,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A18FBC12212B98100E15518 /* LaunchScreen.storyboard in Resources */,
+				5AD40FD0260B3E3900E6FDB8 /* GuitarChordCardView.xib in Resources */,
 				5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */,
 				5A4FF2EE25FAB81000493D43 /* TransposedNotesCard.xib in Resources */,
 				5A1C1B7D25FD598C00C7A71B /* TransposerCardView.xib in Resources */,
 				5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */,
 				5A18FBBE2212B98100E15518 /* Assets.xcassets in Resources */,
+				5AD40FDC260B575800E6FDB8 /* PintView.xib in Resources */,
 				5A18FBBC2212B98000E15518 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,11 +533,13 @@
 				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
 				5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */,
 				5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */,
+				5AD40FE4260B6C2E00E6FDB8 /* ChordBuilder.swift in Sources */,
 				5A81F1D42601E4BD00C21EF7 /* LaunchViewController.swift in Sources */,
 				5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */,
 				5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */,
 				5A56283625F9520000F9C283 /* TransposeViewController.swift in Sources */,
 				5AAD725126032BAC000C3675 /* CellularNetworkManager.swift in Sources */,
+				5AD40FCD260B3E1A00E6FDB8 /* GuitarChordCardView.swift in Sources */,
 				5A81F1B42601500900C21EF7 /* SettingsViewController.swift in Sources */,
 				5A81F1B026014E9300C21EF7 /* SettingsTableViewCell.swift in Sources */,
 				5A81F1CE2601CD5E00C21EF7 /* FirebaseInteractor.swift in Sources */,
@@ -496,6 +547,7 @@
 				5AD40FC6260B33E200E6FDB8 /* UIApplication + Extensions.swift in Sources */,
 				5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */,
 				5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */,
+				5AD40FDF260B576500E6FDB8 /* PintView.swift in Sources */,
 				5A81F190260003C900C21EF7 /* TransposerCardViewDelegate.swift in Sources */,
 				5A81F1942600838D00C21EF7 /* UILabel + Extensions.swift in Sources */,
 				5A1DAD622602212C0036B4F9 /* InAppPurchaseHelper.swift in Sources */,

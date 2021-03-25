@@ -81,7 +81,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
                                 <rect key="frame" x="16" y="742" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gYC-ca-4Y9"/>
@@ -90,6 +90,7 @@
                                 <state key="normal" title="Remove Ads"/>
                                 <connections>
                                     <action selector="removeAdsButtonTapped:" destination="ZKa-G7-yCX" eventType="touchUpInside" id="IhP-mZ-E9i"/>
+                                    <segue destination="ppS-Op-kie" kind="show" id="EIR-U9-ef4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,6 +115,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T13-wV-4k5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2462.3188405797105" y="-1049.3303571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fQl-qD-ZOm">
+            <objects>
+                <viewController id="ppS-Op-kie" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OD7-zc-7nd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2v1-3A-YJz" customClass="GuitarChordCardView" customModule="TransposeApp" customModuleProvider="target">
+                                <rect key="frame" x="67" y="176" width="280" height="490"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="KLO-9u-Kd2"/>
+                                    <constraint firstAttribute="height" constant="490" id="dqv-od-Lpz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Bg-XL-Eo9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2v1-3A-YJz" firstAttribute="centerY" secondItem="OD7-zc-7nd" secondAttribute="centerY" id="LAL-ah-QOy"/>
+                            <constraint firstItem="2v1-3A-YJz" firstAttribute="centerX" secondItem="OD7-zc-7nd" secondAttribute="centerX" id="dfv-74-bBd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4mb-Q1-vwI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDG-ic-3Wi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309" y="-1049"/>
         </scene>
         <!--Transpose-->
         <scene sceneID="8Xy-4o-VmO">
