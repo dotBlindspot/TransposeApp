@@ -20,14 +20,14 @@ struct Cache {
     
     var networkState: NetworkState?
     
-    // MARK: - Settings Availability
+    // MARK: - Feature Toggels
     
     var isSettingsTurnedOn = true
-    
-    // MARK: - AdMob Data
-    
     var isAdsTurnedOn = true
     var isStubbed = false
+    var isChordBuilderActive = false
+    
+    // MARK: - AdMob Data
     private let stubbedBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     private let stubbedInterstitialAdUnitID = "ca-app-pub-3940256099942544/4411468910"
     private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
@@ -51,7 +51,7 @@ struct Cache {
                       "A","A#","B","C","C#","D","D#","E","F","F#","G","G#",
                       "A","A#","B","C","C#","D","D#","E","F","F#","G","G#"]
     
-    var flatNotes = ["A","Ab","B","C","Cb","D","Db","E","F","Fb","G","Gb",
-                     "A","Ab","B","C","Cb","D","Db","E","F","Fb","G","Gb",
-                     "A","Ab","B","C","Cb","D","Db","E","F","Fb","G","Gb"]
+    var flatNotes = ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
+                     "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
+                     "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]
 }

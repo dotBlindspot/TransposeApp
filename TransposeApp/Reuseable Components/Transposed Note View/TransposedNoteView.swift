@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol TransposedNoteViewDelegate {
+    func tappedNoteFrom(note: String)
+    func tappedNoteTo(note: String)
+}
+
 @IBDesignable
 class TransposedNoteView: UIView {
     
@@ -16,7 +21,11 @@ class TransposedNoteView: UIView {
     
     @IBOutlet weak var noteNumberLabel: UILabel!
     @IBOutlet weak var noteFromLabel: UILabel!
+    @IBOutlet weak var noteFromButton: UIButton!
+    @IBOutlet weak var noteToButton: UIButton!
     @IBOutlet weak var noteToLabel: UILabel!
+    
+    var delegate: TransposedNoteViewDelegate!
     
     //MARK: - IBInspectables
     
@@ -31,11 +40,13 @@ class TransposedNoteView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        configureView()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
+        configureView()
     }
     
     override public func awakeFromNib() {
@@ -44,19 +55,26 @@ class TransposedNoteView: UIView {
     }
     
     // MARK: - Methods
+    @IBAction func noteFromButtonTapped(_ sender: Any) {
+        delegate.tappedNoteFrom(note: noteFromButton.title(for: .normal)!)
+    }
+    
+    @IBAction func noteToButtonTapped(_ sender: Any) {
+        delegate.tappedNoteTo(note: noteToButton.title(for: .normal)!)
+    }
     
     func populateNoteView(noteNumber: String, noteFrom: String, noteTo: String) {
         self.isHidden = false
         noteNumberLabel.text = noteNumber
-        noteFromLabel.text = noteFrom
-        noteToLabel.text = noteTo
+        noteFromButton.setTitle(noteFrom, for: .normal)
+        noteToButton.setTitle(noteTo, for: .normal)
     }
     
     func clearLabels() {
         self.isHidden = true
         noteNumberLabel.text = ""
-        noteFromLabel.text = ""
-        noteToLabel.text = ""
+        noteFromButton.setTitle("", for: .normal)
+        noteToButton.setTitle("", for: .normal)
     }
     
     // MARK: - Private
@@ -72,10 +90,10 @@ class TransposedNoteView: UIView {
         layer.shadowOffset = .zero
         layer.shadowOpacity = 0.2
         layer.shadowRadius = 3
-        
+
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
-        
+
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
 }

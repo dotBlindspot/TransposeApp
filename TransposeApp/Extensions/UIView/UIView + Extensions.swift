@@ -21,6 +21,7 @@ enum ShadowIntensity {
     case low
     case mild
     case high
+    case puffed
 }
 
 extension UIView {
@@ -48,6 +49,9 @@ extension UIView {
             opacity = 0.5
         case .high:
             opacity = 0.9
+        case .puffed:
+            opacity = 0.2
+            self.layer.shadowRadius = 6
         default:
             opacity = 0.2
         }
