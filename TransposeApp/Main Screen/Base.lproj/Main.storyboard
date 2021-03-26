@@ -81,7 +81,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI7-3D-USU">
                                 <rect key="frame" x="16" y="742" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gYC-ca-4Y9"/>
@@ -252,6 +252,19 @@
                                     <constraint firstAttribute="height" constant="50" id="Igz-B9-NC7"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap a note to see their chord structures" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvL-xm-Uvy">
+                                <rect key="frame" x="36" y="326.5" width="207.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" name="TABlack"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tap" translatesAutoresizingMaskIntoConstraints="NO" id="UhL-KT-SqX">
+                                <rect key="frame" x="16" y="325.5" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="mga-CV-W6i"/>
+                                    <constraint firstAttribute="width" constant="16" id="oy3-bZ-irv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Xw-bp-9GP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -260,12 +273,16 @@
                             <constraint firstItem="Fqx-1A-MsJ" firstAttribute="top" secondItem="n0x-Ky-Lxs" secondAttribute="bottom" constant="40" id="4if-X5-5SD"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="n0x-Ky-Lxs" secondAttribute="trailing" constant="16" id="6C6-Rt-sNn"/>
                             <constraint firstItem="n0x-Ky-Lxs" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="9i9-CT-1xv"/>
+                            <constraint firstItem="MvL-xm-Uvy" firstAttribute="leading" secondItem="UhL-KT-SqX" secondAttribute="trailing" constant="4" id="Bmi-hY-WsB"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="t0M-uA-ZdZ" secondAttribute="trailing" constant="16" id="IFE-GS-G6D"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="K93-fd-d5b"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Fqx-1A-MsJ" secondAttribute="trailing" constant="16" id="MXZ-WC-TAx"/>
                             <constraint firstItem="5Xw-bp-9GP" firstAttribute="trailing" secondItem="Q5P-nP-DPS" secondAttribute="trailing" constant="16" id="Qo8-54-oAT"/>
                             <constraint firstItem="n0x-Ky-Lxs" firstAttribute="top" secondItem="5Xw-bp-9GP" secondAttribute="top" constant="16" id="T5l-fh-SmK"/>
+                            <constraint firstItem="MvL-xm-Uvy" firstAttribute="centerY" secondItem="UhL-KT-SqX" secondAttribute="centerY" id="XoH-7S-4jJ"/>
                             <constraint firstItem="t0M-uA-ZdZ" firstAttribute="top" secondItem="Fqx-1A-MsJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZVv-8G-JcG"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="UhL-KT-SqX" secondAttribute="leading" id="cuE-aY-BNg"/>
+                            <constraint firstItem="Fqx-1A-MsJ" firstAttribute="top" secondItem="MvL-xm-Uvy" secondAttribute="bottom" constant="2" id="isT-4t-uga"/>
                             <constraint firstItem="Fqx-1A-MsJ" firstAttribute="leading" secondItem="5Xw-bp-9GP" secondAttribute="leading" constant="16" id="nEr-MW-QGn"/>
                             <constraint firstAttribute="bottom" secondItem="Q5P-nP-DPS" secondAttribute="bottom" constant="12" id="pUE-fV-urb"/>
                             <constraint firstItem="Q5P-nP-DPS" firstAttribute="top" secondItem="t0M-uA-ZdZ" secondAttribute="bottom" constant="16" id="vMn-Yq-EKD"/>
@@ -293,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzP-6A-Ajr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661" y="-1049"/>
+            <point key="canvasLocation" x="1660.8695652173915" y="-1049.3303571428571"/>
         </scene>
         <!--Launch View Controller-->
         <scene sceneID="E4s-Ej-S96">
@@ -346,6 +363,7 @@
     <color key="tintColor" name="TABlack"/>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="tap" width="512" height="512"/>
         <image name="timelapse" catalog="system" width="128" height="122"/>
         <namedColor name="TABlack">
             <color red="0.24313725490196078" green="0.23921568627450981" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

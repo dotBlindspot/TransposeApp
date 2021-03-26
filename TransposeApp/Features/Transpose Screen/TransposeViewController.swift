@@ -149,11 +149,11 @@ class TransposeViewController: UIViewController {
         chordCardView.isUserInteractionEnabled = true
         self.view.addSubview(chordCardView)
         
-//        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(closeTapped))
+//        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(cardTapped))
 //        chordCardView.addGestureRecognizer(tapGesture)
     }
     
-//    @objc internal func closeTapped() {
+//    @objc internal func cardTapped() {
 //        if let viewWithTag = self.view.viewWithTag(100) {
 //            viewWithTag.removeFromSuperview()
 //        }
@@ -187,11 +187,13 @@ extension TransposeViewController: TransposedNoteViewDelegate {
     func tappedNoteTo(note: String) {
         guard viewModel.attemptBuildingChord else { return }
         displayChordChart(name: note, constitution: ChordBuilder().chordConstitution(for: note))
+        viewModel.requestAd()
     }
     
     func tappedNoteFrom(note: String) {
         guard viewModel.attemptBuildingChord else { return }
         displayChordChart(name: note, constitution: ChordBuilder().chordConstitution(for: note))
+        viewModel.requestAd()
     }
 }
 
