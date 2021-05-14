@@ -27,6 +27,8 @@ class TransposeViewModel: Staffable {
     private var addCounter = 0
     private let monitor: NWPathMonitor
     
+    var isAdInCache: Bool = false
+    
     init(delegate: TransposeViewModelDelegate,
          interactor: AdManagerInteractor,
          firebaseInteractor: FirebaseBoundary) {
@@ -50,8 +52,8 @@ class TransposeViewModel: Staffable {
     }
     
     var shouldRequestAd: Bool {
-        if Cache.sharedInstance.isAdsTurnedOn {
-            guard addCounter % 2 == 0 || addCounter % 5 == 0 else { return false }
+        if Cache.sharedInstance.isAdsTurnedOn && !isAdInCache {
+            guard addCounter % 8 == 0 else { return false }
             return true
         }
         return false
@@ -76,6 +78,7 @@ class TransposeViewModel: Staffable {
     func requestAd() {
         if shouldRequestAd {
             interactor.loadInterstitialAd { (interstitialAd) in
+                self.isAdInCache = true
                 self.delegate?.finishedAdRequest(interstitialAd)
             } failure: { (_) in
                 self.delegate?.finishedAdRequest(nil)
