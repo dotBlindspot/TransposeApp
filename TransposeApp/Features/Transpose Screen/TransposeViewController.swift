@@ -179,6 +179,7 @@ extension TransposeViewController: TransposeViewModelDelegate {
     func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?) {
         guard let interstitialAd = interstitialAd else { return }
         interstitialAd.present(fromRootViewController: self)
+        viewModel.isAdInCache = false
     }
 }
 
