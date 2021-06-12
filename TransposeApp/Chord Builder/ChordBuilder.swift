@@ -6,7 +6,60 @@
 //  Copyright © 2021 Janco Erasmus. All rights reserved.
 //
 
+/*
+ struct ChordStructureModel {
+     var structure: [Int]
+     var isBarChord: Bool
+     var barFretNumber: Int
+     var startingFretNumber: Int
+     var isCapoOn: Bool
+     var capoFretNumber: Int
+ }
+
+ struct ChordBuilder {
+     
+     /// Structure layout - [E, A, D, G, B, E, BarChord - Bool (0), Bar Fret Number, First Fret Number, Capo On, Capo Number]
+     /// String numbers: -1 String should not be played (X displayed on neckBar)
+     ///             0  Open String
+     /// Bar Chord: 0 represent false then normal open chord & 1 represent true then finger like component displayed
+     /// First Fret Number: Allows to display which fret number are used
+     /// Capo On: Display another chord in diffrent key that represent the same chord with Capo On (A can be G chord with Capo 2)
+     
+     private let Amajor = ChordStructureModel(structure: [-1, 0, 12, 17, 22, 0],
+                                              isBarChord: false, barFretNumber: 0,
+                                              startingFretNumber: 1,
+                                              isCapoOn: false, capoFretNumber: 0)
+     
+     private let AmajorShape2 = ChordStructureModel(structure: [-1, 0, 12, 17, 22, 30],
+                                                    isBarChord: false, barFretNumber: 0,
+                                                    startingFretNumber: 1,
+                                                    isCapoOn: false, capoFretNumber: 0)
+     private let AmajorShape3 = ChordStructureModel(structure: [5, 9, 12, 17, 22, 30],
+                                                   isBarChord: false, barFretNumber: 0,
+                                                   startingFretNumber: 1,
+                                                   isCapoOn: false, capoFretNumber: 0)
+     
+     private let AmajorBarChord = ChordStructureModel(structure: [1, 8, 13, 17, 21, 26],
+                                                      isBarChord: true, barFretNumber: 1,
+                                                      startingFretNumber: 5,
+                                                      isCapoOn: false, capoFretNumber: 0)
+ */
+
 import Foundation
+
+struct ChordPack {
+    var name: String
+    var chords: [ChordModel]
+}
+
+struct ChordModel {
+    var structure: [Int]
+    var isBarChord: Bool
+    var barFretNumber: Int
+    var startingFretNumber: Int
+    var isCapoOn: Bool
+    var capoFretNumber: Int
+}
 
 struct ChordBuilder {
     
@@ -98,6 +151,117 @@ struct ChordBuilder {
             return Abminor
         default:
             return inactive
+        }
+    }
+    
+    // MARK: Using Chord Packs ( Add here )
+    
+    // MARK: Amajor Chord Models
+    private var AmajorShapeOne: ChordModel {
+        return ChordModel(structure: [-1, 0, 12, 17, 22, 0],
+                          isBarChord: false, barFretNumber: 0,
+                          startingFretNumber: 1,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var AmajorShapeTwo: ChordModel {
+        return ChordModel(structure: [-1, 0, 12, 17, 22, 30],
+                          isBarChord: false, barFretNumber: 0,
+                          startingFretNumber: 1,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var AmajorShapeThree: ChordModel {
+        return ChordModel(structure: [5, 9, 12, 17, 22, 30],
+                          isBarChord: false, barFretNumber: 0,
+                          startingFretNumber: 1,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var AmajorBarChord: ChordModel {
+        return ChordModel(structure: [1, 8, 13, 17, 21, 26],
+                          isBarChord: true, barFretNumber: 1,
+                          startingFretNumber: 5,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var AmajorChords: [ChordModel] {
+        return [AmajorShapeOne, AmajorBarChord, AmajorShapeTwo, AmajorShapeThree]
+    }
+    
+    // MARK: Gmajor Chord Models
+    
+    private var GmajorOne: ChordModel {
+        return ChordModel(structure: [3, 7, 0, 0, 0, 28],
+                          isBarChord: false, barFretNumber: 0,
+                          startingFretNumber: 1,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var GmajorBarChord: ChordModel {
+        return ChordModel(structure: [0, 10, 15, 19, 0, 0],
+                          isBarChord: true, barFretNumber: 3,
+                          startingFretNumber: 1,
+                          isCapoOn: false, capoFretNumber: 0)
+    }
+    
+    private var GmajorChords: [ChordModel] {
+        return [GmajorOne, GmajorBarChord]
+    }
+    
+    func chordPack(for note: String) -> ChordPack {
+        switch note {
+        case "A":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "A#", "Bb":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "B":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "C":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "C#", "Db":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "D":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "D#", "Eb":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "E":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "F":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "F#", "Gb":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "G":
+            return ChordPack(name: "Gmajor", chords: GmajorChords)
+        case "G#", "Ab":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        // MARK: - Minors
+        case "Am":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "A#m", "Bbm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Bm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Cm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "C#m", "Dbm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Dm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "D#m", "Ebm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Em":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Fm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "F#m", "Gbm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "Gm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        case "G#m", "Abm":
+            return ChordPack(name: "Amajor", chords: AmajorChords)
+        default:
+            return ChordPack(name: "Amajor", chords: AmajorChords)
         }
     }
 }
