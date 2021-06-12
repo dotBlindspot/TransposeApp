@@ -17,6 +17,8 @@ class GuitarChordCardView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var neckBar: UIView!
     @IBOutlet weak var chordNameLabel: UILabel!
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     // MARK: - Guitar String Outlets
     
@@ -76,21 +78,11 @@ class GuitarChordCardView: UIView {
     @IBOutlet weak var eHFive: PintView!
     
     var delegate: GuitarChordViewDelegate?
+    var chordPack: ChordPack!
     
     private var notePints: [PintView]?
-    
-    private var notesNumbers: [Int]!
-    private var isBarChord: Bool!
-    private var barNumber: Int?
-    private var startingFretNumber: Int!
-    private var isCapoOn: Bool!
-    private var capoNumber: Int?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupNib()
-        self.configureUI()
-    }
+    private var currentDisplayedChord: ChordModel?
+    private var currentChordIndex = 0
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -103,8 +95,29 @@ class GuitarChordCardView: UIView {
         configureUI()
     }
     
+    init(frame: CGRect, chordPack: ChordPack) {
+        super.init(frame: frame)
+        self.chordPack = chordPack
+        self.setupNib()
+        self.configureUI()
+    }
+    
     @IBAction func closeButtonTapped(_ sender: Any) {
         delegate?.closeTapped()
+    }
+    
+    @IBAction func previousChordTapped(_ sender: Any) {
+        currentChordIndex -= 1
+        nextButton.show()
+        showChord(at: currentChordIndex)
+        currentChordIndex <= 0 ? previousButton.hide() : previousButton.show()
+    }
+    
+    @IBAction func nextChordTapped(_ sender: Any) {
+        currentChordIndex += 1
+        previousButton.show()
+        showChord(at: currentChordIndex)
+        currentChordIndex >= chordPack.chords.count - 1 ? nextButton.hide() : nextButton.show()
     }
     
     func configureUI() {
@@ -113,6 +126,8 @@ class GuitarChordCardView: UIView {
                                 cornerRadius: .medium)
         populateNotePints()
         resetChordChart()
+        previousButton.hide()
+        showChord(at: currentChordIndex)
     }
     
     private func populateNotePints() {
@@ -131,20 +146,12 @@ class GuitarChordCardView: UIView {
             pint.isHidden = true
         }
     }
-    
-    private func disassembleChordConstitution(constitution: [Int]) {
-        notesNumbers = Array(constitution[0..<6])
-        isBarChord = constitution[6].boolValue
-        barNumber = constitution[7]
-        startingFretNumber = constitution[8]
-        isCapoOn = constitution[9].boolValue
-        capoNumber = constitution[10]
-    }
-    
+        
     private func placeNotePints() {
-        for number in notesNumbers {
+        for number in currentDisplayedChord!.structure {
             if number > 0 {
                 self.notePints![number].isHidden = false
+                self.notePints![number].defaultStyle()
             } else if number == -1 {
                 // mark x on neckBoard
             }
@@ -152,37 +159,33 @@ class GuitarChordCardView: UIView {
     }
     
     private func placeBarPints() {
-        if isBarChord {
+        if currentDisplayedChord!.isBarChord {
             for i in 0..<6 {
-                if notesNumbers[i] != -1 {
-                    notePints![barNumber!].isHidden = false
-                    notePints![barNumber!].styleAsBarPint()
+                if currentDisplayedChord!.structure[i] != -1 {
+                    notePints![currentDisplayedChord!.barFretNumber].isHidden = false
+                    notePints![currentDisplayedChord!.barFretNumber].styleAsBarPint()
                 }
-                barNumber! += 5
+                currentDisplayedChord!.barFretNumber += 5
             }
         }
     }
     
     private func configureFretNumbers() {
-        if startingFretNumber > 1 {
+        if currentDisplayedChord!.startingFretNumber > 1 {
             neckBar.isHidden = true
-            firstFretLabel.text = String(startingFretNumber)
-            secondFretLabel.text = String(startingFretNumber + 1)
-            thirdFretLabel.text = String(startingFretNumber + 2)
-            fourthFretLabel.text = String(startingFretNumber + 3)
-            fifthFretLabel.text = String(startingFretNumber + 4)
+            firstFretLabel.text = String(currentDisplayedChord!.startingFretNumber)
+            secondFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 1)
+            thirdFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 2)
+            fourthFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 3)
+            fifthFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 4)
         }
     }
     
-    func buildChord(name: String, constitution: [Int]) {
-        guard constitution.count == 11 else {
-            chordNameLabel.text = "Not Available"
-            return
-        }
-        /// Constitution layout - [E, A, D, G, B, E, BarChord - Bool (0), Bar Fret Number, First Fret Number, Capo On, Capo Number]
+    private func showChord(at index: Int) {
+        resetChordChart()
+        currentDisplayedChord = chordPack?.chords[index]
         
-        chordNameLabel.text = name
-        disassembleChordConstitution(constitution: constitution)
+        chordNameLabel.text = chordPack?.name
         placeNotePints()
         placeBarPints()
         configureFretNumbers()
@@ -193,5 +196,18 @@ extension Int {
     
     var boolValue: Bool {
         return self == 1
+    }
+}
+
+extension UIButton {
+    
+    func hide() {
+        self.isHidden = true
+        self.alpha = 0.5
+    }
+    
+    func show() {
+        self.isHidden = false
+        self.alpha = 1
     }
 }
