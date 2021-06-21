@@ -213,6 +213,7 @@ struct ChordBuilder {
         switch note {
         case "A":
             return ChordPack(name: "Amajor", chords: AmajorChords)
+            #warning("Janco: , chords: ChordStructures.Ama...")
         case "A#", "Bb":
             return ChordPack(name: "Amajor", chords: AmajorChords)
         case "B":

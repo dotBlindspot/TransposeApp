@@ -39,6 +39,15 @@ class TransposeViewController: UIViewController {
         viewModel.observeNetwork()
         viewModel.requestAd()
         initBannerAdView()
+        
+        let interactor = ChordBuilderInteractor()
+        interactor.fetchChordPack(for: "A") { (response) in
+            print("Structure: \(response[0].structure!)")
+            print("Starting Number: \(response[0].startingFretNumber!)")
+        } failure: { (error) in
+
+        }
+        // interactor.addChordPack(chordPack: ChordStructures.AmajorChordStructurePack)
     }
             
     private func configureUI() {
