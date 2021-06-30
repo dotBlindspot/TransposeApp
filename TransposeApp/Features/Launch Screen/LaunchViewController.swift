@@ -13,8 +13,7 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     lazy var viewModel = LaunchViewModel(delegate: self,
-                                         interactor: FirebaseInteractor(),
-                                         inAppPurchaseManager: InAppPurchaseHelper(productIdentifiers: TransposeProduct.productIdentifiers))
+                                         interactor: FirebaseInteractor())
 
     override func viewDidLoad() {
         super.viewDidLoad()

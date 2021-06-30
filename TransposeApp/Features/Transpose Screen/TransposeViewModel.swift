@@ -51,6 +51,10 @@ class TransposeViewModel: Staffable {
         return requestType == .keys
     }
     
+    var shouldShowBannerAd: Bool {
+        return Cache.sharedInstance.isAdsTurnedOn && !Cache.sharedInstance.isTransposeAppPurchased
+    }
+    
     var shouldRequestAd: Bool {
         if Cache.sharedInstance.isAdsTurnedOn && !isAdInCache && !Cache.sharedInstance.isTransposeAppPurchased {
             guard addCounter % 8 == 0 else { return false }

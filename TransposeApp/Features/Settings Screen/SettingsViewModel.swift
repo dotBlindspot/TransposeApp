@@ -64,6 +64,10 @@ class SettingsViewModel {
         inAppPurchaseHandler?.makeNewPurchase()
     }
     
+    func restoreProducts() {
+        inAppPurchaseHandler?.restorePurchases()
+    }
+    
     func set(inAppPurchaseHandlerDelegate: InAppPurchaseHandlerDelegate) {
         self.inAppPurchaseHandler?.delegate = inAppPurchaseHandlerDelegate
     }

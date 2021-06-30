@@ -40,8 +40,8 @@ class TransposeViewController: UIViewController {
         viewModel.requestAd()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         initBannerAdView()
     }
             
@@ -128,7 +128,9 @@ class TransposeViewController: UIViewController {
     }
     
     private func initBannerAdView() {
-        if Cache.sharedInstance.isAdsTurnedOn && !Cache.sharedInstance.isTransposeAppPurchased {
+        bannerView.isHidden = true
+        if viewModel.shouldShowBannerAd {
+            bannerView.isHidden = false
             let adUnitID = Cache().bannerAdUnitID
             bannerView.adUnitID = adUnitID
             bannerView.rootViewController = self

@@ -32,7 +32,27 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func removeAdsBarButtonTapped(_ sender: Any) {
-        viewModel.buyProduct()
+        presentPurchaseActionSheet()
+    }
+    
+    private func presentPurchaseActionSheet() {
+        let actionSheet = UIAlertController(title: "Do you want to remove ads or restore previous purchases?", message: nil, preferredStyle: .actionSheet)
+        
+        let removeAdsAction = UIAlertAction(title: "Buy Remove Ads", style: .default) { (_) in
+            self.viewModel.buyProduct()
+        }
+        
+        let restorePurchasesAction = UIAlertAction(title: "Restore Purchases", style: .default) { (_) in
+            self.viewModel.restoreProducts()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        actionSheet.addAction(removeAdsAction)
+        actionSheet.addAction(restorePurchasesAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
@@ -64,6 +84,16 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
 
 extension SettingsViewController: InAppPurchaseHandlerDelegate {
     
+    func restoredSuccessfully() {
+        let alert = UIAlertController(title: "Success!",
+                                      message: "Previously products has been restored",
+                                      preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
+        self.setupView()
+    }
+    
     func productsFetchedSuccessfully() {
         removeAdsBarButton.isEnabled = true
     }
@@ -78,11 +108,13 @@ extension SettingsViewController: InAppPurchaseHandlerDelegate {
     }
     
     func paymentError(error: String) {
-//        let alert = UIAlertController(title: "Purchase was unsuccessful",
-//                                      message: "Please try again later",
-//                                      preferredStyle: .alert)
-//        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-//        alert.addAction(okAlertAction)
-//        alert.present(self, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Oooops!",
+                                      message: error,
+                                      preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    
 }

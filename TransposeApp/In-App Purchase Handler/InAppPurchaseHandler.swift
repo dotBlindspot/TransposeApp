@@ -13,15 +13,19 @@ protocol InAppPurchaseHandlerDelegate {
     func productsFetchedSuccessfully()
     func paymentSuccessful(for product: SKProduct)
     func paymentError(error: String)
+    func restoredSuccessfully()
 }
 
 class InAppPurchaseHandler: NSObject {
+    static var shared = InAppPurchaseHandler()
     
     var removeAdsProduct: SKProduct?
     var delegate: InAppPurchaseHandlerDelegate?
     
+    let removeAdsProductID = "com.jancoerasmus.transposeapp.removeads"
+    
     func fetchProducts() {
-        let request = SKProductsRequest(productIdentifiers: ["com.jancoerasmus.transposeapp.removeads"])
+        let request = SKProductsRequest(productIdentifiers: [removeAdsProductID])
         request.delegate = self
         request.start()
     }
@@ -35,6 +39,17 @@ class InAppPurchaseHandler: NSObject {
             let payment = SKPayment(product: removeAdsProduct)
             SKPaymentQueue.default().add(self)
             SKPaymentQueue.default().add(payment)
+        } else {
+            delegate?.paymentError(error: "Experiencing some technical errors processing your payment/n/nPlease try again later")
+        }
+    }
+    
+    func restorePurchases() {
+        if SKPaymentQueue.canMakePayments() {
+            SKPaymentQueue.default().add(self)
+            SKPaymentQueue.default().restoreCompletedTransactions()
+        } else {
+            delegate?.paymentError(error: "Experiencing some technical errors processing your payment/n/nPlease try again later")
         }
     }
 }
@@ -57,16 +72,23 @@ extension InAppPurchaseHandler: SKPaymentTransactionObserver {
             switch transaction.transactionState {
             case .purchasing:
                 break
-            case .purchased, .restored:
+            case .purchased:
                 // Unlock item
                 UserDefaults.standard.set(true, forKey: PurchaseKeys.purchased.rawValue)
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
                 delegate?.paymentSuccessful(for: removeAdsProduct!)
+            case .restored:
+                if transaction.payment.productIdentifier == removeAdsProductID {
+                    UserDefaults.standard.set(true, forKey: PurchaseKeys.purchased.rawValue)
+                }
+                SKPaymentQueue.default().finishTransaction(transaction)
+                SKPaymentQueue.default().remove(self)
+                delegate?.restoredSuccessfully()
             case .failed, .deferred:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
-                delegate?.paymentError(error: "Could not complete purchase")
+                delegate?.paymentError(error: "Purchase failed")
             default:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
