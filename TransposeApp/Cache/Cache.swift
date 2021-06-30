@@ -33,6 +33,11 @@ struct Cache {
     private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
     private let productionInterstitialAdUnitID = "ca-app-pub-4040587998998922/1560718513"
     
+    // MARK: - Product Purchased
+    var isTransposeAppPurchased: Bool {
+        UserDefaults.standard.bool(forKey: PurchaseKeys.purchased.rawValue)
+    }
+    
     var bannerAdUnitID: String {
         return Cache.sharedInstance.isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
     }

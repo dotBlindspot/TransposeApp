@@ -52,7 +52,7 @@ class TransposeViewModel: Staffable {
     }
     
     var shouldRequestAd: Bool {
-        if Cache.sharedInstance.isAdsTurnedOn && !isAdInCache {
+        if Cache.sharedInstance.isAdsTurnedOn && !isAdInCache && !Cache.sharedInstance.isTransposeAppPurchased {
             guard addCounter % 8 == 0 else { return false }
             return true
         }

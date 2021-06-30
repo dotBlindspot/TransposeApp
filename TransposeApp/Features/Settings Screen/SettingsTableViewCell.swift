@@ -17,7 +17,7 @@ class SettingsTableViewCell: UITableViewCell {
     
     var indexPath: IndexPath!
     var delegate: SettingsTableViewCellDelegate?
-    lazy var viewModel = SettingsViewModel()
+    lazy var viewModel = SettingsViewModel(inAppPurchaseHandler: InAppPurchaseHandler())
     
     override func awakeFromNib() {
         super.awakeFromNib()

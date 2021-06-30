@@ -7,26 +7,32 @@
 //
 
 import UIKit
+import StoreKit
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var removeAdsButton: UIButton!
+    @IBOutlet private var removeAdsBarButton: UIBarButtonItem!
     
-    lazy var viewModel = SettingsViewModel()
+    lazy var viewModel = SettingsViewModel(inAppPurchaseHandler: InAppPurchaseHandler())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        viewModel.set(inAppPurchaseHandlerDelegate: self)
+        viewModel.fetchProducts()
     }
     
     func setupView() {
+        viewModel.isTransposedAlreadyPurchased ?
+        (removeAdsBarButton.title = "") : (removeAdsBarButton.title = "Remove Ads")
+        removeAdsBarButton.isEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    @IBAction func removeAdsButtonTapped(_ sender: Any) {
-        #warning("In app Purchase - How to: https://www.raywenderlich.com/5456-in-app-purchase-tutorial-getting-started")
+    @IBAction func removeAdsBarButtonTapped(_ sender: Any) {
+        viewModel.buyProduct()
     }
 }
 
@@ -53,5 +59,30 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
         default:
             break
         }
+    }
+}
+
+extension SettingsViewController: InAppPurchaseHandlerDelegate {
+    
+    func productsFetchedSuccessfully() {
+        removeAdsBarButton.isEnabled = true
+    }
+    
+    func paymentSuccessful(for product: SKProduct) {
+//        let alert = UIAlertController(title: "Purchase was successful",
+//                                      message: "Thank you for your support/nEnjoy the ad-free life/nProduct: \(product.localizedTitle)",
+//                                      preferredStyle: .alert)
+//        let okAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        alert.addAction(okAlertAction)
+//        alert.present(self, animated: true, completion: nil)
+    }
+    
+    func paymentError(error: String) {
+//        let alert = UIAlertController(title: "Purchase was unsuccessful",
+//                                      message: "Please try again later",
+//                                      preferredStyle: .alert)
+//        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+//        alert.addAction(okAlertAction)
+//        alert.present(self, animated: true, completion: nil)
     }
 }
