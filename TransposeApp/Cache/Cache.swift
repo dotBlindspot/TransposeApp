@@ -38,6 +38,10 @@ struct Cache {
         UserDefaults.standard.bool(forKey: PurchaseKeys.purchased.rawValue)
     }
     
+    var shouldShowRemoveAdsFlyer: Bool {
+        return !isTransposeAppPurchased && !UserDefaults.standard.bool(forKey: FlyerName.removeAds.rawValue)
+    }
+    
     var bannerAdUnitID: String {
         return Cache.sharedInstance.isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
     }
@@ -59,4 +63,8 @@ struct Cache {
     var flatNotes = ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
                      "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
                      "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]
+}
+
+enum FlyerName: String {
+    case removeAds = "Remove Ads"
 }

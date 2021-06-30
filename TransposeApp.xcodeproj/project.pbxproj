@@ -26,6 +26,8 @@
 		5A56283E25F9580D00F9C283 /* Staffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56283D25F9580D00F9C283 /* Staffable.swift */; };
 		5A56284A25F965E100F9C283 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56284925F965E100F9C283 /* UIView + Extensions.swift */; };
 		5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */; };
+		5A6CEA4F268CE9C6008C5E62 /* PopupFlyerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6CEA4E268CE9C6008C5E62 /* PopupFlyerView.xib */; };
+		5A6CEA51268CEA32008C5E62 /* PopupFlyerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CEA50268CEA32008C5E62 /* PopupFlyerView.swift */; };
 		5A81F190260003C900C21EF7 /* TransposerCardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F18F260003C900C21EF7 /* TransposerCardViewDelegate.swift */; };
 		5A81F1942600838D00C21EF7 /* UILabel + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F1932600838D00C21EF7 /* UILabel + Extensions.swift */; };
 		5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81F19A2600A21200C21EF7 /* AdManagerInteractor.swift */; };
@@ -73,6 +75,8 @@
 		5A56283D25F9580D00F9C283 /* Staffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Staffable.swift; sourceTree = "<group>"; };
 		5A56284925F965E100F9C283 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A6CEA4E268CE9C6008C5E62 /* PopupFlyerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupFlyerView.xib; sourceTree = "<group>"; };
+		5A6CEA50268CEA32008C5E62 /* PopupFlyerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFlyerView.swift; sourceTree = "<group>"; };
 		5A81F18F260003C900C21EF7 /* TransposerCardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposerCardViewDelegate.swift; sourceTree = "<group>"; };
 		5A81F1932600838D00C21EF7 /* UILabel + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extensions.swift"; sourceTree = "<group>"; };
 		5A81F19A2600A21200C21EF7 /* AdManagerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManagerInteractor.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				5A56283F25F9606C00F9C283 /* Reuseable Components */,
 				5A56283B25F957EA00F9C283 /* Extensions */,
 				5A18FBB42212B98000E15518 /* AppDelegate.swift */,
+				5A6CEA4D268CE98F008C5E62 /* PopupFlyerView */,
 				5A18FBBD2212B98100E15518 /* Assets.xcassets */,
 				5A18FBBF2212B98100E15518 /* LaunchScreen.storyboard */,
 				5A6AC2CA22CF590F00B58E9C /* GoogleService-Info.plist */,
@@ -285,6 +290,15 @@
 				5A56284925F965E100F9C283 /* UIView + Extensions.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		5A6CEA4D268CE98F008C5E62 /* PopupFlyerView */ = {
+			isa = PBXGroup;
+			children = (
+				5A6CEA4E268CE9C6008C5E62 /* PopupFlyerView.xib */,
+				5A6CEA50268CEA32008C5E62 /* PopupFlyerView.swift */,
+			);
+			path = PopupFlyerView;
 			sourceTree = "<group>";
 		};
 		5A81F1922600837800C21EF7 /* UILabel */ = {
@@ -473,6 +487,7 @@
 				5A6AC2CB22CF590F00B58E9C /* GoogleService-Info.plist in Resources */,
 				5A18FBBE2212B98100E15518 /* Assets.xcassets in Resources */,
 				5AD40FDC260B575800E6FDB8 /* PintView.xib in Resources */,
+				5A6CEA4F268CE9C6008C5E62 /* PopupFlyerView.xib in Resources */,
 				5A18FBBC2212B98000E15518 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6CEA51268CEA32008C5E62 /* PopupFlyerView.swift in Sources */,
 				5A81F1D12601DBFD00C21EF7 /* FirebaseBoundary.swift in Sources */,
 				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
 				5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */,
@@ -704,7 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -712,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jancoerasmus.TransposeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -726,7 +742,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 533WL8M2YN;
 				INFOPLIST_FILE = TransposeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
@@ -734,7 +750,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jancoerasmus.TransposeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

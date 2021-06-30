@@ -13,6 +13,7 @@ import Network
 protocol TransposeViewModelDelegate: NSObject {
     func finishedAdRequest(_ interstitialAd: GADInterstitialAdBeta?)
     func systemNowOnline()
+    func productPurchased()
 }
 
 class TransposeViewModel: Staffable {
@@ -20,6 +21,7 @@ class TransposeViewModel: Staffable {
     weak var delegate: TransposeViewModelDelegate?
     private var interactor: AdManagerInteractor!
     private var firebaseInteractor: FirebaseBoundary!
+    private var inAppPurchaseHandler: InAppPurchaseHandler?
     private var networkManager: CellularNetworkManager?
     private var _requestType: TransposeRequestType = Cache().requestType
     private var fromNumber: Int = 0
@@ -31,11 +33,14 @@ class TransposeViewModel: Staffable {
     
     init(delegate: TransposeViewModelDelegate,
          interactor: AdManagerInteractor,
-         firebaseInteractor: FirebaseBoundary) {
+         firebaseInteractor: FirebaseBoundary,
+         inAppPurchaseHandler: InAppPurchaseHandler) {
         self.delegate = delegate
         self.interactor = interactor
         self.addCounter += 1
         self.monitor = NWPathMonitor()
+        self.inAppPurchaseHandler = inAppPurchaseHandler
+        self.inAppPurchaseHandler?.delegate = self
     }
     
     var requestType: TransposeRequestType {
@@ -105,11 +110,34 @@ class TransposeViewModel: Staffable {
         networkManager = CellularNetworkManager(delegate: self)
         networkManager!.observeNetwork()
     }
+    
+    func fetchAndBuyProduct() {
+        inAppPurchaseHandler?.fetchProducts()
+    }
 }
 
 extension TransposeViewModel: CellularNetworkObservable {
     
     func didUpdateNetworkStatus() {
         delegate?.systemNowOnline()
+    }
+}
+
+extension TransposeViewModel: InAppPurchaseHandlerDelegate {
+    
+    func productsFetchedSuccessfully() {
+        inAppPurchaseHandler?.makeNewPurchase()
+    }
+    
+    func paymentSuccessful(for product: SKProduct) {
+        delegate?.productPurchased()
+    }
+    
+    func paymentError(error: String) {
+        
+    }
+    
+    func restoredSuccessfully() {
+        
     }
 }

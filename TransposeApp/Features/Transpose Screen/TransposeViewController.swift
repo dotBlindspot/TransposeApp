@@ -30,12 +30,17 @@ class TransposeViewController: UIViewController {
     private var interstitialAd: GADInterstitialAdBeta?
     lazy var viewModel = TransposeViewModel(delegate: self,
                                             interactor: AdManagerInteractor(),
-                                            firebaseInteractor: FirebaseInteractor())
+                                            firebaseInteractor: FirebaseInteractor(),
+                                            inAppPurchaseHandler: InAppPurchaseHandler())
+    
+    var backgroundView: UIView?
+    var flyerView: PopupFlyerView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         stackNotes()
+        showFlyers()
         viewModel.observeNetwork()
         viewModel.requestAd()
     }
@@ -75,6 +80,26 @@ class TransposeViewController: UIViewController {
             toTransposerCardView.titleLabelText = "Using chords of"
             notesCardContainerViewHeading.styleForCapoOn(fretNumber: viewModel.fretNumber)
             #warning("Place Capo on fret comes here - Show fret Board animation")
+        }
+    }
+    
+    private func showFlyers() {
+        if Cache.sharedInstance.shouldShowRemoveAdsFlyer {
+            backgroundView = UIView(frame: self.view.bounds)
+            backgroundView?.backgroundColor = .gray
+            backgroundView?.alpha = 0.7
+            
+            let flyerFrame = CGRect(x: 0, y: 0,
+                                    width: self.view.bounds.width * 0.77,
+                                    height: self.view.bounds.height * 0.7)
+            flyerView = PopupFlyerView(frame: flyerFrame)
+            flyerView?.center = CGPoint(x: self.view.frame.size.width/2,
+                                       y: self.view.frame.size.height/2)
+            flyerView?.contentView.layer.cornerRadius = 20
+            flyerView?.delegate = self
+            
+            self.view.addSubview(backgroundView!)
+            self.view.addSubview(flyerView!)
         }
     }
     
@@ -189,6 +214,10 @@ extension TransposeViewController: TransposeViewModelDelegate {
         interstitialAd.present(fromRootViewController: self)
         viewModel.isAdInCache = false
     }
+    
+    func productPurchased() {
+        initBannerAdView()
+    }
 }
 
 extension TransposeViewController: TransposedNoteViewDelegate {
@@ -215,6 +244,27 @@ extension TransposeViewController: GuitarChordViewDelegate {
         
         if let viewWithTag = self.view.viewWithTag(99) {
             viewWithTag.removeFromSuperview()
+        }
+    }
+}
+
+extension TransposeViewController: PopupFlyerViewDelegate {
+    
+    func tappedPrimaryButton(view: UIView, sender: Any) {
+        removeFlyerView()
+        viewModel.fetchAndBuyProduct()
+    }
+    
+    func tappedSecondaryButton(view: UIView, sender: Any) {
+        UserDefaults.standard.set(true, forKey: FlyerName.removeAds.rawValue)
+        removeFlyerView()
+    }
+    
+    func removeFlyerView() {
+        for view in self.view.subviews {
+            if view == backgroundView || view == flyerView {
+                view.removeFromSuperview()
+            }
         }
     }
 }
