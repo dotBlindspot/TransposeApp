@@ -99,12 +99,7 @@ extension SettingsViewController: InAppPurchaseHandlerDelegate {
     }
     
     func paymentSuccessful(for product: SKProduct) {
-//        let alert = UIAlertController(title: "Purchase was successful",
-//                                      message: "Thank you for your support/nEnjoy the ad-free life/nProduct: \(product.localizedTitle)",
-//                                      preferredStyle: .alert)
-//        let okAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//        alert.addAction(okAlertAction)
-//        alert.present(self, animated: true, completion: nil)
+        self.setupView()
     }
     
     func paymentError(error: String) {
