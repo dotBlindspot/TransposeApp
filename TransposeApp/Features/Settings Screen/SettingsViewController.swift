@@ -7,26 +7,52 @@
 //
 
 import UIKit
+import StoreKit
 
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var removeAdsButton: UIButton!
+    @IBOutlet private var removeAdsBarButton: UIBarButtonItem!
     
-    lazy var viewModel = SettingsViewModel()
+    lazy var viewModel = SettingsViewModel(inAppPurchaseHandler: InAppPurchaseHandler())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        viewModel.set(inAppPurchaseHandlerDelegate: self)
+        viewModel.fetchProducts()
     }
     
     func setupView() {
+        viewModel.isTransposedAlreadyPurchased ?
+        (removeAdsBarButton.title = "") : (removeAdsBarButton.title = "Remove Ads")
+        removeAdsBarButton.isEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    @IBAction func removeAdsButtonTapped(_ sender: Any) {
-        #warning("In app Purchase - How to: https://www.raywenderlich.com/5456-in-app-purchase-tutorial-getting-started")
+    @IBAction func removeAdsBarButtonTapped(_ sender: Any) {
+        presentPurchaseActionSheet()
+    }
+    
+    private func presentPurchaseActionSheet() {
+        let actionSheet = UIAlertController(title: "Do you want to remove ads or restore previous purchases?", message: nil, preferredStyle: .actionSheet)
+        
+        let removeAdsAction = UIAlertAction(title: "Buy Remove Ads", style: .default) { (_) in
+            self.viewModel.buyProduct()
+        }
+        
+        let restorePurchasesAction = UIAlertAction(title: "Restore Purchases", style: .default) { (_) in
+            self.viewModel.restoreProducts()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        
+        actionSheet.addAction(removeAdsAction)
+        actionSheet.addAction(restorePurchasesAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
@@ -54,4 +80,41 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
             break
         }
     }
+}
+
+extension SettingsViewController: InAppPurchaseHandlerDelegate {
+    
+    func restoredSuccessfully() {
+        let alert = UIAlertController(title: "Success!",
+                                      message: "Previously products has been restored",
+                                      preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
+        self.setupView()
+    }
+    
+    func productsFetchedSuccessfully() {
+        removeAdsBarButton.isEnabled = true
+    }
+    
+    func paymentSuccessful(for product: SKProduct) {
+//        let alert = UIAlertController(title: "Purchase was successful",
+//                                      message: "Thank you for your support/nEnjoy the ad-free life/nProduct: \(product.localizedTitle)",
+//                                      preferredStyle: .alert)
+//        let okAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        alert.addAction(okAlertAction)
+//        alert.present(self, animated: true, completion: nil)
+    }
+    
+    func paymentError(error: String) {
+        let alert = UIAlertController(title: "Oooops!",
+                                      message: error,
+                                      preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }
