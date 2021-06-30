@@ -38,6 +38,10 @@ class TransposeViewController: UIViewController {
         stackNotes()
         viewModel.observeNetwork()
         viewModel.requestAd()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         initBannerAdView()
     }
             
@@ -124,7 +128,9 @@ class TransposeViewController: UIViewController {
     }
     
     private func initBannerAdView() {
-        if Cache.sharedInstance.isAdsTurnedOn {
+        bannerView.isHidden = true
+        if viewModel.shouldShowBannerAd {
+            bannerView.isHidden = false
             let adUnitID = Cache().bannerAdUnitID
             bannerView.adUnitID = adUnitID
             bannerView.rootViewController = self
@@ -132,18 +138,20 @@ class TransposeViewController: UIViewController {
         }
     }
     
-    private func displayChordChart(name: String, constitution: [Int]) {
+    private func displayChordChart(for note: String) {
         let blurView = UIView(frame: self.view.bounds)
         blurView.backgroundColor = UIColor.taBlack
         blurView.alpha = 0.5
         blurView.tag = 99
         self.view.addSubview(blurView)
         
-        let chordCardView = GuitarChordCardView(frame: CGRect(x: 0, y: 0, width: 280, height: 490))
+        let chordPack = ChordBuilder().chordPack(for: note)
+        let chordCardView = GuitarChordCardView(frame: CGRect(x: 0, y: 0, width: 280, height: 490),
+                                                chordPack: chordPack)
         chordCardView.delegate = self
         chordCardView.center = CGPoint(x: self.view.frame.size.width  / 2,
                                        y: self.view.frame.size.height / 2)
-        chordCardView.buildChord(name: name, constitution: constitution)
+        // chordCardView.buildChord(name: name, constitution: constitution)
         
         chordCardView.tag = 100
         chordCardView.isUserInteractionEnabled = true
@@ -187,13 +195,13 @@ extension TransposeViewController: TransposedNoteViewDelegate {
     
     func tappedNoteTo(note: String) {
         guard viewModel.attemptBuildingChord else { return }
-        displayChordChart(name: note, constitution: ChordBuilder().chordConstitution(for: note))
+        displayChordChart(for: note)
         viewModel.requestAd()
     }
     
     func tappedNoteFrom(note: String) {
         guard viewModel.attemptBuildingChord else { return }
-        displayChordChart(name: note, constitution: ChordBuilder().chordConstitution(for: note))
+        displayChordChart(for: note)
         viewModel.requestAd()
     }
 }

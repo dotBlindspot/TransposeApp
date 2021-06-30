@@ -53,6 +53,8 @@
                 <outlet property="gThree" destination="YsC-cW-HVX" id="0rO-s4-4pe"/>
                 <outlet property="gTwo" destination="wzx-41-2RB" id="4RL-pA-ulL"/>
                 <outlet property="neckBar" destination="3i4-2X-Aec" id="pHy-tC-O4p"/>
+                <outlet property="nextButton" destination="wAt-9S-fK5" id="pYH-Kb-bXL"/>
+                <outlet property="previousButton" destination="3fc-Ei-ckS" id="Mqd-Tj-Uon"/>
                 <outlet property="secondFretLabel" destination="uhz-V7-Nba" id="Wsb-bq-b8I"/>
                 <outlet property="thirdFretLabel" destination="qrb-gS-crL" id="Baq-vB-BmE"/>
             </connections>
@@ -301,6 +303,26 @@
                                 <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="1Om-ry-Xfo"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fc-Ei-ckS">
+                            <rect key="frame" x="59.5" y="19" width="30" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <state key="normal" title="&lt;">
+                                <color key="titleColor" name="TABlack"/>
+                            </state>
+                            <connections>
+                                <action selector="previousChordTapped:" destination="-1" eventType="touchUpInside" id="f8q-rh-MPm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAt-9S-fK5">
+                            <rect key="frame" x="191" y="19" width="30" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <state key="normal" title="&gt;">
+                                <color key="titleColor" name="TABlack"/>
+                            </state>
+                            <connections>
+                                <action selector="nextChordTapped:" destination="-1" eventType="touchUpInside" id="wN6-ja-FLF"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="p3B-XC-Dgf" firstAttribute="centerX" secondItem="jDQ-o8-HL5" secondAttribute="centerX" id="06E-me-k9J"/>
@@ -315,6 +337,7 @@
                         <constraint firstItem="JcL-p5-d7A" firstAttribute="centerY" secondItem="p3B-XC-Dgf" secondAttribute="centerY" id="2Nz-sM-b2T"/>
                         <constraint firstItem="Vxn-Lc-936" firstAttribute="top" secondItem="QLd-lB-Zg5" secondAttribute="bottom" constant="66" id="2cY-kD-heB"/>
                         <constraint firstItem="WPO-1a-loQ" firstAttribute="centerX" secondItem="v8i-A8-B7u" secondAttribute="centerX" id="2l6-MN-Nuh"/>
+                        <constraint firstItem="wAt-9S-fK5" firstAttribute="leading" secondItem="sky-hv-EWW" secondAttribute="trailing" constant="12" id="2vF-zV-ceb"/>
                         <constraint firstItem="QLd-lB-Zg5" firstAttribute="height" secondItem="SUf-n5-1yo" secondAttribute="height" id="3J0-Ex-g2T"/>
                         <constraint firstItem="WPO-1a-loQ" firstAttribute="centerY" secondItem="oDh-Sg-FDX" secondAttribute="centerY" id="3eo-wI-vlb"/>
                         <constraint firstItem="GZX-Fg-hM3" firstAttribute="centerY" secondItem="1Vp-0r-P0B" secondAttribute="centerY" id="3w7-RG-lzU"/>
@@ -461,6 +484,7 @@
                         <constraint firstItem="haB-xc-LRg" firstAttribute="height" secondItem="1Vp-0r-P0B" secondAttribute="height" id="o0w-sv-OWY"/>
                         <constraint firstItem="qrb-gS-crL" firstAttribute="centerY" secondItem="oDh-Sg-FDX" secondAttribute="centerY" id="oZt-qF-hiQ"/>
                         <constraint firstItem="tTs-d6-Dyw" firstAttribute="height" secondItem="1Vp-0r-P0B" secondAttribute="height" id="p4T-Qo-f51"/>
+                        <constraint firstItem="wAt-9S-fK5" firstAttribute="centerY" secondItem="sky-hv-EWW" secondAttribute="centerY" id="paf-x1-e0V"/>
                         <constraint firstItem="IrJ-if-gUj" firstAttribute="height" secondItem="1Vp-0r-P0B" secondAttribute="height" id="q0r-Vh-Rl4"/>
                         <constraint firstItem="JJq-Ja-37n" firstAttribute="centerX" secondItem="qTA-zd-PrW" secondAttribute="centerX" constant="-20" id="r5I-no-4XT"/>
                         <constraint firstItem="NBB-HG-Da4" firstAttribute="centerX" secondItem="TWb-zr-xUL" secondAttribute="centerX" id="rOx-Rs-xgA"/>
@@ -471,6 +495,7 @@
                         <constraint firstItem="ScA-jl-YiX" firstAttribute="centerY" secondItem="jDQ-o8-HL5" secondAttribute="centerY" id="sgz-BF-Be6"/>
                         <constraint firstItem="ETR-YT-S7G" firstAttribute="width" secondItem="SUf-n5-1yo" secondAttribute="width" id="t6W-8H-JxC"/>
                         <constraint firstItem="Vxn-Lc-936" firstAttribute="height" secondItem="SUf-n5-1yo" secondAttribute="height" id="tDh-Db-I5W"/>
+                        <constraint firstItem="sky-hv-EWW" firstAttribute="leading" secondItem="3fc-Ei-ckS" secondAttribute="trailing" constant="12" id="tcn-iU-ggY"/>
                         <constraint firstItem="SUf-n5-1yo" firstAttribute="top" secondItem="3i4-2X-Aec" secondAttribute="bottom" constant="72" id="tpP-1C-DXM"/>
                         <constraint firstItem="RYj-bI-IHZ" firstAttribute="centerX" secondItem="RAr-xw-SBa" secondAttribute="centerX" id="uKu-s8-GXu"/>
                         <constraint firstItem="nDH-Nf-27D" firstAttribute="centerX" secondItem="ISv-kb-hc3" secondAttribute="centerX" id="uQz-x3-zby"/>
@@ -482,6 +507,7 @@
                         <constraint firstItem="YsC-cW-HVX" firstAttribute="height" secondItem="1Vp-0r-P0B" secondAttribute="height" id="vdJ-Hn-kOO"/>
                         <constraint firstItem="JJq-Ja-37n" firstAttribute="leading" secondItem="Uy7-is-5Tx" secondAttribute="trailing" constant="36" id="wOt-gw-q5m"/>
                         <constraint firstItem="c4m-nL-B99" firstAttribute="height" secondItem="1Vp-0r-P0B" secondAttribute="height" id="wTK-ib-X0M"/>
+                        <constraint firstItem="sky-hv-EWW" firstAttribute="centerY" secondItem="3fc-Ei-ckS" secondAttribute="centerY" id="wwV-cH-ERr"/>
                         <constraint firstItem="jDQ-o8-HL5" firstAttribute="leading" secondItem="1Vp-0r-P0B" secondAttribute="leading" id="xCU-Gt-Ajk"/>
                         <constraint firstItem="ISv-kb-hc3" firstAttribute="centerY" secondItem="1Vp-0r-P0B" secondAttribute="centerY" id="xJw-k4-Nob"/>
                         <constraint firstItem="wzx-41-2RB" firstAttribute="centerX" secondItem="0Dm-9H-3DC" secondAttribute="centerX" id="xaJ-Cv-mfo"/>

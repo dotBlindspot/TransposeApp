@@ -19,9 +19,11 @@ class SettingsViewModel {
     
     let defaults = UserDefaults.standard
     private var settingsModels = [SettingsModel]()
+    private var inAppPurchaseHandler: InAppPurchaseHandler?
     
-    init() {
+    init(inAppPurchaseHandler: InAppPurchaseHandler) {
         settingsModels.append(useFlatNotesSetting)
+        self.inAppPurchaseHandler = inAppPurchaseHandler
     }
     
     var settingsModelsCount: Int {
@@ -30,6 +32,10 @@ class SettingsViewModel {
     
     var requestSettingsModels: [SettingsModel] {
         return self.settingsModels
+    }
+    
+    var isTransposedAlreadyPurchased: Bool {
+        return Cache.sharedInstance.isTransposeAppPurchased
     }
     
     func requestSettingsModel(at index: Int) -> SettingsModel {
@@ -46,5 +52,23 @@ class SettingsViewModel {
                                  name: "Use flat notes",
                                  isOn: defaults.bool(forKey: "useFlatNotes"))
         }
+    }
+    
+    func fetchProducts() {
+        if !isTransposedAlreadyPurchased {
+            inAppPurchaseHandler?.fetchProducts()
+        }
+    }
+    
+    func buyProduct() {
+        inAppPurchaseHandler?.makeNewPurchase()
+    }
+    
+    func restoreProducts() {
+        inAppPurchaseHandler?.restorePurchases()
+    }
+    
+    func set(inAppPurchaseHandlerDelegate: InAppPurchaseHandlerDelegate) {
+        self.inAppPurchaseHandler?.delegate = inAppPurchaseHandlerDelegate
     }
 }

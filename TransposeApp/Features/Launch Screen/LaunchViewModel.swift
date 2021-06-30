@@ -18,25 +18,16 @@ class LaunchViewModel {
     
     weak var delegate: LaunchViewModelDelegate?
     var interactor: FirebaseBoundary
-    var inAppPurchaseManager: InAppPurchaseHelper
     
     private var counter = 5
     var timer: Timer?
     
     init(delegate: LaunchViewModelDelegate,
-         interactor: FirebaseBoundary,
-         inAppPurchaseManager: InAppPurchaseHelper) {
+         interactor: FirebaseBoundary) {
         self.delegate = delegate
         self.interactor = interactor
-        self.inAppPurchaseManager = inAppPurchaseManager
     }
-    
-    func requestProduct() {
-        TransposeProduct.store.requestProducts { (success, products) in
-            #warning("Use wenderlich code and see")
-        }
-    }
-    
+
     func requestFeatureToggles() {
         counter = 4
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self,

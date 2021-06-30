@@ -45,4 +45,8 @@ class PintView: UIView {
     func styleAsBarPint() {
         self.actionView.subviews[0].backgroundColor = .taDarkGrey
     }
+    
+    func defaultStyle() {
+        self.actionView.subviews[0].backgroundColor = .taOlive
+    }
 }
