@@ -77,10 +77,16 @@ public class PopupFlyerView: UIView {
         delegate?.tappedSecondaryButton(view: self, sender: sender)
     }
     
-    func initSubviews() {
+    private func initSubviews() {
         let nib = UINib(nibName: "PopupFlyerView", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
         addSubview(contentView)
+        configureUI()
+    }
+    
+    private func configureUI() {
+        button.makeFlyerPrimaryButton()
+        secondaryButton.makeFlyerSecondaryButton()
     }
 }

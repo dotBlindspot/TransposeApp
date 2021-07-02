@@ -97,7 +97,9 @@ class TransposeViewController: UIViewController {
                                        y: self.view.frame.size.height/2)
             flyerView?.contentView.layer.cornerRadius = 20
             flyerView?.delegate = self
-            
+            let stringAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .semibold)]
+            flyerView?.primaryButtonTitle = NSAttributedString(string: "Buy Remove Ads", attributes: stringAttributes)
+            flyerView?.secondaryButtonTitle = NSAttributedString(string: "No, I like Ads", attributes: stringAttributes)
             self.view.addSubview(backgroundView!)
             self.view.addSubview(flyerView!)
         }
@@ -256,11 +258,11 @@ extension TransposeViewController: PopupFlyerViewDelegate {
     }
     
     func tappedSecondaryButton(view: UIView, sender: Any) {
-        UserDefaults.standard.set(true, forKey: FlyerName.removeAds.rawValue)
         removeFlyerView()
     }
     
     func removeFlyerView() {
+        UserDefaults.standard.set(true, forKey: FlyerName.removeAds.rawValue)
         for view in self.view.subviews {
             if view == backgroundView || view == flyerView {
                 view.removeFromSuperview()

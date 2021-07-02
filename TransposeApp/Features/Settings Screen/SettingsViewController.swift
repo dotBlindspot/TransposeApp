@@ -20,13 +20,15 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         viewModel.set(inAppPurchaseHandlerDelegate: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         viewModel.fetchProducts()
     }
     
     func setupView() {
         viewModel.isTransposedAlreadyPurchased ?
         (removeAdsBarButton.title = "") : (removeAdsBarButton.title = "Remove Ads")
-        removeAdsBarButton.isEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -36,23 +38,36 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentPurchaseActionSheet() {
-        let actionSheet = UIAlertController(title: "Do you want to remove ads or restore previous purchases?", message: nil, preferredStyle: .actionSheet)
-        
-        let removeAdsAction = UIAlertAction(title: "Buy Remove Ads", style: .default) { (_) in
-            self.viewModel.buyProduct()
+        if viewModel.didReceiveProducts {
+            let actionSheet = UIAlertController(title: "Do you want to remove ads or restore previous purchases?", message: nil, preferredStyle: .actionSheet)
+            
+            let removeAdsAction = UIAlertAction(title: "Buy Remove Ads", style: .default) { (_) in
+                self.viewModel.buyProduct()
+            }
+            
+            let restorePurchasesAction = UIAlertAction(title: "Restore Purchases", style: .default) { (_) in
+                self.viewModel.restoreProducts()
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            
+            actionSheet.addAction(removeAdsAction)
+            actionSheet.addAction(restorePurchasesAction)
+            actionSheet.addAction(cancelAction)
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        } else {
+            showError("We are experiencing some technical difficulties\n\nPlease try again in a few seconds or make sure you have an active internet connection")
         }
-        
-        let restorePurchasesAction = UIAlertAction(title: "Restore Purchases", style: .default) { (_) in
-            self.viewModel.restoreProducts()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        
-        actionSheet.addAction(removeAdsAction)
-        actionSheet.addAction(restorePurchasesAction)
-        actionSheet.addAction(cancelAction)
-        
-        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func showError(_ error: String) {
+        let alert = UIAlertController(title: "Oooops!",
+                                      message: error,
+                                      preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -95,7 +110,7 @@ extension SettingsViewController: InAppPurchaseHandlerDelegate {
     }
     
     func productsFetchedSuccessfully() {
-        removeAdsBarButton.isEnabled = true
+        viewModel.didReceiveProducts = true
     }
     
     func paymentSuccessful(for product: SKProduct) {
@@ -103,13 +118,6 @@ extension SettingsViewController: InAppPurchaseHandlerDelegate {
     }
     
     func paymentError(error: String) {
-        let alert = UIAlertController(title: "Oooops!",
-                                      message: error,
-                                      preferredStyle: .alert)
-        let okAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-        alert.addAction(okAlertAction)
-        self.present(alert, animated: true, completion: nil)
+        showError(error)
     }
-    
-    
 }

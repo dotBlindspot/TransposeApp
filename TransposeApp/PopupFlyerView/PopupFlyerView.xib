@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -40,26 +40,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="RVm-P3-bdN"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="tintColor" name="TAOlive"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" titleAlignment="center">
-                                <attributedString key="attributedTitle">
-                                    <fragment content="Remove Ads">
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <attributedString key="attributedSubtitle">
-                                    <fragment content="R 59.99">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="toolTip"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                            </buttonConfiguration>
                             <connections>
                                 <action selector="buttonTapped:" destination="-1" eventType="touchUpInside" id="Vya-k2-5TU"/>
                             </connections>
@@ -68,17 +51,6 @@
                             <rect key="frame" x="0.0" y="70" width="305" height="50"/>
                             <color key="tintColor" name="TADarkGray"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain">
-                                <attributedString key="attributedTitle">
-                                    <fragment content="I love ads">
-                                        <attributes>
-                                            <font key="NSFont" size="22" name="Helvetica-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <attributedString key="attributedSubtitle"/>
-                            </buttonConfiguration>
                             <connections>
                                 <action selector="secondaryButtonTapped:" destination="-1" eventType="touchUpInside" id="zSY-nl-1jr"/>
                             </connections>
@@ -92,7 +64,7 @@
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's throw them in the trash" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="em7-qj-SDb">
-                    <rect key="frame" x="20" y="329" width="305" height="20.5"/>
+                    <rect key="frame" x="20" y="329" width="305" height="17"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

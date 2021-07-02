@@ -20,6 +20,7 @@ class SettingsViewModel {
     let defaults = UserDefaults.standard
     private var settingsModels = [SettingsModel]()
     private var inAppPurchaseHandler: InAppPurchaseHandler?
+    var didReceiveProducts = false
     
     init(inAppPurchaseHandler: InAppPurchaseHandler) {
         settingsModels.append(useFlatNotesSetting)
