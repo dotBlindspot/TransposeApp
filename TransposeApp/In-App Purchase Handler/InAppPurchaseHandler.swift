@@ -73,7 +73,9 @@ extension InAppPurchaseHandler: SKPaymentTransactionObserver {
             case .purchasing:
                 break
             case .purchased:
-                UserDefaults.standard.set(true, forKey: PurchaseKeys.purchased.rawValue)
+                if transaction.payment.productIdentifier == removeAdsProductID {
+                    UserDefaults.standard.set(true, forKey: PurchaseKeys.purchased.rawValue)
+                }
                 UserDefaults.standard.set(true, forKey: FlyerName.removeAds.rawValue)
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
@@ -90,6 +92,9 @@ extension InAppPurchaseHandler: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().remove(self)
                 delegate?.paymentError(error: "Purchase failed")
             default:
+                if transaction.payment.productIdentifier == removeAdsProductID {
+                    UserDefaults.standard.set(true, forKey: PurchaseKeys.purchased.rawValue)
+                }
                 SKPaymentQueue.default().finishTransaction(transaction)
                 SKPaymentQueue.default().remove(self)
             }
