@@ -21,6 +21,8 @@ class TransposeViewController: UIViewController {
     @IBOutlet weak var transposerCardContainerView: UIView!
     @IBOutlet weak var fromTransposerCardView: TransposerCardView!
     @IBOutlet weak var toTransposerCardView: TransposerCardView!
+    @IBOutlet weak var tapOnChordHeader: UILabel!
+    @IBOutlet weak var tapOnChordImageView: UIImageView!
     @IBOutlet weak var notesCardContainerViewHeading: UILabel!
     @IBOutlet weak var notesCardContainerView: UIView!
     @IBOutlet weak var notesStackView: UIStackView!
@@ -53,6 +55,8 @@ class TransposeViewController: UIViewController {
     private func configureUI() {
         notesStackView.isUserInteractionEnabled = true
         settingsBarButtonItem.isEnabled = Cache.sharedInstance.isSettingsTurnedOn
+        tapOnChordHeader.isHidden = !Cache.sharedInstance.isChordBuilderActive
+        tapOnChordImageView.isHidden = tapOnChordHeader.isHidden
         if #available(iOS 13.0, *) {} else {
             settingsBarButtonItem.title = "Settings"
         }
@@ -72,12 +76,12 @@ class TransposeViewController: UIViewController {
     private func updateUIValuesForRequestType() {
         switch viewModel.requestType {
         case .keys:
-            fromTransposerCardView.titleLabelText = "Key from"
-            toTransposerCardView.titleLabelText = "Key to"
+            fromTransposerCardView.setTitleLabel(for: .keyNoteFrom)
+            toTransposerCardView.setTitleLabel(for: .keyNoteTo)
             notesCardContainerViewHeading.styleForKeys()
         case .capo:
-            fromTransposerCardView.titleLabelText = "Play in key"
-            toTransposerCardView.titleLabelText = "Using chords of"
+            fromTransposerCardView.setTitleLabel(for: .capoNoteFrom)
+            toTransposerCardView.setTitleLabel(for: .capoNoteTo)
             notesCardContainerViewHeading.styleForCapoOn(fretNumber: viewModel.fretNumber)
             #warning("Place Capo on fret comes here - Show fret Board animation")
         }
@@ -119,9 +123,9 @@ class TransposeViewController: UIViewController {
         let noteFromIndex = fromTransposerCardView.selectedNoteIndex
         let noteToIndex = toTransposerCardView.selectedNoteIndex
         
-        let fromNoteScale = viewModel.scaleOf(noteFromIndex)
-        let toNoteScale = viewModel.requestScale(fromNote: noteFromIndex,
-                                                 toNote: noteToIndex)
+        let fromNoteScale = viewModel.scaleOf(noteFromIndex ?? 0)
+        let toNoteScale = viewModel.requestScale(fromNote: noteFromIndex ?? 0,
+                                                 toNote: noteToIndex ?? 0)
         
         populateScalePack(fromScale: fromNoteScale, toScale: toNoteScale)
         updateUIValuesForRequestType()
