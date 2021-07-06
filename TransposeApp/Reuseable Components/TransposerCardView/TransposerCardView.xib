@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,19 +12,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransposerCardView" customModule="TransposeApp" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="6nd-zw-H9Q" id="pA6-LV-fF2"/>
-                <outlet property="noteLabel" destination="a5J-uv-cJ1" id="pkl-Xa-dTf"/>
-                <outlet property="stepper" destination="Qmu-Mb-XgB" id="duU-2D-3vf"/>
-                <outlet property="subContentView" destination="ZpA-WP-Vlj" id="maA-FE-7bV"/>
+                <outlet property="noteTextField" destination="eR1-gW-LJF" id="fOL-uZ-dde"/>
                 <outlet property="titleLabel" destination="YNs-jg-H97" id="JUx-cZ-6KN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="258"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="128"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-zw-H9Q">
-                    <rect key="frame" x="5" y="0.0" width="240" height="258"/>
+                    <rect key="frame" x="5" y="0.0" width="240" height="128"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNs-jg-H97">
                             <rect key="frame" x="16" y="8" width="208" height="29"/>
@@ -32,50 +30,19 @@
                             <color key="textColor" name="TABlack"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpA-WP-Vlj">
-                            <rect key="frame" x="16" y="45" width="208" height="197"/>
-                            <subviews>
-                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="11" translatesAutoresizingMaskIntoConstraints="NO" id="Qmu-Mb-XgB">
-                                    <rect key="frame" x="57" y="149" width="94" height="32"/>
-                                    <color key="tintColor" name="TABlack"/>
-                                    <connections>
-                                        <action selector="stepperViewTapped:" destination="-1" eventType="valueChanged" id="vWh-TG-gG6"/>
-                                    </connections>
-                                </stepper>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAV-Ys-oog">
-                                    <rect key="frame" x="0.0" y="0.0" width="208" height="149"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CT#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5J-uv-cJ1">
-                                            <rect key="frame" x="73.5" y="55.5" width="61.5" height="38.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
-                                            <color key="textColor" name="TABlack"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerX" secondItem="LAV-Ys-oog" secondAttribute="centerX" id="8Ba-PG-IDd"/>
-                                        <constraint firstItem="a5J-uv-cJ1" firstAttribute="centerY" secondItem="LAV-Ys-oog" secondAttribute="centerY" priority="750" id="SN1-SR-Avk"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="Qmu-Mb-XgB" firstAttribute="centerX" secondItem="ZpA-WP-Vlj" secondAttribute="centerX" id="8bL-tK-bJN"/>
-                                <constraint firstItem="Qmu-Mb-XgB" firstAttribute="top" secondItem="LAV-Ys-oog" secondAttribute="bottom" id="956-3X-TnH"/>
-                                <constraint firstAttribute="bottom" secondItem="Qmu-Mb-XgB" secondAttribute="bottom" constant="16" id="CjA-Gu-LL7"/>
-                                <constraint firstItem="LAV-Ys-oog" firstAttribute="leading" secondItem="ZpA-WP-Vlj" secondAttribute="leading" id="ea1-Sa-neZ"/>
-                                <constraint firstItem="LAV-Ys-oog" firstAttribute="top" secondItem="ZpA-WP-Vlj" secondAttribute="top" id="wrg-0C-QQm"/>
-                                <constraint firstAttribute="trailing" secondItem="LAV-Ys-oog" secondAttribute="trailing" id="wyR-P4-UjZ"/>
-                            </constraints>
-                        </view>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eR1-gW-LJF">
+                            <rect key="frame" x="16" y="45" width="208" height="67"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="ZpA-WP-Vlj" secondAttribute="bottom" constant="16" id="FdS-jw-3a7"/>
+                        <constraint firstItem="eR1-gW-LJF" firstAttribute="top" secondItem="YNs-jg-H97" secondAttribute="bottom" constant="8" id="6hK-mp-eM5"/>
+                        <constraint firstAttribute="bottom" secondItem="eR1-gW-LJF" secondAttribute="bottom" constant="16" id="DJb-b9-1Cx"/>
                         <constraint firstItem="YNs-jg-H97" firstAttribute="leading" secondItem="6nd-zw-H9Q" secondAttribute="leading" constant="16" id="G8N-NE-3C7"/>
-                        <constraint firstItem="ZpA-WP-Vlj" firstAttribute="top" secondItem="YNs-jg-H97" secondAttribute="bottom" constant="8" id="Oyx-I3-4f5"/>
-                        <constraint firstItem="ZpA-WP-Vlj" firstAttribute="leading" secondItem="6nd-zw-H9Q" secondAttribute="leading" constant="16" id="TOD-kW-TGh"/>
+                        <constraint firstItem="eR1-gW-LJF" firstAttribute="leading" secondItem="6nd-zw-H9Q" secondAttribute="leading" constant="16" id="Xo2-ln-3gU"/>
+                        <constraint firstAttribute="trailing" secondItem="eR1-gW-LJF" secondAttribute="trailing" constant="16" id="mqP-NF-pC2"/>
                         <constraint firstItem="YNs-jg-H97" firstAttribute="top" secondItem="6nd-zw-H9Q" secondAttribute="top" constant="8" id="pkE-wD-LVM"/>
-                        <constraint firstAttribute="trailing" secondItem="ZpA-WP-Vlj" secondAttribute="trailing" constant="16" id="qIF-mq-pnd"/>
                         <constraint firstAttribute="trailing" secondItem="YNs-jg-H97" secondAttribute="trailing" constant="16" id="zmQ-HC-MYq"/>
                     </constraints>
                 </view>
@@ -88,7 +55,7 @@
                 <constraint firstAttribute="bottom" secondItem="6nd-zw-H9Q" secondAttribute="bottom" id="VxQ-hb-OAq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-115.94202898550725" y="-148.66071428571428"/>
+            <point key="canvasLocation" x="-115.94202898550725" y="-192.1875"/>
         </view>
     </objects>
     <resources>
