@@ -33,6 +33,15 @@ struct Cache {
     private let productionBannerAdUnitID = "ca-app-pub-4040587998998922/5777511147"
     private let productionInterstitialAdUnitID = "ca-app-pub-4040587998998922/1560718513"
     
+    // MARK: - Product Purchased
+    var isTransposeAppPurchased: Bool {
+        UserDefaults.standard.bool(forKey: PurchaseKeys.purchased.rawValue)
+    }
+    
+    var shouldShowRemoveAdsFlyer: Bool {
+        return !isTransposeAppPurchased && !UserDefaults.standard.bool(forKey: FlyerName.removeAds.rawValue)
+    }
+    
     var bannerAdUnitID: String {
         return Cache.sharedInstance.isStubbed ? stubbedBannerAdUnitID : productionBannerAdUnitID
     }
@@ -54,4 +63,8 @@ struct Cache {
     var flatNotes = ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
                      "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab",
                      "A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]
+}
+
+enum FlyerName: String {
+    case removeAds = "Remove Ads"
 }

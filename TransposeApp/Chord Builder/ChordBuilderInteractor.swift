@@ -67,17 +67,17 @@ class ChordBuilderInteractor {
             success(self.chords)
         }
         
-//        firestoreReference.getDocuments { (snapshot, error) in
-//            if let snapshot = snapshot {
-//                let chordModels = snapshot.documents
-//                for chordModel in chordModels {
-//                    try? self.chords.append(chordModel.data(as: ChordModelStructure.self)!)
-//                }
-//                success(self.chords)
-//            } else {
-//                failure(error!.localizedDescription)
-//            }
-//        }
+        //        firestoreReference.getDocuments { (snapshot, error) in
+        //            if let snapshot = snapshot {
+        //                let chordModels = snapshot.documents
+        //                for chordModel in chordModels {
+        //                    try? self.chords.append(chordModel.data(as: ChordModelStructure.self)!)
+        //                }
+        //                success(self.chords)
+        //            } else {
+        //                failure(error!.localizedDescription)
+        //            }
+        //        }
     }
     
     func addChordPack(pathName: ChordPackNames,
