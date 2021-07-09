@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1505DF8878C30DA1F9A99AB5 /* Pods_TransposeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FF9CC453A4F4BE758E9EBF /* Pods_TransposeApp.framework */; };
 		5A0D6409260219E100BDE363 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0D6408260219E100BDE363 /* StoreKit.framework */; };
 		5A18FBB52212B98000E15518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18FBB42212B98000E15518 /* AppDelegate.swift */; };
 		5A18FBBC2212B98000E15518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A18FBBA2212B98000E15518 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 		5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C1BAE25FF3D2000C7A71B /* TABaseView.swift */; };
 		5A1DAD6C260328220036B4F9 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DAD6B260328220036B4F9 /* UIViewController + Extensions.swift */; };
 		5A20352D268B0C7200049B78 /* InAppPurchaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A20352C268B0C7200049B78 /* InAppPurchaseHandler.swift */; };
+		5A204D0126773D1800461A48 /* ChordBuilderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A204D0026773D1800461A48 /* ChordBuilderInteractor.swift */; };
 		5A21062A25FF6BC5006D4B7A /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A21062925FF6BC5006D4B7A /* UIButton + Extensions.swift */; };
 		5A4FF2EE25FAB81000493D43 /* TransposedNotesCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A4FF2ED25FAB81000493D43 /* TransposedNotesCard.xib */; };
 		5A56283425F951C400F9C283 /* TransposeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A56283325F951C400F9C283 /* TransposeViewModel.swift */; };
@@ -47,13 +49,14 @@
 		5AD40FDC260B575800E6FDB8 /* PintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD40FDB260B575800E6FDB8 /* PintView.xib */; };
 		5AD40FDF260B576500E6FDB8 /* PintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FDE260B576500E6FDB8 /* PintView.swift */; };
 		5AD40FE4260B6C2E00E6FDB8 /* ChordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */; };
+		5AE3C3FB267BA5F8005AD0B5 /* ChordStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE3C3FA267BA5F8005AD0B5 /* ChordStructures.swift */; };
 		5AFA92F525F9E36500276F2D /* TransposedNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */; };
 		5AFA92F825F9E37500276F2D /* TransposedNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */; };
 		5AFA92FC25FAB4EF00276F2D /* TransposedNotesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */; };
-		7022C46F3DD66ED7E811BFDA /* Pods_TransposeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855D32EAD5C15F211D390DF8 /* Pods_TransposeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FC2D7F7622D6A458755CF76 /* Pods-TransposeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.debug.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5A0D6408260219E100BDE363 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5A18FBB12212B98000E15518 /* TransposeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransposeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A18FBB42212B98000E15518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		5A1C1BAE25FF3D2000C7A71B /* TABaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TABaseView.swift; sourceTree = "<group>"; };
 		5A1DAD6B260328220036B4F9 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 		5A20352C268B0C7200049B78 /* InAppPurchaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseHandler.swift; sourceTree = "<group>"; };
+		5A204D0026773D1800461A48 /* ChordBuilderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordBuilderInteractor.swift; sourceTree = "<group>"; };
 		5A21062925FF6BC5006D4B7A /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		5A4FF2ED25FAB81000493D43 /* TransposedNotesCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNotesCard.xib; sourceTree = "<group>"; };
 		5A56283325F951C400F9C283 /* TransposeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposeViewModel.swift; sourceTree = "<group>"; };
@@ -96,12 +100,12 @@
 		5AD40FDB260B575800E6FDB8 /* PintView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PintView.xib; sourceTree = "<group>"; };
 		5AD40FDE260B576500E6FDB8 /* PintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintView.swift; sourceTree = "<group>"; };
 		5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordBuilder.swift; sourceTree = "<group>"; };
+		5AE3C3FA267BA5F8005AD0B5 /* ChordStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordStructures.swift; sourceTree = "<group>"; };
 		5AFA92F425F9E36500276F2D /* TransposedNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNoteView.swift; sourceTree = "<group>"; };
 		5AFA92F725F9E37500276F2D /* TransposedNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransposedNoteView.xib; sourceTree = "<group>"; };
 		5AFA92FB25FAB4EF00276F2D /* TransposedNotesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransposedNotesCard.swift; sourceTree = "<group>"; };
-		64402EFD0A2F99596064CB9C /* Pods-TransposeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.debug.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.debug.xcconfig"; sourceTree = "<group>"; };
-		855D32EAD5C15F211D390DF8 /* Pods_TransposeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransposeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C332FA0257AEBF0B8D73812C /* Pods-TransposeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.release.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.release.xcconfig"; sourceTree = "<group>"; };
+		B3D5CDFB613878B6BC8B8F4E /* Pods-TransposeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransposeApp.release.xcconfig"; path = "Target Support Files/Pods-TransposeApp/Pods-TransposeApp.release.xcconfig"; sourceTree = "<group>"; };
+		D1FF9CC453A4F4BE758E9EBF /* Pods_TransposeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransposeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7022C46F3DD66ED7E811BFDA /* Pods_TransposeApp.framework in Frameworks */,
 				5A0D6409260219E100BDE363 /* StoreKit.framework in Frameworks */,
+				1505DF8878C30DA1F9A99AB5 /* Pods_TransposeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +124,8 @@
 		2FDB3E46E6E3A7980AAEE5DF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				64402EFD0A2F99596064CB9C /* Pods-TransposeApp.debug.xcconfig */,
-				C332FA0257AEBF0B8D73812C /* Pods-TransposeApp.release.xcconfig */,
+				1FC2D7F7622D6A458755CF76 /* Pods-TransposeApp.debug.xcconfig */,
+				B3D5CDFB613878B6BC8B8F4E /* Pods-TransposeApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -390,6 +394,8 @@
 			isa = PBXGroup;
 			children = (
 				5AD40FE3260B6C2E00E6FDB8 /* ChordBuilder.swift */,
+				5A204D0026773D1800461A48 /* ChordBuilderInteractor.swift */,
+				5AE3C3FA267BA5F8005AD0B5 /* ChordStructures.swift */,
 			);
 			path = "Chord Builder";
 			sourceTree = "<group>";
@@ -414,7 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				5A0D6408260219E100BDE363 /* StoreKit.framework */,
-				855D32EAD5C15F211D390DF8 /* Pods_TransposeApp.framework */,
+				D1FF9CC453A4F4BE758E9EBF /* Pods_TransposeApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -426,11 +432,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A18FBC52212B98200E15518 /* Build configuration list for PBXNativeTarget "TransposeApp" */;
 			buildPhases = (
-				A4353D5608984CD202B46BAB /* [CP] Check Pods Manifest.lock */,
+				6C72152714C45D5EE22E2F31 /* [CP] Check Pods Manifest.lock */,
 				5A18FBAD2212B98000E15518 /* Sources */,
 				5A18FBAE2212B98000E15518 /* Frameworks */,
 				5A18FBAF2212B98000E15518 /* Resources */,
-				E641ADF199E8594FFA52B888 /* [CP] Embed Pods Frameworks */,
+				709AF503672C73D0F5659F3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -495,7 +501,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A4353D5608984CD202B46BAB /* [CP] Check Pods Manifest.lock */ = {
+		6C72152714C45D5EE22E2F31 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -517,7 +523,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E641ADF199E8594FFA52B888 /* [CP] Embed Pods Frameworks */ = {
+		709AF503672C73D0F5659F3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -546,6 +552,8 @@
 				5AAB49BD25FF475100DC026D /* NoteBankable.swift in Sources */,
 				5A81F1B82601543900C21EF7 /* SettingsTableViewCellDelegate.swift in Sources */,
 				5A81F19B2600A21200C21EF7 /* AdManagerInteractor.swift in Sources */,
+				5AE3C3FB267BA5F8005AD0B5 /* ChordStructures.swift in Sources */,
+				5A204D0126773D1800461A48 /* ChordBuilderInteractor.swift in Sources */,
 				5AD40FE4260B6C2E00E6FDB8 /* ChordBuilder.swift in Sources */,
 				5A81F1D42601E4BD00C21EF7 /* LaunchViewController.swift in Sources */,
 				5A1C1BAF25FF3D2000C7A71B /* TABaseView.swift in Sources */,
@@ -716,7 +724,7 @@
 		};
 		5A18FBC62212B98200E15518 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64402EFD0A2F99596064CB9C /* Pods-TransposeApp.debug.xcconfig */;
+			baseConfigurationReference = 1FC2D7F7622D6A458755CF76 /* Pods-TransposeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -738,7 +746,7 @@
 		};
 		5A18FBC72212B98200E15518 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C332FA0257AEBF0B8D73812C /* Pods-TransposeApp.release.xcconfig */;
+			baseConfigurationReference = B3D5CDFB613878B6BC8B8F4E /* Pods-TransposeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
