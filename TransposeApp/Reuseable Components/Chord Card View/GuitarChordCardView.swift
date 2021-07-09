@@ -15,7 +15,12 @@ protocol GuitarChordViewDelegate {
 class GuitarChordCardView: UIView {
 
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var guitarNeckView: UIView!
+    @IBOutlet weak var loadingStackView: UIStackView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var neckBar: UIView!
+    @IBOutlet weak var errorContentView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var chordNameLabel: UILabel!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -78,7 +83,11 @@ class GuitarChordCardView: UIView {
     @IBOutlet weak var eHFive: PintView!
     
     var delegate: GuitarChordViewDelegate?
-    var chordPack: ChordPack!
+    // var chordPack: ChordPack!
+    
+    var chordStructurePack: [ChordModelStructure]!
+    var displayedChord: ChordModelStructure!
+    var firestoreInteractor = ChordBuilderInteractor()
     
     private var notePints: [PintView]?
     private var currentDisplayedChord: ChordModel?
@@ -97,12 +106,14 @@ class GuitarChordCardView: UIView {
     
     init(frame: CGRect, chordPack: ChordPack) {
         super.init(frame: frame)
-        self.chordPack = chordPack
+        // self.chordPack = chordPack
         self.setupNib()
         self.configureUI()
+        showLoading(true)
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
+        showErrorView(false, note: "")
         delegate?.closeTapped()
     }
     
@@ -117,7 +128,7 @@ class GuitarChordCardView: UIView {
         currentChordIndex += 1
         previousButton.show()
         showChord(at: currentChordIndex)
-        currentChordIndex >= chordPack.chords.count - 1 ? nextButton.hide() : nextButton.show()
+        currentChordIndex >= chordStructurePack.count - 1 ? nextButton.hide() : nextButton.show()
     }
     
     func configureUI() {
@@ -127,7 +138,24 @@ class GuitarChordCardView: UIView {
         populateNotePints()
         resetChordChart()
         previousButton.hide()
-        showChord(at: currentChordIndex)
+        // showChord(at: currentChordIndex)
+    }
+    
+    func loadChordPack(note: String) {
+        firestoreInteractor.fetchChordPack(note: note) { response in
+            self.showLoading(false)
+            self.chordStructurePack = response
+            guard !response.isEmpty else { /*Handle empty response*/ return }
+            self.showChord(at: 0)
+        } failure: { error in
+            self.showErrorView(true, note: note)
+        }
+    }
+        
+    func resetChordChart() {
+        for pint in notePints! {
+            pint.isHidden = true
+        }
     }
     
     private func populateNotePints() {
@@ -140,15 +168,9 @@ class GuitarChordCardView: UIView {
                      bOne, bTwo, bThree, bFour, bFive,
                      eHOne, eHTwo, eHThree, eHFour, eHFive]
     }
-    
-    func resetChordChart() {
-        for pint in notePints! {
-            pint.isHidden = true
-        }
-    }
         
     private func placeNotePints() {
-        for number in currentDisplayedChord!.structure {
+        for number in displayedChord.structure! {
             if number > 0 {
                 self.notePints![number].isHidden = false
                 self.notePints![number].defaultStyle()
@@ -159,36 +181,50 @@ class GuitarChordCardView: UIView {
     }
     
     private func placeBarPints() {
-        if currentDisplayedChord!.isBarChord {
+        if displayedChord.isBarChord! {
             for i in 0..<6 {
-                if currentDisplayedChord!.structure[i] != -1 {
-                    notePints![currentDisplayedChord!.barFretNumber].isHidden = false
-                    notePints![currentDisplayedChord!.barFretNumber].styleAsBarPint()
+                if displayedChord.structure![i] != -1 {
+                    notePints![displayedChord.barFretNumber!].isHidden = false
+                    notePints![displayedChord.barFretNumber!].styleAsBarPint()
                 }
-                currentDisplayedChord!.barFretNumber += 5
+                displayedChord.barFretNumber! += 5
             }
         }
     }
     
     private func configureFretNumbers() {
-        if currentDisplayedChord!.startingFretNumber > 1 {
+        if displayedChord.startingFretNumber! > 1 {
             neckBar.isHidden = true
-            firstFretLabel.text = String(currentDisplayedChord!.startingFretNumber)
-            secondFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 1)
-            thirdFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 2)
-            fourthFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 3)
-            fifthFretLabel.text = String(currentDisplayedChord!.startingFretNumber + 4)
+            firstFretLabel.text = String(displayedChord.startingFretNumber!)
+            secondFretLabel.text = String(displayedChord.startingFretNumber! + 1)
+            thirdFretLabel.text = String(displayedChord.startingFretNumber! + 2)
+            fourthFretLabel.text = String(displayedChord.startingFretNumber! + 3)
+            fifthFretLabel.text = String(displayedChord.startingFretNumber! + 4)
         }
     }
     
     private func showChord(at index: Int) {
         resetChordChart()
-        currentDisplayedChord = chordPack?.chords[index]
-        
-        chordNameLabel.text = chordPack?.name
+        // currentDisplayedChord = chordPack?.chords[index]
+        displayedChord = chordStructurePack[index]
+        chordNameLabel.text = chordStructurePack[index].name
         placeNotePints()
         placeBarPints()
         configureFretNumbers()
+    }
+    
+    private func showLoading(_ bool: Bool) {
+        bool ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
+        loadingStackView.isHidden = !bool
+        guitarNeckView.isHidden = bool
+        nextButton.isHidden = bool
+        previousButton.isHidden = bool
+    }
+    
+    private func showErrorView(_ bool: Bool, note: String) {
+        errorContentView.isHidden = !bool
+        errorLabel.text = String(format: "Please bear with us.\n\nWe are working on %@ shapes.", note)
+        chordNameLabel.text = "Under Construction"
     }
 }
 

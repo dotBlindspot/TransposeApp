@@ -9,5 +9,9 @@ target 'TransposeApp' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Core'
  	pod 'Firebase/AdMob'
-	pod'Google-Mobile-Ads-SDK'
+	pod 'Google-Mobile-Ads-SDK'
+	pod 'Firebase/Firestore'
+
+	# Optionally, include the Swift extensions if you're using Swift.
+	pod 'FirebaseFirestoreSwift'
 end
