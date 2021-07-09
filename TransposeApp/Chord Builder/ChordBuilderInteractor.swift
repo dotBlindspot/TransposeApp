@@ -43,7 +43,7 @@ class ChordBuilderInteractor {
         firestore.settings = settings
     }
     
-    func fetchChordPack(for note: String,
+    func fetchChordPack(note: String,
                         success: @escaping (_ chordModel: [ChordModelStructure]) -> Void,
                         failure: @escaping (_ error: String) -> Void) {
         selectedNote = note
@@ -52,7 +52,13 @@ class ChordBuilderInteractor {
             .document(chordPackName)
             .collection("Chords")
         
-        firestoreReference.addSnapshotListener(includeMetadataChanges: true) { (querySnapshot, _) in
+        firestoreReference.addSnapshotListener(includeMetadataChanges: true) { (querySnapshot, error) in
+            
+            guard error == nil else {
+                failure("Could not find ChordPack")
+                return
+            }
+            
             guard let snapshot = querySnapshot else {
                 failure("Database query error")
                 return
@@ -64,7 +70,11 @@ class ChordBuilderInteractor {
                 }
             }
             
-            success(self.chords)
+            if self.chords.isEmpty {
+                failure("No Chords found")
+            } else {
+                success(self.chords)
+            }
         }
         
         //        firestoreReference.getDocuments { (snapshot, error) in
@@ -102,60 +112,54 @@ extension ChordBuilderInteractor {
         case "A":
             return ChordPackNames.Amajor.rawValue
         case "A#", "Bb":
-            return ""
+            return ChordPackNames.ASharpMajor.rawValue
         case "B":
-            return ""
+            return ChordPackNames.Bmajor.rawValue
         case "C":
-            return ""
+            return ChordPackNames.Cmajor.rawValue
         case "C#", "Db":
-            return ""
+            return ChordPackNames.CSharpMajor.rawValue
         case "D":
-            return ""
+            return ChordPackNames.Dmajor.rawValue
         case "D#", "Eb":
-            return ""
+            return ChordPackNames.DSharpMajor.rawValue
         case "E":
             return ChordPackNames.Emajor.rawValue
         case "F":
-            return ""
+            return ChordPackNames.Fmajor.rawValue
         case "F#", "Gb":
-            return ""
+            return ChordPackNames.FSharpMajor.rawValue
         case "G":
             return ChordPackNames.Gmajor.rawValue
         case "G#", "Ab":
-            return ""
+            return ChordPackNames.GSharpMajor.rawValue
         // MARK: - Minors
         case "Am":
-            return ""
+            return ChordPackNames.Aminor.rawValue
         case "A#m", "Bbm":
-            return ""
+            return ChordPackNames.ASharpMinor.rawValue
         case "Bm":
-            return ""
+            return ChordPackNames.Bminor.rawValue
         case "Cm":
-            return ""
+            return ChordPackNames.Cminor.rawValue
         case "C#m", "Dbm":
-            return ""
+            return ChordPackNames.CSharpMinor.rawValue
         case "Dm":
-            return ""
+            return ChordPackNames.Dminor.rawValue
         case "D#m", "Ebm":
-            return ""
+            return ChordPackNames.DSharpMinor.rawValue
         case "Em":
-            return ""
+            return ChordPackNames.Eminor.rawValue
         case "Fm":
-            return ""
+            return ChordPackNames.Fminor.rawValue
         case "F#m", "Gbm":
-            return ""
+            return ChordPackNames.FSharpMinor.rawValue
         case "Gm":
-            return ""
+            return ChordPackNames.Gminor.rawValue
         case "G#m", "Abm":
-            return ""
+            return ChordPackNames.GSharpMinor.rawValue
         default:
-            return ""
+            return "Default"
         }
     }
-}
-
-enum ChordPackNames: String {
-    case Amajor = "AmajorChordPack"
-    case Emajor = "EmajorChordPack"
-    case Gmajor = "GmajorChordPack"
 }

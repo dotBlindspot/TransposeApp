@@ -50,15 +50,13 @@ class TransposeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initBannerAdView()
-        
-        let interactor = ChordBuilderInteractor()
-        interactor.fetchChordPack(for: "A") { (response) in
-            print("Structure: \(response[0].structure!)")
-            print("Starting Number: \(response[0].startingFretNumber!)")
-        } failure: { (error) in
-
-        }
-        // interactor.addChordPack(chordPack: ChordStructures.AmajorChordStructurePack)
+//        let interactor = ChordBuilderInteractor()
+//        interactor.addChordPack(pathName: ChordPackNames.Amajor,
+//                                chordPack: ChordStructures.AmajorChordStructurePack)
+//        interactor.addChordPack(pathName: ChordPackNames.Dmajor,
+//                                chordPack: ChordStructures.DmajorChordStructurePack)
+//        interactor.addChordPack(pathName: ChordPackNames.Emajor,
+//                                chordPack: ChordStructures.EmajorChordStructurePack)
     }
             
     private func configureUI() {
@@ -188,6 +186,7 @@ class TransposeViewController: UIViewController {
         let chordPack = ChordBuilder().chordPack(for: note)
         let chordCardView = GuitarChordCardView(frame: CGRect(x: 0, y: 0, width: 280, height: 490),
                                                 chordPack: chordPack)
+        chordCardView.loadChordPack(note: note)
         chordCardView.delegate = self
         chordCardView.center = CGPoint(x: self.view.frame.size.width  / 2,
                                        y: self.view.frame.size.height / 2)
