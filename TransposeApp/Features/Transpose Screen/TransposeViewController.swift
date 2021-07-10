@@ -50,13 +50,7 @@ class TransposeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initBannerAdView()
-//        let interactor = ChordBuilderInteractor()
-//        interactor.addChordPack(pathName: ChordPackNames.Amajor,
-//                                chordPack: ChordStructures.AmajorChordStructurePack)
-//        interactor.addChordPack(pathName: ChordPackNames.Dmajor,
-//                                chordPack: ChordStructures.DmajorChordStructurePack)
-//        interactor.addChordPack(pathName: ChordPackNames.Emajor,
-//                                chordPack: ChordStructures.EmajorChordStructurePack)
+        // writeModelsToFireStore()
     }
             
     private func configureUI() {
@@ -209,6 +203,13 @@ class TransposeViewController: UIViewController {
 //            viewWithTag.removeFromSuperview()
 //        }
 //    }
+    private func writeModelsToFireStore() {
+        let interactor = ChordBuilderInteractor()
+        
+        for pack in ChordStructures.firestoreModelPack {
+            interactor.addChordPack(pathName: pack.name, chordPack: pack.chordPack)
+        }
+    }
 }
 
 extension TransposeViewController: TransposerCardViewDelegate {
