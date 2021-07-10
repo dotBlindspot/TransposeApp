@@ -50,7 +50,7 @@ class TransposeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         initBannerAdView()
-        // writeModelsToFireStore()
+        writeModelsToFireStore()
     }
             
     private func configureUI() {
@@ -206,9 +206,12 @@ class TransposeViewController: UIViewController {
     private func writeModelsToFireStore() {
         let interactor = ChordBuilderInteractor()
         
-        for pack in ChordStructures.firestoreModelPack {
-            interactor.addChordPack(pathName: pack.name, chordPack: pack.chordPack)
-        }
+        interactor.addChordPack(pathName: ChordPackNames.FSharpMinor,
+                                chordPack: ChordStructures.FSharpMinorChordStructurePack)
+        
+//        for pack in ChordStructures.firestoreModelPack {
+//            interactor.addChordPack(pathName: pack.name, chordPack: pack.chordPack)
+//        }
     }
 }
 

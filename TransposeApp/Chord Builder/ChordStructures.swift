@@ -151,7 +151,7 @@ struct ChordStructures {
         
         let CBar = ChordModelStructure(name: chordPackName,
                                        structure: [-1, 8, 15, 20, 25, 0],
-                                       isBarChord: false, barFretNumber: 3,
+                                       isBarChord: true, barFretNumber: 3,
                                        startingFretNumber: 1,
                                        isCapoOn: false, capoFretNumber: 0)
         
@@ -320,7 +320,7 @@ struct ChordStructures {
         
         let GSharpOne = ChordModelStructure(name: chordPackName,
                                             structure: [0, 8, 13, 17, 0, 0],
-                                            isBarChord: true, barFretNumber: 2,
+                                            isBarChord: true, barFretNumber: 1,
                                             startingFretNumber: 4,
                                             isCapoOn: false, capoFretNumber: 0)
         return [GSharpOne]
@@ -518,9 +518,9 @@ struct ChordStructures {
         let one = ChordModelStructure(name: chordPackName,
                                       structure: [-1, -1, 11, 18, 24, 27],
                                       isBarChord: false, barFretNumber: 0,
-                                      startingFretNumber: 1,
+                                      startingFretNumber: 4,
                                       isCapoOn: false, capoFretNumber: 0)
-        
+        #warning("Fix Fret board numebr - not resetting")
         let bar = ChordModelStructure(name: chordPackName,
                                       structure: [0, 9, 14, 0, 0, 0],
                                       isBarChord: true, barFretNumber: 2,
@@ -596,4 +596,11 @@ struct ChordStructures {
                 FirestoreChordModel(name: .GSharpMinor, chordPack: GSharpMinorChordStructurePack)]
     }
 }
-
+/*
+ Am
+ Em
+ Dm
+ Bm
+ csm
+ fsm
+ */
