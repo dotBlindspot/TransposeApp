@@ -137,8 +137,6 @@ class GuitarChordCardView: UIView {
                                 cornerRadius: .medium)
         populateNotePints()
         resetChordChart()
-        previousButton.hide()
-        // showChord(at: currentChordIndex)
     }
     
     func loadChordPack(note: String) {
@@ -146,8 +144,14 @@ class GuitarChordCardView: UIView {
             self.showLoading(false)
             self.chordStructurePack = response
             guard !response.isEmpty else { /*Handle empty response*/ return }
+            if self.chordStructurePack.count == 1 {
+                self.nextButton.isHidden = true
+            }
+            self.previousButton.isHidden = true
             self.showChord(at: 0)
         } failure: { error in
+            self.nextButton.isHidden = true
+            self.previousButton.isHidden = true
             self.showErrorView(true, note: note)
         }
     }
@@ -193,7 +197,7 @@ class GuitarChordCardView: UIView {
     }
     
     private func configureFretNumbers() {
-        if displayedChord.startingFretNumber! > 1 {
+        if displayedChord.startingFretNumber! >= 1 {
             neckBar.isHidden = true
             firstFretLabel.text = String(displayedChord.startingFretNumber!)
             secondFretLabel.text = String(displayedChord.startingFretNumber! + 1)
