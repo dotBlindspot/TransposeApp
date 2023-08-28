@@ -13,7 +13,7 @@ typealias EmptySuccessResponse = () -> Void
 typealias FirebaseFailedRequest = (_ : String) -> Void
 
 protocol FirebaseBoundary {
-    var reference: DatabaseReference { get set }
+//    var reference: DatabaseReference { get set }
     func fetchFeatureToggle(success: @escaping EmptySuccessResponse,
                             failure: @escaping FirebaseFailedRequest)
 }

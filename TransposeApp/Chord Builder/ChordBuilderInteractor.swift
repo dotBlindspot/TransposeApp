@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+//import FirebaseFirestore
+//import FirebaseFirestoreSwift
 
 struct ChordModelStructure: Codable {
     var name: String?
@@ -30,52 +30,52 @@ struct ChordModels: Codable {
 
 class ChordBuilderInteractor {
     
-    var firestore: Firestore!
+//    var firestore: Firestore!
     private var selectedNote: String!
     var chords = [ChordModelStructure]()
     
     init() {
-        let settings = FirestoreSettings()
-        settings.isPersistenceEnabled = true
-        settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
-        
-        firestore = Firestore.firestore()
-        firestore.settings = settings
+//        let settings = FirestoreSettings()
+//        settings.isPersistenceEnabled = true
+//        settings.cacheSizeBytes = FirestoreCacheSizeUnlimited
+//
+//        firestore = Firestore.firestore()
+//        firestore.settings = settings
     }
     
     func fetchChordPack(note: String,
                         success: @escaping (_ chordModel: [ChordModelStructure]) -> Void,
                         failure: @escaping (_ error: String) -> Void) {
         selectedNote = note
-        let firestoreReference = firestore
-            .collection("ChordPacks")
-            .document(chordPackName)
-            .collection("Chords")
+//        let firestoreReference = firestore
+//            .collection("ChordPacks")
+//            .document(chordPackName)
+//            .collection("Chords")
         
-        firestoreReference.addSnapshotListener(includeMetadataChanges: true) { (querySnapshot, error) in
-            
-            guard error == nil else {
-                failure("Could not find ChordPack")
-                return
-            }
-            
-            guard let snapshot = querySnapshot else {
-                failure("Database query error")
-                return
-            }
-            
-            for diff in snapshot.documentChanges {
-                if diff.type == .added {
-                    try? self.chords.append(diff.document.data(as: ChordModelStructure.self)!)
-                }
-            }
-            
-            if self.chords.isEmpty {
-                failure("No Chords found")
-            } else {
-                success(self.chords)
-            }
-        }
+//        firestoreReference.addSnapshotListener(includeMetadataChanges: true) { (querySnapshot, error) in
+//            
+//            guard error == nil else {
+//                failure("Could not find ChordPack")
+//                return
+//            }
+//            
+//            guard let snapshot = querySnapshot else {
+//                failure("Database query error")
+//                return
+//            }
+//            
+//            for diff in snapshot.documentChanges {
+//                if diff.type == .added {
+//                    try? self.chords.append(diff.document.data(as: ChordModelStructure.self)!)
+//                }
+//            }
+//            
+//            if self.chords.isEmpty {
+//                failure("No Chords found")
+//            } else {
+//                success(self.chords)
+//            }
+//        }
         
         //        firestoreReference.getDocuments { (snapshot, error) in
         //            if let snapshot = snapshot {
@@ -95,7 +95,7 @@ class ChordBuilderInteractor {
         var count = 1
         for chord in chordPack {
             do {
-                try firestore.collection("ChordPacks").document(pathName.rawValue).collection("Chords").document("\(count)").setData(from: chord)
+//                try firestore.collection("ChordPacks").document(pathName.rawValue).collection("Chords").document("\(count)").setData(from: chord)
             } catch {
                 print("FAILED WRITE TO!!")
             }
